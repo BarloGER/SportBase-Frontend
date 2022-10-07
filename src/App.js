@@ -1,6 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "./components/Home";
+import LandingPage from "./components/LandingPage";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import "./styles/reset.css";
 import "./styles/global.css";
 
 export default function App() {
@@ -9,8 +11,10 @@ export default function App() {
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<LandingPage />} />
       </Routes>
+
+      <Footer />
     </>
   );
 }
