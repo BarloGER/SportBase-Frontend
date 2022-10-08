@@ -1,0 +1,52 @@
+/* used in Login and SignUp */
+
+.access {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10rem;
+}
+
+fieldset {
+  font-family: sans-serif;
+  text-align: center;
+  margin: 0 auto;
+  text-align: center;
+  padding: 1rem;
+}
+
+label {
+  text-align: left;
+  display: block;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 1rem 0;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  display: block;
+}
+
+.button {
+  color: #fff;
+  background: #f13;
+  border: 0;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.terms {
+  display: flex;
+  align-content: stretch;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  margin-top: 3rem;
+}
