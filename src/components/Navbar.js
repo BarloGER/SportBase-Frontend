@@ -1,9 +1,13 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+// import Login from "./Login";
+// import SignUp from "./SignUp";
 import "../styles/navbar.css";
 
 export default function Navbar() {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
+  // const [isLoginToggled, setIsLoginToggled] = useState(false);
+  // const [isSignUpToggled, setIsSignUpToggled] = useState(false);
 
   return (
     <nav className="navigation">
@@ -37,13 +41,29 @@ export default function Navbar() {
           isNavExpanded ? "navigation-menu expanded" : "navigation-menu"
         }
       >
-        <ul>
-          <NavLink
-            className="nav-link"
-            to="/"
-            onClick={() => setIsNavExpanded(false)}
-          >
+        <ul className="nav-link">
+          <NavLink to="/" onClick={() => setIsNavExpanded(false)}>
             <li>Home</li>
+          </NavLink>
+          <NavLink
+            to="/login"
+            onClick={() => {
+              setIsNavExpanded(false);
+              // setIsLoginToggled(!isLoginToggled);
+            }}
+          >
+            <li>Login</li>
+            {/* {isLoginToggled && <Login />} */}
+          </NavLink>
+          <NavLink
+            to="/signup"
+            onClick={() => {
+              setIsNavExpanded(false);
+              // setIsSignUpToggled(!isSignUpToggled);
+            }}
+          >
+            <li>SignUp</li>
+            {/* {isSignUpToggled && <SignUp />} */}
           </NavLink>
         </ul>
       </div>

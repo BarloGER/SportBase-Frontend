@@ -1,4 +1,3 @@
-/* Needs @media for mobile: Mike 07.10 */
 /* /* Links all Black because active class and every Link redirects to Home  */
 
 .footer {
@@ -6,14 +5,9 @@
   bottom: 0;
   display: flex;
   align-items: center;
-  height: 6rem;
+  height: 8rem;
   padding: 0.5rem 0rem;
   background-color: #444242;
-  color: black;
-}
-
-a {
-  color: white;
 }
 
 .footer {
@@ -26,21 +20,9 @@ a {
 
 .footer li {
   margin: 0 1rem;
-  border-radius: 50px;
+  border-radius: 5px;
   padding: 1rem;
-  font-size: 1rem;
-  background-image: linear-gradient(
-    45deg,
-    rgba(255, 255, 255, 0.6),
-    rgba(255, 255, 255, 0.6)
-  );
-  mix-blend-mode: hard-light;
-}
-
-.NavLink {
-  text-decoration: none;
-  display: block;
-  width: 100%;
+  font-size: 1.5rem;
 }
 
 .active {
