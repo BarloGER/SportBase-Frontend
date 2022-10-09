@@ -8,10 +8,7 @@
   height: 8rem;
   padding: 0.5rem 0rem;
   background-color: #444242;
-}
-
-.footer {
-  margin-left: auto;
+  justify-content: space-evenly;
 }
 
 .footer ul {
@@ -23,6 +20,12 @@
   border-radius: 5px;
   padding: 1rem;
   font-size: 1.5rem;
+}
+
+.social-container .fontawesomeicon {
+  font-size: 3rem;
+  color: #00ff41;
+
 }
 
 .active {
