@@ -4,12 +4,16 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
-// import "./styles/reset.css";
+//import "./styles/reset.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import "./styles/global.css";
 
 export default function App() {
   return (
     <>
+{/* <FontAwesomeIcon className="fontawesomeicon" icon={['fa', 'home']} />
+<FontAwesomeIcon className="fontawesomeicon" icon={['fa', 'chevronright']} />
+<FontAwesomeIcon className="" icon={['fab', 'google']} /> */}
       <Navbar />
 
       <Routes>
