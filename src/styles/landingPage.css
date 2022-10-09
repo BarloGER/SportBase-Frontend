@@ -54,6 +54,12 @@
   border: 1px solid #db7598;
 }
 
+.hero-button .fontawesomeicon {
+  color: #fff;
+  font-size: 2rem;
+  padding: 0rem 0.8rem;
+}
+
 .text-container {
   height: auto;
   gap: 1.5em;
