@@ -31,3 +31,16 @@
 .active {
   color: black;
 }
+
+@media screen and (max-width: 768px) {
+  .footer {
+    height: 18rem;
+    flex-direction: column;
+    padding: 5rem 0rem;
+  }
+
+  .exanple-container, 
+  .social-container {
+    margin: 1rem 0;
+  }
+}
