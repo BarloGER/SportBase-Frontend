@@ -2,9 +2,8 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 // import Login from "./Login";
 // import SignUp from "./SignUp";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../styles/navbar.css";
-
 
 export default function Navbar() {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
@@ -46,7 +45,10 @@ export default function Navbar() {
         <ul className="nav-link">
           <NavLink to="/" onClick={() => setIsNavExpanded(false)}>
             <li>
-              <FontAwesomeIcon className="fontawesomeicon" icon={['fa', 'home']} />
+              <FontAwesomeIcon
+                className="fontawesomeicon"
+                icon={["fa", "home"]}
+              />
             </li>
           </NavLink>
           <NavLink
@@ -67,6 +69,16 @@ export default function Navbar() {
             }}
           >
             <li>SignUp</li>
+            {/* {isSignUpToggled && <SignUp />} */}
+          </NavLink>
+          <NavLink
+            to="/events"
+            onClick={() => {
+              setIsNavExpanded(false);
+              // setIsSignUpToggled(!isSignUpToggled);
+            }}
+          >
+            <li>Events</li>
             {/* {isSignUpToggled && <SignUp />} */}
           </NavLink>
         </ul>
