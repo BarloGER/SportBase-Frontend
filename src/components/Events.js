@@ -1,6 +1,19 @@
+import React, { useState } from "react";
+import DragMove from "./DragMove";
 import "../styles/events.css";
 
 export default function Events() {
+  const [translate, setTranslate] = useState({
+    x: 0,
+    y: 0,
+  });
+
+  const handleDragMove = (e) => {
+    setTranslate({
+      x: translate.x + e.movementX,
+      y: translate.y + e.movementY,
+    });
+  };
   return (
     <main className="events">
       <div className="fields">
@@ -12,17 +25,22 @@ export default function Events() {
       <div className="all-players">
         <div className="active-players">
           <h2>Alle verfügbaren Spieler</h2>
+          <DragMove onDragMove={handleDragMove}>
+            <div
+              className="player"
+              style={{
+                transform: `translateX(${translate.x}px) translateY(${translate.y}px)`,
+              }}
+            >
+              <img
+                src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
+                alt="Spielerbild"
+              />
+              <span className="name">Max Mustermann</span>
+            </div>
+          </DragMove>
           <div className="player">
             <img
-              draggable="true"
-              src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
-              alt="Spielerbild"
-            />
-            <span className="name">Max Mustermann</span>
-          </div>
-          <div className="player">
-            <img
-              draggable="true"
               src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
               alt="Spielerbild"
             />
