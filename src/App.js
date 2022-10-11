@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Events from "./components/Events";
+import EventForm from "./components/EventForm";
 import "./styles/global.css";
 
 export default function App() {
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/events" element={<Events />} />
+        <Route path="/eventform" element={<EventForm />} />
       </Routes>
 
       <Footer />

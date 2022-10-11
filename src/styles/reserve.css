@@ -1,0 +1,19 @@
+.select-reserve {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  overflow: auto;
+}
+
+.select-reserve img {
+  height: 6rem;
+  width: 6rem;
+  cursor: move;
+  margin-right: 2rem;
+}
+
+[type="checkbox"] {
+  width: 3rem;
+  margin-right: 2rem;
+}
