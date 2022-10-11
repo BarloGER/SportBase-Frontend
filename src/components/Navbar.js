@@ -81,6 +81,16 @@ export default function Navbar() {
             <li>Events</li>
             {/* {isSignUpToggled && <SignUp />} */}
           </NavLink>
+          <NavLink
+            to="/eventform"
+            onClick={() => {
+              setIsNavExpanded(false);
+              // setIsSignUpToggled(!isSignUpToggled);
+            }}
+          >
+            <li>Events</li>
+            {/* {isSignUpToggled && <SignUp />} */}
+          </NavLink>
         </ul>
       </div>
     </nav>
