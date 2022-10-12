@@ -4,8 +4,6 @@ import "../styles/dashboard.css";
 
 function dashboard() {
 
-  console.clear();
-
   return (
     <main className="dashboard">
       <div className="dashboard-card-container">
