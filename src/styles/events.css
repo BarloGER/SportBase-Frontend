@@ -33,7 +33,7 @@
   overflow: auto;
   border-radius: 2rem;
   border: 0.5rem solid black;
-  z-index: 10;
+  z-index: 5;
 }
 
 .reserve {

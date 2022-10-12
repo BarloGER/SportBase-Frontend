@@ -12,12 +12,6 @@ export default function Footer() {
         <NavLink className="nav-link" to="/">
           <li>Beispiel</li>
         </NavLink>
-        <NavLink className="nav-link" to="/">
-          <li>Beispiel</li>
-        </NavLink>
-        <NavLink className="nav-link" to="/">
-          <li>Beispiel</li>
-        </NavLink>
       </ul>
       <ul className="social-container">
         <li>
