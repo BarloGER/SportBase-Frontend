@@ -71,24 +71,30 @@ export default function Navbar() {
             <li>SignUp</li>
             {/* {isSignUpToggled && <SignUp />} */}
           </NavLink>
-          <NavLink
+          {/* <NavLink
             to="/events"
             onClick={() => {
               setIsNavExpanded(false);
-              // setIsSignUpToggled(!isSignUpToggled);
+            }}
+          >
+            <li>Events</li>            
+          </NavLink> */}
+          {/* <NavLink
+            to="/eventform"
+            onClick={() => {
+              setIsNavExpanded(false);
             }}
           >
             <li>Events</li>
-            {/* {isSignUpToggled && <SignUp />} */}
-          </NavLink>
+          </NavLink> */}
           <NavLink
-            to="/eventform"
+            to="/dashboard"
             onClick={() => {
               setIsNavExpanded(false);
               // setIsSignUpToggled(!isSignUpToggled);
             }}
           >
-            <li>Events</li>
+            <li>Dashboard</li>
             {/* {isSignUpToggled && <SignUp />} */}
           </NavLink>
         </ul>

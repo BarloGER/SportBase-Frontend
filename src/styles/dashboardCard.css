@@ -1,0 +1,17 @@
+.dashboard-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 24rem;
+  height: 12rem;
+  /* box-shadow: 10px 5px 25px 5px rgba(0, 0, 0, 0.5); */
+}
+
+.card-title {
+  font-size: 3rem;
+}
+
