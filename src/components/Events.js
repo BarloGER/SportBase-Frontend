@@ -14,7 +14,6 @@ export default function Events() {
 
   const getPlayer = async () => {
     try {
-      console.log(process.env.REACT_APP_FP_API)
       const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/user`);
       setActivePlayer(data.filter(user => user.player === true && user.activePlayer === true));
       setReservePlayer(data.filter(user => user.player === true && user.activePlayer === false));      
