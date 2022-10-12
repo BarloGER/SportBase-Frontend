@@ -9,7 +9,6 @@ function DashboardCard({cardText ,cardLink}) {
     <Link to={`/${cardLink}`}>
       <div className="dashboard-card">
       <div className="card-title">
-        {/* <h2>card</h2> */}
         <h2>{cardText}</h2>
       </div>
       </div>
