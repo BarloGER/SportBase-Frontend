@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import DragMove from "./DragMove";
 import "../styles/events.css";
 
@@ -7,6 +8,24 @@ export default function Events() {
     x: 0,
     y: 0,
   });
+  const [activePlayer, setActivePlayer] = useState([]);
+  const [reservePlayer, setReservePlayer] = useState([]);
+
+
+  const getPlayer = async () => {
+    try {
+      console.log(process.env.REACT_APP_FP_API)
+      const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/user`);
+      setActivePlayer(data.filter(user => user.player === true && user.activePlayer === true));
+      setReservePlayer(data.filter(user => user.player === true && user.activePlayer === false));      
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {    
+    getPlayer();
+  }, []);
 
   const handleDragMove = (e) => {
     setTranslate({
@@ -14,6 +33,7 @@ export default function Events() {
       y: translate.y + e.movementY,
     });
   };
+
   return (
     <main className="events">
       <div className="fields">
@@ -34,56 +54,30 @@ export default function Events() {
             >
               <img
                 src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
-                alt="Spielerbild"
+                alt="pictureOfPlayer"
               />
               <span className="name">Max Mustermann</span>
             </div>
           </DragMove>
-          <div className="player">
+          {activePlayer && activePlayer.length > 0 ? activePlayer.map(aPlayer =>{return <div className="player">
             <img
               src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
-              alt="Spielerbild"
+              alt="pictureOfPlayer"
             />
-            <span className="name">Max Mustermann</span>
-          </div>
-          <div className="player">
-            <img
-              src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
-              alt="Spielerbild"
-            />
-            <span className="name">Max Mustermann</span>
-          </div>
+            <span className="name">{aPlayer.userName}</span>
+          </div>}) : <h2>Keine aktiven Spieler</h2>}
         </div>
         <div className="reserve">
           <h2>Reserve</h2>
-          <div className="player">
+          
+          {reservePlayer && reservePlayer.length > 0 ? reservePlayer.map(resPlayer =>{return <div className="player">
             <img
               src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
-              alt="Spielerbild"
+              alt="pictureOfPlayer"
             />
-            <span className="name">Max Mustermann</span>
-          </div>
-          <div className="player">
-            <img
-              src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
-              alt="Spielerbild"
-            />
-            <span className="name">Max Mustermann</span>
-          </div>
-          <div className="player">
-            <img
-              src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
-              alt="Spielerbild"
-            />
-            <span className="name">Max Mustermann</span>
-          </div>
-          <div className="player">
-            <img
-              src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
-              alt="Spielerbild"
-            />
-            <span className="name">Max Mustermann</span>
-          </div>
+            <span className="name">{resPlayer.userName}</span>
+          </div>}) : <h2>Keine Spieler auf der Reserve</h2>}
+
         </div>
       </div>
       <div className="info">

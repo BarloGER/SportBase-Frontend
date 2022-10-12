@@ -1,12 +1,9 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+
 
 import '../styles/dashboardCard.css';
 
 function DashboardCard({cardText ,cardLink}) {
-
-  useEffect(() => {},[]);
 
   return (
     <Link to={`/${cardLink}`}>
