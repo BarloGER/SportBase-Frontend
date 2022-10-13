@@ -11,19 +11,25 @@ export default function Events() {
   const [activePlayer, setActivePlayer] = useState([]);
   const [reservePlayer, setReservePlayer] = useState([]);
 
-
   const getPlayer = async () => {
     try {
-      console.log(process.env.REACT_APP_FP_API)
       const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/user`);
-      setActivePlayer(data.filter(user => user.player === true && user.activePlayer === true));
-      setReservePlayer(data.filter(user => user.player === true && user.activePlayer === false));      
+      setActivePlayer(
+        data.filter(
+          (user) => user.player === true && user.activePlayer === true
+        )
+      );
+      setReservePlayer(
+        data.filter(
+          (user) => user.player === true && user.activePlayer === false
+        )
+      );
     } catch (error) {
       console.log(error);
     }
   };
 
-  useEffect(() => {    
+  useEffect(() => {
     getPlayer();
   }, []);
 
@@ -59,25 +65,40 @@ export default function Events() {
               <span className="name">Max Mustermann</span>
             </div>
           </DragMove>
-          {activePlayer && activePlayer.length > 0 ? activePlayer.map(aPlayer =>{return <div className="player">
-            <img
-              src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
-              alt="pictureOfPlayer"
-            />
-            <span className="name">{aPlayer.userName}</span>
-          </div>}) : <h2>Keine aktiven Spieler</h2>}
+          {activePlayer && activePlayer.length > 0 ? (
+            activePlayer.map((aPlayer) => {
+              return (
+                <div className="player">
+                  <img
+                    src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
+                    alt="pictureOfPlayer"
+                  />
+                  <span className="name">{aPlayer.userName}</span>
+                </div>
+              );
+            })
+          ) : (
+            <h2>Keine aktiven Spieler</h2>
+          )}
         </div>
         <div className="reserve">
           <h2>Reserve</h2>
-          
-          {reservePlayer && reservePlayer.length > 0 ? reservePlayer.map(resPlayer =>{return <div className="player">
-            <img
-              src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
-              alt="pictureOfPlayer"
-            />
-            <span className="name">{resPlayer.userName}</span>
-          </div>}) : <h2>Keine Spieler auf der Reserve</h2>}
 
+          {reservePlayer && reservePlayer.length > 0 ? (
+            reservePlayer.map((resPlayer) => {
+              return (
+                <div className="player">
+                  <img
+                    src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
+                    alt="pictureOfPlayer"
+                  />
+                  <span className="name">{resPlayer.userName}</span>
+                </div>
+              );
+            })
+          ) : (
+            <h2>Keine Spieler auf der Reserve</h2>
+          )}
         </div>
       </div>
       <div className="info">

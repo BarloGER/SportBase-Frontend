@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../styles/footer.css";
 
 export default function Footer() {
@@ -16,22 +16,34 @@ export default function Footer() {
       <ul className="social-container">
         <li>
           <a href="https://www.youtube.com/" target="_blank">
-            <FontAwesomeIcon className="fontawesomeicon" icon={['fab', 'youtube']} />
+            <FontAwesomeIcon
+              className="fontawesomeicon"
+              icon={["fab", "youtube"]}
+            />
           </a>
         </li>
         <li>
           <a href="https://www.facebook.com/" target="_blank">
-            <FontAwesomeIcon className="fontawesomeicon" icon={['fab', 'facebook']} />
+            <FontAwesomeIcon
+              className="fontawesomeicon"
+              icon={["fab", "facebook"]}
+            />
           </a>
         </li>
         <li>
           <a href="https://www.instagram.com/" target="_blank">
-            <FontAwesomeIcon className="fontawesomeicon" icon={['fab', 'instagram']} />
+            <FontAwesomeIcon
+              className="fontawesomeicon"
+              icon={["fab", "instagram"]}
+            />
           </a>
         </li>
         <li>
           <a href="https://www.twitter.com/" target="_blank">
-            <FontAwesomeIcon className="fontawesomeicon" icon={['fab', 'twitter']} />
+            <FontAwesomeIcon
+              className="fontawesomeicon"
+              icon={["fab", "twitter"]}
+            />
           </a>
         </li>
       </ul>

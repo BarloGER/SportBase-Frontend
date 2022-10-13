@@ -10,19 +10,23 @@ export default function DragMove(props) {
     children,
     style,
     className,
+    id,
+    setPlayerId,
   } = props;
 
   const [isDragging, setIsDragging] = useState(false);
 
   const handlePointerDown = (e) => {
     setIsDragging(true);
+    setPlayerId(e.target.id);
+    // onDragMove(e);
 
     onPointerDown(e);
   };
 
   const handlePointerUp = (e) => {
     setIsDragging(false);
-
+    // setPlayerId();
     onPointerUp(e);
   };
 
@@ -64,6 +68,8 @@ DragMove.propTypes = {
   children: element,
   style: shape({}),
   className: string,
+  id: Number,
+  setPlayerId: func,
 };
 
 DragMove.defaultProps = {
