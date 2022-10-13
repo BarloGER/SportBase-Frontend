@@ -4,43 +4,43 @@ import DragMove from "./DragMove";
 import "../styles/fields.css";
 
 export default function Fields() {
-  const [translate, setTranslate] = useState({
-    x: 0,
-    y: 0,
-  });
+  //not used
+  // const [translate, setTranslate] = useState({
+  //   x: 0,
+  //   y: 0,
+  // });
 
+  const [activePlayer, setActivePlayer] = useState([]);
   const [playerCard, setPlayerCard] = useState();
   const [playerId, setPlayerId] = useState();
 
   const handleDragMove = (e) => {
+    //not used
     // setTranslate({
     //   x: translate.x + e.movementX,
     //   y: translate.y + e.movementY,
     // });
-    console.log(playerId);
+    console.log('playerId', playerId);
     const { id } = playerCard.find((player) => player.id == playerId);
-    console.log(id);
     const newArr = [...playerCard];
     newArr[id] = {
       id: id,
       translate: {
-        x: translate.x + e.movementX,
-        y: translate.y + e.movementY,
+        x: playerCard[id].translate.x + e.movementX,
+        y: playerCard[id].translate.y + e.movementY,
       },
     };
-    console.log(newArr[id]);
-
-    // setPlayerCard(newArr);
-    // setPlayerCard(prev => [...prev, [id]: {
-    //   id: getCardId.id,
-    //   translate: {
-    //     x: translate.x + e.movementX,
-    //     y: translate.y + e.movementY,
-    //   }
-    // }]);
+    setPlayerCard(newArr);
   };
+  
+  const imagePosCheck = (element) => {
+    const imagePos = element.current.getBoundingClientRect()
+    console.log(imagePos.top, imagePos.right, imagePos.bottom, imagePos.left)
+  }
 
-  const [activePlayer, setActivePlayer] = useState([]);
+  // useEffect(() => {
+  //   console.log([window.event.clientX, window.event.clientY])    
+  // })
 
   const getPlayer = async () => {
     try {
@@ -50,7 +50,7 @@ export default function Fields() {
       setPlayerCard(
         data.map((player, index) => ({
           id: index,
-          translate: { x: 0, y: 0 },
+          translate: { x: 0, y: 0 },  //don't set zero?
         }))
       );
     } catch (error) {
@@ -81,12 +81,10 @@ export default function Fields() {
 
   return (
     <main className="fields2">
-      {/* {console.log(playerId)} */}
       {activePlayer && activePlayer.length > 0 ? (
-        activePlayer.map((aPlayer, index) => {
-          return (
-            <DragMove onDragMove={handleDragMove} setPlayerId={setPlayerId}>
-              <div className="player" key={crypto.randomUUID()}>
+        playerCard.map((aPlayer, index) => {
+          return <DragMove onDragMove={handleDragMove} setPlayerId={setPlayerId} player={aPlayer} id={index} imagePosCheck={imagePosCheck} setPlayerCard={setPlayerCard} playerCard={playerCard}/>
+              {/* <div className="player" key={id}>
                 <img
                   style={{
                     transform: `translateX(${translate.x}px) translateY(${translate.y}px)`,
@@ -96,8 +94,8 @@ export default function Fields() {
                   id={index}
                 />
               </div>
-            </DragMove>
-          );
+            </DragMove> */}
+
         })
       ) : (
         <h2>Keine aktiven Spieler</h2>
