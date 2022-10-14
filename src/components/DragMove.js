@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 export default function DragMove(props) {
@@ -11,14 +11,8 @@ export default function DragMove(props) {
     style,
     className,
     id,
-    player: {translate: {x, y}},
     setPlayerId,
-    imagePosCheck,
-    playerCard,
-    setPlayerCard,
   } = props;
-
-  const imgPosition = useRef();
 
   const [isDragging, setIsDragging] = useState(false);
 
@@ -51,17 +45,6 @@ export default function DragMove(props) {
     // eslint-disable-next-line
   }, []);
 
- 
-  // on mount, get the position of the cards where they are on the screen,
-  // and attribute that to their element's respective translate.x and translate.y properties
-
-  useEffect(() => {
-    const imgPos = imgPosition.current.getBoundingClientRect()
-    // Set translate.x and translate.y properties here!
-    //setPlayerCard(prev => )
-    console.log('imgPos DragMove', imgPos);
-  }, [])
-
   return (
     <div
       onPointerDown={handlePointerDown}
@@ -69,19 +52,7 @@ export default function DragMove(props) {
       style={style}
       className={className}
     >
-      {/* {children} */}
-      <div className="player" key={id}>
-        <img
-          style={{
-          transform: `translateX(${x}px) translateY(${y}px)`,
-        }}
-          src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
-          alt="pictureOfPlayer"
-          id={id}
-          ref={imgPosition}
-          onClick={() => imagePosCheck(imgPosition)}
-        />
-      </div>
+      {children}
     </div>
   );
 }
@@ -97,16 +68,12 @@ DragMove.propTypes = {
   children: element,
   style: shape({}),
   className: string,
-  setPlayerId: func,
-  player: shape({}),
   id: Number,
-  imagePosCheck: func,
-  playerCard: shape({}), //check type
-  setPlayerCard: func,
+  setPlayerId: func,
 };
 
 DragMove.defaultProps = {
-  onPointerDown: () => {},
-  onPointerUp: () => {},
-  onPointerMove: () => {},
+  onPointerDown: () => { },
+  onPointerUp: () => { },
+  onPointerMove: () => { },
 };

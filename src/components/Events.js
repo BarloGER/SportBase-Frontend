@@ -73,7 +73,7 @@ export default function Events() {
                     src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
                     alt="pictureOfPlayer"
                   />
-                  <span className="name">{aPlayer.userName}</span>
+                  <span className="name">{aPlayer.firstname} {aPlayer.lastname}</span>
                 </div>
               );
             })
@@ -92,7 +92,7 @@ export default function Events() {
                     src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
                     alt="pictureOfPlayer"
                   />
-                  <span className="name">{resPlayer.userName}</span>
+                  <span className="name">{resPlayer.firstname} {resPlayer.lastname}</span>
                 </div>
               );
             })
