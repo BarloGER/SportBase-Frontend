@@ -1,4 +1,7 @@
 import "../styles/access.css";
+import { useState } from "react";
+import { login } from "../utils/login";
+
 
 export default function Login({ handleClick }) {
   return (
@@ -6,17 +9,21 @@ export default function Login({ handleClick }) {
       <section className="access-container">
         <div className="image-desktop"></div>
         <form>
+
           <input
-            type="text"
-            name="user_name"
-            placeholder="Benutzername"
+            type="email"
+            name="email"
+            placeholder="E-Mail"
             required
+
+
           />
           <input
             type="password"
             name="password"
             placeholder="Passwort"
             required
+
           />
           <div className="terms">
             <label className="label">
