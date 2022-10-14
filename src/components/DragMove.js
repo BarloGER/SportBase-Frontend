@@ -101,7 +101,7 @@ DragMove.propTypes = {
   player: shape({}),
   id: Number,
   imagePosCheck: func,
-  playerCard: shape([]), //check type
+  playerCard: shape({}), //check type
   setPlayerCard: func,
 };
 

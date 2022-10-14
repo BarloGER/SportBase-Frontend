@@ -100,28 +100,6 @@ export default function Fields() {
       ) : (
         <h2>Keine aktiven Spieler</h2>
       )}
-
-      {/* {activePlayer && activePlayer.length > 0 ? (
-        activePlayer.map((aPlayer) => {
-          return (
-            <div
-              key={crypto.randomUUID()}
-              className="player"
-              ref={divRef}
-              style={{
-                transform: `translateX(${translate.x}px) translateY(${translate.y}px)`,
-              }}
-            >
-              <img
-                src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
-                alt="pictureOfPlayer"
-              />
-            </div>
-          );
-        })
-      ) : (
-        <h2>Keine aktiven Spieler</h2>
-      )} */}
     </main>
   );
 }
