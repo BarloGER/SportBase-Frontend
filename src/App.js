@@ -6,6 +6,7 @@ import SignIn from "./components/SignIn";
 import Events from "./components/Events";
 import EventForm from "./components/EventForm";
 import Dashboard from "./components/Dashboard";
+import Search from "./components/Search";
 import "./styles/global.css";
 
 export default function App() {
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/eventform" element={<EventForm />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
 
       <Footer />
