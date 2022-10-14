@@ -15,15 +15,15 @@ export default function SignUp() {
     password,
     terms,
   };
+  console.log(formSubmission);
 
   //function for handling the form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { post, error } = await createUser(formSubmission);
+      const error = await createUser(formSubmission);
+      setErrorMessage(error.response.data);
       if (error) throw error;
-      console.log(post);
-      setErrorMessage(post);
     } catch (err) {
       console.error(err);
     }
