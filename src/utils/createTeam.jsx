@@ -1,7 +1,7 @@
 import axios from "axios";
 export const createTeam = async (formSubmission) => {
   try {
-    const post = await axios.post(`http://localhost:8080/user`, {
+    const post = await axios.post(`${process.env.REACT_APP_BLOG_API}/team`, {
       team: formSubmission.team,
       sport: formSubmission.sport,
       headers: {

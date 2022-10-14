@@ -203,6 +203,7 @@ export default function SignUp({ handleClick }) {
               />
             </label>
           </div>
+          <p>{errorMessage}</p>
           <button className="button">Sign UP</button>
           <br />
           <div>
