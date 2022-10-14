@@ -164,7 +164,7 @@ export default function SignUp({ handleClick }) {
             placeholder="E-Mail"
             required
             value={input.email}
-            onchange={onInputChange}
+            onChange={onInputChange}
             onBlur={validateInput}
             onInput={(e) => setEmail(e.target.value)}
           />
