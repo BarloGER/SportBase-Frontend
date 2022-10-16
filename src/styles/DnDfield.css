@@ -1,10 +1,8 @@
-.fields2 {
+.DnDfield {
   height: 100%;
   width: 100%;
   background-image: url(https://thumbs.dreamstime.com/b/fu%C3%9Fballplatz-skizze-92868869.jpg);
   background-size: cover;
   background-position: center center;
-  display: flex;
-  flex-wrap: wrap;
-  overflow: hidden;
+  position: relative;
 }

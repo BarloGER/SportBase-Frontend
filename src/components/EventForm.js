@@ -4,6 +4,9 @@ import Player from "./Player";
 import Reserve from "./Reserve";
 import Fields from "./Fields";
 import "../styles/eventForm.css";
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
+import DnDField from './DnDField';
 
 export default function EventForm() {
   const [page, setPage] = useState(0);
@@ -22,7 +25,8 @@ export default function EventForm() {
       return <Player />;
     } else if (page === 2) {
       return <Reserve />;
-    } else return <Fields />;
+    // } else return <Fields />;
+    } else return <DndProvider backend={HTML5Backend}><DnDField /></DndProvider>;
   };
 
   return (

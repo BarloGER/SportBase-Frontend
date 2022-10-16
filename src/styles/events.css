@@ -7,7 +7,7 @@
   height: 100vh;
 }
 
-.fields {
+.field {
   height: auto;
   width: 40%;
   background-image: url(https://thumbs.dreamstime.com/b/fu%C3%9Fballplatz-skizze-92868869.jpg);
@@ -57,7 +57,7 @@
 .player img {
   height: 6rem;
   width: 6rem;
-  margin: 1.5rem;
+  /* margin: 1.5rem; */
   cursor: move;
 }
 

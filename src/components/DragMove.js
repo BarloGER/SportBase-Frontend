@@ -73,7 +73,7 @@ DragMove.propTypes = {
 };
 
 DragMove.defaultProps = {
-  onPointerDown: () => {},
-  onPointerUp: () => {},
-  onPointerMove: () => {},
+  onPointerDown: () => { },
+  onPointerUp: () => { },
+  onPointerMove: () => { },
 };
