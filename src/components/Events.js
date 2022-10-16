@@ -42,7 +42,7 @@ export default function Events() {
 
   return (
     <main className="events">
-      <div className="fields">
+      <div className="field">
         {/* <img
           src="https://thumbs.dreamstime.com/b/fu%C3%9Fballplatz-skizze-92868869.jpg"
           alt="Fußballfeld"

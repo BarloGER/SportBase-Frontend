@@ -1,5 +1,5 @@
 import update from "immutability-helper";
-import {useState, useCallback, useEffect} from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import DnDPlayer from './DnDPlayer';
 import axios from "axios";
 import { useDrop } from "react-dnd";
@@ -19,7 +19,7 @@ export default function DnDField() {
     }
   };
 
-  
+
   const movePlayer = useCallback(
     (id, left, top) => {
       setPlayerCard(
@@ -28,7 +28,7 @@ export default function DnDField() {
             $merge: { left, top }
           }
         })
-        );
+      );
     },
     [playerCard, setPlayerCard]
   );
@@ -55,15 +55,15 @@ export default function DnDField() {
   useEffect(() => {
     setPlayerCard(
       activePlayer.map((player) => ({
-          top: Math.random()*100,
-          left: Math.random()*100,
-        })
+        top: Math.random() * 100,
+        left: Math.random() * 100,
+      })
       )
     )
   }, [activePlayer]);
 
   return (
-    <main className="fields2" ref={drop} style={{position: 'relative'}}>
+    <main className="DnDfield" ref={drop} style={{ position: 'relative' }}>
       {playerCard && Object.keys(playerCard).map((key) => {
         const { left, top } = playerCard[key];
         return (
@@ -74,10 +74,10 @@ export default function DnDField() {
             top={top}
           >
             {/* <div className="player"> */}
-              <img
-                src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
-                alt="pictureOfPlayer"
-              />
+            <img
+              src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
+              alt="pictureOfPlayer"
+            />
             {/* </div> */}
           </DnDPlayer>
         );

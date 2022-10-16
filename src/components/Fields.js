@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import DragMove from "./DragMove";
-import "../styles/fields.css";
+import "../styles/DnDfield.css";
 
 export default function Fields() {
   //not used
@@ -32,7 +32,7 @@ export default function Fields() {
     };
     setPlayerCard(newArr);
   };
-  
+
   const imagePosCheck = (element) => {
     const imagePos = element.current.getBoundingClientRect()
     console.log(imagePos.top, imagePos.right, imagePos.bottom, imagePos.left)
@@ -83,8 +83,8 @@ export default function Fields() {
     <main className="fields2">
       {activePlayer && activePlayer.length > 0 ? (
         playerCard.map((aPlayer, index) => {
-          return <DragMove onDragMove={handleDragMove} setPlayerId={setPlayerId} player={aPlayer} id={index} imagePosCheck={imagePosCheck} setPlayerCard={setPlayerCard} playerCard={playerCard}/>
-              {/* <div className="player" key={id}>
+          return <DragMove onDragMove={handleDragMove} setPlayerId={setPlayerId} player={aPlayer} id={index} imagePosCheck={imagePosCheck} setPlayerCard={setPlayerCard} playerCard={playerCard} />
+          {/* <div className="player" key={id}>
                 <img
                   style={{
                     transform: `translateX(${translate.x}px) translateY(${translate.y}px)`,
