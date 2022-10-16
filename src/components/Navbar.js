@@ -52,50 +52,20 @@ export default function Navbar() {
             </li>
           </NavLink>
           <NavLink
-            to="/login"
+            to="/signin"
             onClick={() => {
               setIsNavExpanded(false);
-              // setIsLoginToggled(!isLoginToggled);
             }}
           >
-            <li>Login</li>
-            {/* {isLoginToggled && <Login />} */}
+            <li>Sign In</li>
           </NavLink>
-          <NavLink
-            to="/signup"
-            onClick={() => {
-              setIsNavExpanded(false);
-              // setIsSignUpToggled(!isSignUpToggled);
-            }}
-          >
-            <li>SignUp</li>
-            {/* {isSignUpToggled && <SignUp />} */}
-          </NavLink>
-          {/* <NavLink
-            to="/events"
-            onClick={() => {
-              setIsNavExpanded(false);
-            }}
-          >
-            <li>Events</li>            
-          </NavLink> */}
-          {/* <NavLink
-            to="/eventform"
-            onClick={() => {
-              setIsNavExpanded(false);
-            }}
-          >
-            <li>Events</li>
-          </NavLink> */}
           <NavLink
             to="/dashboard"
             onClick={() => {
               setIsNavExpanded(false);
-              // setIsSignUpToggled(!isSignUpToggled);
             }}
           >
             <li>Dashboard</li>
-            {/* {isSignUpToggled && <SignUp />} */}
           </NavLink>
         </ul>
       </div>

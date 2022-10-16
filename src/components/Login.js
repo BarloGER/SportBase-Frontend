@@ -1,36 +1,46 @@
 import "../styles/access.css";
+import { useState } from "react";
+import { login } from "../utils/login";
 
-export default function Login() {
+
+export default function Login({ handleClick }) {
   return (
     <main className="access">
-      <fieldset>
-        <form onSubmit>
+      <section className="access-container">
+        <div className="image-desktop"></div>
+        <form>
+
           <input
-            type="text"
-            name="user_name"
-            placeholder="Benutzername"
+            type="email"
+            name="email"
+            placeholder="E-Mail"
             required
-            onChange
+
+
           />
           <input
             type="password"
             name="password"
             placeholder="Passwort"
             required
-            onChange
+
           />
           <div className="terms">
-            <label>
+            <label className="label">
               Ich möchte angemeldet bleiben.
-              <input type="checkbox" name="confirm" onChange />
+              <input type="checkbox" name="confirm" />
             </label>
           </div>
-          <button className="button">Login</button>
+          <button className="button">Sign In</button>
+          <br />
+          <div>
+            <p>Noch nicht registriert?</p>
+            <button className="button" onClick={() => handleClick(false)}>
+              SignUp
+            </button>
+          </div>
         </form>
-        <legend>
-          <h1>Login</h1>
-        </legend>
-      </fieldset>
+      </section>
     </main>
   );
 }
