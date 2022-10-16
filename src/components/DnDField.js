@@ -63,7 +63,7 @@ export default function DnDField() {
   }, [activePlayer]);
 
   return (
-    <main className="DnDfield" ref={drop} style={{ position: 'relative' }}>
+    <main className="DnDfield" ref={drop}>
       {playerCard && Object.keys(playerCard).map((key) => {
         const { left, top } = playerCard[key];
         return (
