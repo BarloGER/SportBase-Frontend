@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import EventInfo from "./EventInfo";
 import Player from "./Player";
 import Reserve from "./Reserve";
+import Fields from "./Fields";
 import "../styles/eventMultiForm.css";
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
@@ -9,6 +10,12 @@ import DnDField from './DnDField';
 
 export default function EventMultiForm() {
   const [page, setPage] = useState(0);
+  const [newEvent, setNewEvent] = useState({
+    eventName: '',
+    date: '',
+    createdAt: '',
+    opponent: ''
+  });
 
   const FormTitles = [
     "Event Informationen",
@@ -19,12 +26,11 @@ export default function EventMultiForm() {
 
   const PageDisplay = () => {
     if (page === 0) {
-      return <EventInfo />;
+      return <EventInfo setNewEvent={setNewEvent} />;
     } else if (page === 1) {
       return <Player />;
     } else if (page === 2) {
       return <Reserve />;
-      // } else return <Fields />;
     } else return <DndProvider backend={HTML5Backend}><DnDField /></DndProvider>;
   };
 
@@ -52,7 +58,7 @@ export default function EventMultiForm() {
           <div className="body">{PageDisplay()}</div>
           <div className="footer">
             <button
-              disabled={page === 0}
+              disabled={page == 0}
               onClick={() => {
                 setPage((currPage) => currPage - 1);
               }}
