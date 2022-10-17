@@ -1,37 +1,19 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from "axios";
 import "../styles/search.css";
-
-// export default function Search() {
-//   const [user, setUser] = useState("");
-//   const getUser = async () => {
-//     try {
-//       const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/user`);
-//       console.log(data);
-//       setUser(data);
-//       console.log(setUser() + "hi");
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-
-//   useEffect(() => {
-//     getUser();
-//   }, []);
-//   return;
-// }
 
 export default function Search() {
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
-  const [user, setUser] = useState("");
+  const [users, setUsers] = useState("");
 
   const getUser = async () => {
     try {
       const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/user`);
+      setUsers(data);
       console.log(data);
-      setUser(data);
     } catch (error) {
       console.log(error);
     }
@@ -44,8 +26,12 @@ export default function Search() {
   const handleFilter = (event) => {
     const searchWord = event.target.value;
     setWordEntered(searchWord);
-    const newFilter = user.filter((u) => {
-      return u.username.toLowerCase().includes(searchWord.toLowerCase());
+    const newFilter = users.filter((u) => {
+      return (
+        u.username.toLowerCase().includes(searchWord.toLowerCase()) ||
+        u.firstname.toLowerCase().includes(searchWord.toLowerCase()) ||
+        u.lastname.toLowerCase().includes(searchWord.toLowerCase())
+      );
     });
 
     if (searchWord === "") {
@@ -77,7 +63,6 @@ export default function Search() {
                 icon="fa-magnifying-glass"
               />
             ) : (
-              // <FontAwesomeIcon className="fontawesomeicon" icon="trash-alt" />
               <FontAwesomeIcon
                 className="fontawesomeicon"
                 icon="fa-xmark"
@@ -90,11 +75,11 @@ export default function Search() {
           <div className="dataResult">
             {filteredData.slice(0, 15).map((value, key) => {
               return (
-                <a className="dataItem" href={value.link} target="_blank">
+                <Link to={`/account/${value._id}`}>
                   <p>
                     {value.username} {value.firstname} {value.lastname}
                   </p>
-                </a>
+                </Link>
               );
             })}
           </div>

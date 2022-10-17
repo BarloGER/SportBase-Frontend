@@ -17,7 +17,7 @@ a {
 /* ----- start scrollbar styling ----- */
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 1rem;
 }
 
 /* Track */
@@ -34,8 +34,7 @@ a {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
- /* ----- endof scrollbar styling ----- */
-
+/* ----- endof scrollbar styling ----- */
 
 /* Debugging */
 .border {
