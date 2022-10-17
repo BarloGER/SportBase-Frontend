@@ -2,7 +2,7 @@ import "../styles/eventInfo.css";
 import { useState } from "react";
 import { createEvent } from "../utils/createEvent";
 
-export default function EventInfo() {
+export default function EventInfo({ newEvent }) {
   const [eventName, setEventName] = useState("");
 
   const formSubmission = {

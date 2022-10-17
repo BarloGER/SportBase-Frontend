@@ -6,7 +6,7 @@ function dashboard() {
     <main className="dashboard">
       <div className="dashboard-card-container">
         <DashboardCard cardText={"Verfügbare Events"} cardLink={"events"} />
-        <DashboardCard cardText={"Event anlegen"} cardLink={"eventform"} />
+        <DashboardCard cardText={"Event anlegen"} cardLink={"eventmultiform"} />
         <DashboardCard cardText={"Mitglied suchen"} cardLink={"search"} />
       </div>
     </main>

@@ -12,7 +12,6 @@ export default function DnDField() {
   const getPlayer = async () => {
     try {
       const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/user`);
-      console.log('Return from axios', data);
       setActivePlayer(data.filter((user) => user.player === true));
     } catch (error) {
       console.log(error);
@@ -48,7 +47,6 @@ export default function DnDField() {
   );
 
   useEffect(() => {
-    console.clear();
     getPlayer();
   }, []);
 
