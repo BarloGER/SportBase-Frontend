@@ -9,6 +9,7 @@ export default function SignUp({ handleClick }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [terms, setTerms] = useState(false);
+  const [token, setToken] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [input, setInput] = useState({
     firstname: "",
@@ -112,7 +113,10 @@ export default function SignUp({ handleClick }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const error = await createUser(formSubmission);
+      const { error, data } = await createUser(formSubmission);
+      console.log(data);
+      localStorage.setItem("token", data);
+      setToken(data);
       setErrorMessage(error.response.data);
       if (error) throw error;
     } catch (err) {
