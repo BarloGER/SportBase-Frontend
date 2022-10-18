@@ -1,4 +1,5 @@
 import { createUser } from "../utils/createUser";
+import { Navigate } from "react-router-dom";
 import { useState } from "react";
 import "../styles/access.css";
 
@@ -10,6 +11,7 @@ export default function SignUp({ handleClick }) {
   const [password, setPassword] = useState("");
   const [terms, setTerms] = useState(false);
   const [token, setToken] = useState("");
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [input, setInput] = useState({
     firstname: "",
@@ -117,14 +119,17 @@ export default function SignUp({ handleClick }) {
       console.log(data);
       localStorage.setItem("token", data);
       setToken(data);
-      setErrorMessage(error.response.data);
+      if (token) setIsAuthenticated(true);
+      // setErrorMessage(error.response.data);
       if (error) throw error;
     } catch (err) {
       console.error(err);
     }
   };
 
-  return (
+  return isAuthenticated ? (
+    <Navigate to="/secret" />
+  ) : (
     <main className="access">
       <section className="access-container">
         <div className="image-desktop"></div>
@@ -192,6 +197,7 @@ export default function SignUp({ handleClick }) {
             value={input.confirmPassword}
             onChange={onInputChange}
             onBlur={validateInput}
+            onInput={() => (e) => setPassword(e.target.value)}
           />
           {error.confirmPassword && (
             <span className="err">{error.confirmPassword}</span>

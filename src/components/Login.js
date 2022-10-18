@@ -1,29 +1,31 @@
 import "../styles/access.css";
 import { useState } from "react";
 import { login } from "../utils/login";
+import { Navigate } from "react-router-dom";
 
 export default function Login({ handleClick }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useState("");
+  // const [token, setToken] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      if (!email || !password) return alert("Please fill out all the fields");
+      if (!email) return alert("Please fill out all the fields");
       const { data, error } = await login({ email, password });
       if (error) {
         return error;
       }
-      localStorage.setItem("token", data);
-      setToken(data);
-      console.log(token);
+      localStorage.setItem("token", data.token);
+      // setToken(data);
       setIsAuthenticated(true);
-      console.log(isAuthenticated);
     } catch (error) {}
   };
-
+  console.log(`Außerhalb handleSubmit${isAuthenticated}`);
+  if (isAuthenticated) return <Navigate to="/secret" replace />;
+  // return isAuthenticated ? (
+  //   <Navigate to="/secret" replace />
   return (
     <main className="access">
       <section className="access-container">
@@ -40,7 +42,7 @@ export default function Login({ handleClick }) {
             type="password"
             name="password"
             placeholder="Passwort"
-            required
+            // required
             onInput={(e) => setPassword(e.target.value)}
           />
           <div className="terms">
@@ -49,6 +51,7 @@ export default function Login({ handleClick }) {
               <input type="checkbox" name="confirm" />
             </label>
           </div>
+
           <button className="button">Sign In</button>
           <br />
           <div>

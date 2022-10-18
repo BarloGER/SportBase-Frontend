@@ -13,7 +13,6 @@ export const createUser = async (formSubmission) => {
       //   "Content-type": "application/json; charset=UTF-8",
       // },
     });
-    console.log(data);
     return { data };
   } catch (error) {
     console.log(error.response.data);
