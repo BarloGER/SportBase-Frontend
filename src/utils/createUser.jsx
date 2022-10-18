@@ -2,17 +2,18 @@ import axios from "axios";
 
 export const createUser = async (formSubmission) => {
   try {
-    const post = await axios.post(`${process.env.REACT_APP_BLOG_API}/user`, {
+    const { data } = await axios.post(`${process.env.REACT_APP_FP_API}/user`, {
       firstname: formSubmission.firstname,
       lastname: formSubmission.lastname,
-      username: formSubmission.userName,
+      username: formSubmission.username,
       email: formSubmission.email,
       password: formSubmission.password,
+      terms: formSubmission.terms,
       // headers: {
       //   "Content-type": "application/json; charset=UTF-8",
       // },
     });
-    console.log(post);
+    return { data };
   } catch (error) {
     console.log(error.response.data);
 
