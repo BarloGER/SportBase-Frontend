@@ -6,6 +6,7 @@ import "../styles/account.css";
 export default function Account() {
   let { id } = useParams();
   const [user, setUser] = useState([]);
+  const [edit, setEdit] = useState(true);
   const thisUser = user.length && user.find((u) => u._id === id);
 
   const getUser = async () => {
@@ -27,19 +28,133 @@ export default function Account() {
       {" "}
       {thisUser ? (
         <section className="account-container">
-          <div className="user-image">
-            <img
-              src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
-              alt="Profilbild"
-            />
-          </div>
-          <div className="user-info">
-            <p>Benutzername: {thisUser.username}</p>
-            <p>
-              Name: {thisUser.firstname} {thisUser.lastname}
-            </p>
-            <p>Verein: {thisUser.team}</p>
-          </div>
+          {edit ? (
+            <div className="profile-container">
+              <div className="left-container">
+                <div className="user-image">
+                  <img
+                    src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
+                    alt="Profilbild"
+                  />
+                  <p>{thisUser.username}</p>
+                  <button>Nachricht</button>
+                </div>
+                <div className="user-aboutMe">
+                  <h2>Über mich</h2>
+                  <br />
+                  <p>
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                    diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                    aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                    justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                    sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem
+                    ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                    nonumy eirmod tempor invidunt ut labore et dolore magna
+                    aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                    justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                    sea takimata sanctus est Lorem ipsum dolor sit amet.
+                  </p>
+                </div>
+              </div>
+              <div className="right-container">
+                <div className="user-info">
+                  <p>Vorname {thisUser.firstname}</p>
+                  <hr />
+                  <p>Nachname {thisUser.lastname}</p>
+                  <hr />
+                  <p>Verein: {thisUser.team}</p>
+                  <hr />
+                  <p>Position: Wasserjunge</p>
+                  <hr />
+                  <button
+                    onClick={() => {
+                      setEdit(false);
+                    }}
+                  >
+                    Bearbeiten
+                  </button>
+                </div>
+                <div className="user-comments"></div>
+              </div>
+            </div>
+          ) : (
+            <form className="profile-container">
+              <div className="left-container">
+                <div className="user-image">
+                  <img
+                    src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
+                    alt="Profilbild"
+                  />
+                  <input
+                    type="text"
+                    name="username"
+                    defaultValue={thisUser.username}
+                    required
+                  ></input>
+                  <button>Nachricht</button>
+                </div>
+                <div className="user-aboutMe">
+                  <h2>Über mich</h2>
+                  <br />
+                  <textarea
+                    type="text"
+                    name="aboutMe"
+                    defaultValue="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                    diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                    aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                    justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                    sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem
+                    ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                    nonumy eirmod tempor invidunt ut labore et dolore magna
+                    aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                    justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                    sea takimata sanctus est Lorem ipsum dolor sit amet."
+                    placeholder="Verein"
+                  ></textarea>
+                </div>
+              </div>
+              <div className="right-container">
+                <div className="user-info">
+                  <input
+                    type="text"
+                    name="firstname"
+                    defaultValue={thisUser.firstname}
+                    required
+                  ></input>
+                  <hr />
+                  <input
+                    type="text"
+                    name="lastname"
+                    defaultValue={thisUser.lastname}
+                    required
+                  ></input>
+                  <hr />
+                  <input
+                    type="text"
+                    name="team"
+                    defaultValue={thisUser.team}
+                    placeholder="Verein"
+                  ></input>
+                  <hr />
+                  <input
+                    type="text"
+                    name="Position"
+                    defaultValue="Wasserjunge"
+                    placeholder="Position"
+                  ></input>
+                  <hr />
+                  <button
+                    onClick={() => {
+                      setEdit(true);
+                    }}
+                  >
+                    Absenden
+                  </button>
+                </div>
+                <div className="user-comments">hi</div>
+              </div>
+            </form>
+          )}
         </section>
       ) : (
         "not found"
