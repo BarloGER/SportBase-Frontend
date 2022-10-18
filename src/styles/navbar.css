@@ -61,7 +61,7 @@
   transition: background-color 0.2s ease-in-out;
   position: absolute;
   top: 50%;
-  right: 25px;
+  right: 2.5rem;
   transform: translateY(-50%);
   display: none;
 }

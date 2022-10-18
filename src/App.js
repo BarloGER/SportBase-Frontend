@@ -7,9 +7,14 @@ import SignIn from "./components/SignIn";
 import Events from "./components/Events";
 import EventForm from "./components/EventForm";
 import Dashboard from "./components/Dashboard";
+
 import GlobalLayout from "./components/GlobalLayout";
 import ProtectedLayout from "./components/Protectedlayout";
 import { getUser } from "./utils/getUser";
+
+import Search from "./components/Search";
+import Account from "./components/Account";
+
 import "./styles/global.css";
 
 export default function App() {
@@ -48,6 +53,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
 
+
         <Route
           path="/signin"
           element={
@@ -68,7 +74,10 @@ export default function App() {
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="events" element={<Events />} />
           <Route path="eventform" element={<EventForm />} />
+          <Route path="/search" element={<Search />} />
+        <Route path="/account/:id" element={<Account />} />
         </Route>
+
       </Routes>
 
       <Footer />
