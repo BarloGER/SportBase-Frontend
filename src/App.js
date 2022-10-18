@@ -15,7 +15,7 @@ import "./styles/global.css";
 export default function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  // const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     const validateToken = async () => {
@@ -35,19 +35,19 @@ export default function App() {
     token && validateToken();
   }, [token]);
 
-  // const logOut = () => {
-  //   localStorage.removeItem("token");
-  //   setToken(null);
-  //   setUser(null);
-  //   setIsAuthenticated(false);
-  // };
+  const logOut = () => {
+    localStorage.removeItem("token");
+    setToken(null);
+    setUser(null);
+    setIsAuthenticated(false);
+  };
   return (
     <>
-      <Navbar />
+      <Navbar isAuthenticated={isAuthenticated} logOut={logOut} user={user} />
 
       <Routes>
-        <Route path="/" element={<GlobalLayout />} />
-        <Route index element={<LandingPage />} />
+        <Route path="/" element={<LandingPage />} />
+
         <Route
           path="/signin"
           element={
@@ -59,14 +59,16 @@ export default function App() {
           }
         />
         {/* WEGEN ROUTER IM SIGNUP GUCKEN. WIE ERREICHT MAN DIE VON HIER =? */}
-        <Route path="/events" element={<Events />} />
-        <Route path="/eventform" element={<EventForm />} />
+
         <Route
-          path="/secret"
+          path="secret"
           element={<ProtectedLayout isAuthenticated={isAuthenticated} />}
-        />
-        <Route index element={<div>Hello, welcome back</div>} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        >
+          {/* <Route element={<Dashboard />} /> */}
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="events" element={<Events />} />
+          <Route path="eventform" element={<EventForm />} />
+        </Route>
       </Routes>
 
       <Footer />

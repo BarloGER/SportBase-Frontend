@@ -3,11 +3,15 @@ import { useState } from "react";
 import { login } from "../utils/login";
 import { Navigate } from "react-router-dom";
 
-export default function Login({ handleClick }) {
+export default function Login({
+  handleClick,
+  isAuthenticated,
+  setIsAuthenticated,
+}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const [token, setToken] = useState("");
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  // const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,11 +26,11 @@ export default function Login({ handleClick }) {
       setIsAuthenticated(true);
     } catch (error) {}
   };
-  console.log(`Außerhalb handleSubmit${isAuthenticated}`);
-  if (isAuthenticated) return <Navigate to="/secret" replace />;
-  // return isAuthenticated ? (
-  //   <Navigate to="/secret" replace />
-  return (
+  console.log(`Außerhalb handleSubmit ${isAuthenticated}`);
+
+  return isAuthenticated ? (
+    <Navigate to={"../secret/dashboard"} />
+  ) : (
     <main className="access">
       <section className="access-container">
         <div className="image-desktop"></div>

@@ -1,7 +1,7 @@
 import { Navigate, Outlet } from "react-router-dom";
 
 const ProtectedLayout = ({ isAuthenticated }) => {
-  return <div>{isAuthenticated ? <Outlet /> : <Navigate to="/login" />}</div>;
+  return isAuthenticated ? <Outlet /> : <Navigate to="/signin" />;
 };
 
 export default ProtectedLayout;

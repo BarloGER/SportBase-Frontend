@@ -3,7 +3,11 @@ import { Navigate } from "react-router-dom";
 import { useState } from "react";
 import "../styles/access.css";
 
-export default function SignUp({ handleClick }) {
+export default function SignUp({
+  handleClick,
+  isAuthenticated,
+  setIsAuthenticated,
+}) {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [username, setUsername] = useState("");
@@ -11,7 +15,7 @@ export default function SignUp({ handleClick }) {
   const [password, setPassword] = useState("");
   const [terms, setTerms] = useState(false);
   const [token, setToken] = useState("");
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  // const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [input, setInput] = useState({
     firstname: "",
@@ -128,7 +132,7 @@ export default function SignUp({ handleClick }) {
   };
 
   return isAuthenticated ? (
-    <Navigate to="/secret" />
+    <Navigate to={"../secret/dashboard"} />
   ) : (
     <main className="access">
       <section className="access-container">
