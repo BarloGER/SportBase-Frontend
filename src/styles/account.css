@@ -1,10 +1,124 @@
 .account {
   margin-top: 6rem;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10rem;
+  position: relative;
+}
+
+.account::before {
+  background: url(https://cdn.discordapp.com/attachments/1021406713313763328/1027873313776738334/football-1-1551755.jpg)
+    no-repeat center center/cover;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  filter: brightness(60%);
+}
+
+.account-container {
+  display: flex;
+  background-color: #424344;
+  height: 90rem;
+  width: 140rem;
+  border-radius: 1rem;
+  z-index: 1;
+}
+
+.profile-container {
+  display: flex;
+}
+
+/* ******* Left Container ******* */
+
+.left-container {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  padding-top: 2rem;
+  padding-left: 2rem;
+  gap: 3rem;
+}
+
+.user-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1rem;
+  height: 40%;
+  font-size: 3rem;
+  gap: 1.5rem;
+  background-color: #eee;
+  /* box-shadow: 0 2px 15px -3px rgb(0 0 0 / 7%), 0 10px 20px -2px rgb(0 0 0 / 4%); */
+}
+
+.user-image button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 1rem 3rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2rem;
 }
 
 .user-image img {
-  height: 20rem;
-  width: 15rem;
+  height: 25rem;
+  width: 25rem;
+  border-radius: 50%;
+  padding: 1rem;
+}
+
+.user-aboutMe {
+  line-height: 1.4;
+  background-color: #eee;
+  height: 60%;
+  border-radius: 1rem;
+  /* box-shadow: 0 2px 15px -3px rgb(0 0 0 / 7%), 0 10px 20px -2px rgb(0 0 0 / 4%); */
+  padding: 3rem;
+  width: 100%;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  overflow: hidden;
+}
+
+.user-aboutMe textarea {
+  width: 100%;
+  height: 90%;
+}
+
+/* ******* Right Container ******* */
+
+.right-container {
+  width: 75%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.user-info {
+  height: 50%;
+  font-size: 4rem;
+  padding: 3rem;
+  background-color: #eee;
+  border-radius: 1rem;
+  /* box-shadow: 0 2px 15px -3px rgb(0 0 0 / 7%), 0 10px 20px -2px rgb(0 0 0 / 4%); */
+  line-height: 1.5;
+  width: 100%;
+}
+
+.user-comments {
+  height: 50%;
+  overflow: auto;
+  font-size: 4rem;
+  background-color: #eee;
+  border-radius: 1rem;
+  /* box-shadow: 0 2px 15px -3px rgb(0 0 0 / 7%), 0 10px 20px -2px rgb(0 0 0 / 4%); */
+  padding: 3rem;
 }
