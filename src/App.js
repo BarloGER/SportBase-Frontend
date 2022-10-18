@@ -8,7 +8,7 @@ import Events from "./components/Events";
 import EventForm from "./components/EventForm";
 import Dashboard from "./components/Dashboard";
 
-import GlobalLayout from "./components/GlobalLayout";
+// import GlobalLayout from "./components/GlobalLayout";
 import ProtectedLayout from "./components/Protectedlayout";
 import { getUser } from "./utils/getUser";
 
@@ -29,7 +29,7 @@ export default function App() {
         if (error) {
           throw new Error(error.response?.data.error || error.message);
         }
-        // setUser(data);
+        setUser(data);
         setIsAuthenticated(true);
       } catch (error) {
         localStorage.removeItem("token");
