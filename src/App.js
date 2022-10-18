@@ -53,7 +53,6 @@ export default function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
 
-
         <Route
           path="/signin"
           element={
@@ -74,10 +73,9 @@ export default function App() {
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="events" element={<Events />} />
           <Route path="eventform" element={<EventForm />} />
-          <Route path="/search" element={<Search />} />
-        <Route path="/account/:id" element={<Account />} />
+          <Route path="search" element={<Search />} />
+          <Route path="account/:id" element={<Account />} />
         </Route>
-
       </Routes>
 
       <Footer />
