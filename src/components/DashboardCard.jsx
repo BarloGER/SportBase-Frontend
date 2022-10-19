@@ -4,7 +4,7 @@ import "../styles/dashboardCard.css";
 
 function DashboardCard({ cardText, cardLink }) {
   return (
-    <Link to={`/${cardLink}`}>
+    <Link to={`/secret/dashboard/${cardLink}`}>
       <div className="dashboard-card">
         <div className="card-title">
           <h2>{cardText}</h2>

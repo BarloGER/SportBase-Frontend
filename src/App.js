@@ -29,7 +29,7 @@ export default function App() {
         if (error) {
           throw new Error(error.response?.data.error || error.message);
         }
-        // setUser(data);
+        setUser(data);
         setIsAuthenticated(true);
       } catch (error) {
         localStorage.removeItem("token");
@@ -49,35 +49,35 @@ export default function App() {
   return (
     <>
       <Navbar isAuthenticated={isAuthenticated} logOut={logOut} user={user} />
-
       <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route
-          path="/signin"
-          element={
-            <SignIn
-              isAuthenticated={isAuthenticated}
-              setIsAuthenticated={setIsAuthenticated}
-              setToken={setToken}
-            />
-          }
-        />
-        <Route path="calendar" element={<PublicCalendar />} />
-        {/* WEGEN ROUTER IM SIGNUP GUCKEN. WIE ERREICHT MAN DIE VON HIER =? */}
+        <Route path="/" element={<GlobalLayout />}>
+          <Route index element={<LandingPage />} />
+          <Route path="calendar" element={<PublicCalendar />} />
 
-        <Route
-          path="secret"
-          element={<ProtectedLayout isAuthenticated={isAuthenticated} />}
-        >
-          {/* <Route element={<Dashboard />} /> */}
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="events" element={<Events />} />
-          <Route path="eventform" element={<EventForm />} />
-          <Route path="search" element={<Search />} />
-          <Route path="account/:id" element={<Account />} />
+          <Route
+            path="/signin"
+            element={
+              <SignIn
+                isAuthenticated={isAuthenticated}
+                setIsAuthenticated={setIsAuthenticated}
+                setToken={setToken}
+              />
+            }
+          />
+
+          <Route
+            path="secret"
+            element={<ProtectedLayout isAuthenticated={isAuthenticated} />}
+          >
+            <Route path="dashboard" element={<Dashboard />}>
+              <Route path="events" element={<Events />} />
+              <Route path="eventform" element={<EventForm />} />
+              <Route path="search" element={<Search />} />
+              <Route path="account/:id" element={<Account />} />
+            </Route>
+          </Route>
         </Route>
       </Routes>
-
       <Footer />
     </>
   );

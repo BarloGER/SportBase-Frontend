@@ -141,7 +141,8 @@ export default function SignUp({
   };
 
   return isAuthenticated ? (
-    <Navigate to={"../secret/dashboard"} />
+    // CHANGED FROM <Navigate to={"../secret/dashboard"} />
+    <Navigate to={"/secret/dashboard"} />
   ) : (
     <main className="access">
       <section className="access-container">
@@ -200,7 +201,6 @@ export default function SignUp({
             value={input.password}
             onChange={onInputChange}
             onBlur={validateInput}
-            onInput={() => (e) => setPassword(e.target.value)}
           />
           {error.password && <span className="err">{error.password}</span>}
           {isCapsLockOn && (
@@ -215,7 +215,7 @@ export default function SignUp({
             value={input.confirmPassword}
             onChange={onInputChange}
             onBlur={validateInput}
-            onInput={() => (e) => setPassword(e.target.value)}
+            onInput={(e) => setPassword(e.target.value)}
           />
           {error.confirmPassword && (
             <span className="err">{error.confirmPassword}</span>

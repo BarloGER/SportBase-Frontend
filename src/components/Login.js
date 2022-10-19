@@ -27,7 +27,6 @@ export default function Login({
       setIsAuthenticated(true);
     } catch (error) {}
   };
-  console.log(`Außerhalb handleSubmit ${isAuthenticated}`);
 
   const checkCapsLock = (event) => {
     console.log(event);
@@ -43,8 +42,10 @@ export default function Login({
   //   checkCapsLock();
   // }, [isCapsLockOn]);
 
+  // WENN EINGELOGT, DANN WIRD MAN DIREKT AUFS DASHBOARD GELEITET ANSONSTEN BLEIBT MAN IN DER LOGIN KOMPONENTE
   return isAuthenticated ? (
-    <Navigate to={"../secret/dashboard"} />
+    // from <Navigate to={"../secret/dashboard"} /> to
+    <Navigate to={"/secret/dashboard"} />
   ) : (
     <main className="access">
       <section className="access-container">
