@@ -190,7 +190,6 @@ export default function SignUp({
             value={input.password}
             onChange={onInputChange}
             onBlur={validateInput}
-            onInput={() => (e) => setPassword(e.target.value)}
           />
           {error.password && <span className="err">{error.password}</span>}
           <input
@@ -201,7 +200,7 @@ export default function SignUp({
             value={input.confirmPassword}
             onChange={onInputChange}
             onBlur={validateInput}
-            onInput={() => (e) => setPassword(e.target.value)}
+            onInput={(e) => setPassword(e.target.value)}
           />
           {error.confirmPassword && (
             <span className="err">{error.confirmPassword}</span>

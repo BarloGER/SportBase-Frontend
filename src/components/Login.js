@@ -29,7 +29,8 @@ export default function Login({
   console.log(`Außerhalb handleSubmit ${isAuthenticated}`);
 
   return isAuthenticated ? (
-    <Navigate to={"../secret/dashboard"} />
+    // from <Navigate to={"../secret/dashboard"} /> to
+    <Navigate to={"/secret/dashboard"} />
   ) : (
     <main className="access">
       <section className="access-container">

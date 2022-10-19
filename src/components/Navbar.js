@@ -60,7 +60,7 @@ export default function Navbar() {
             <li>Sign In</li>
           </NavLink>
           <NavLink
-            to="/dashboard"
+            to="/secret/dashboard"
             onClick={() => {
               setIsNavExpanded(false);
             }}
