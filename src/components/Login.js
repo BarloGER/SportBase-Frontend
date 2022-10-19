@@ -1,5 +1,5 @@
 import "../styles/access.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { login } from "../utils/login";
 import { Navigate } from "react-router-dom";
 
