@@ -7,25 +7,29 @@ import "../styles/search.css";
 export default function Search() {
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
-  const [users, setUsers] = useState("");
+  const [users, setUsers] = useState([]);
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    if (active) {
+      getUser();
+    }
+  }, [active]);
 
   const getUser = async () => {
     try {
       const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/user`);
       setUsers(data);
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
   };
 
-  useEffect(() => {
-    getUser();
-  }, []);
-
   const handleFilter = (event) => {
     const searchWord = event.target.value;
+
     setWordEntered(searchWord);
+    setActive(true);
     const newFilter = users.filter((u) => {
       return (
         u.username.toLowerCase().includes(searchWord.toLowerCase()) ||
@@ -75,7 +79,7 @@ export default function Search() {
           <div className="dataResult">
             {filteredData.slice(0, 15).map((value, key) => {
               return (
-                <Link to={`/account/${value._id}`}>
+                <Link to={`/account/${value._id}`} key={key}>
                   <p>
                     {value.username} {value.firstname} {value.lastname}
                   </p>
