@@ -15,6 +15,7 @@ export default function SignUp({
   const [password, setPassword] = useState("");
   const [terms, setTerms] = useState(false);
   const [token, setToken] = useState("");
+  const [isCapsLockOn, setIsCapsLockOn] = useState(false);
   // const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [input, setInput] = useState({
@@ -105,6 +106,14 @@ export default function SignUp({
     });
   };
 
+  const checkCapsLock = (event) => {
+    if (event.getModifierState("CapsLock")) {
+      setIsCapsLockOn(true);
+    } else {
+      setIsCapsLockOn(false);
+    }
+  };
+
   const formSubmission = {
     firstname,
     lastname,
@@ -186,6 +195,7 @@ export default function SignUp({
             type="password"
             name="password"
             placeholder="Passwort"
+            onKeyUp={checkCapsLock}
             required
             value={input.password}
             onChange={onInputChange}
@@ -193,10 +203,14 @@ export default function SignUp({
             onInput={() => (e) => setPassword(e.target.value)}
           />
           {error.password && <span className="err">{error.password}</span>}
+          {isCapsLockOn && (
+            <p className="caps-lock-warning">Feststelltaste ist aktiviert!</p>
+          )}
           <input
             type="password"
             name="confirmPassword"
             placeholder="Passwort erneut eingeben"
+            onKeyUp={checkCapsLock}
             required
             value={input.confirmPassword}
             onChange={onInputChange}
@@ -205,6 +219,9 @@ export default function SignUp({
           />
           {error.confirmPassword && (
             <span className="err">{error.confirmPassword}</span>
+          )}
+          {isCapsLockOn && (
+            <p className="caps-lock-warning">Feststelltaste ist aktiviert!</p>
           )}
           <div className="terms">
             <label className="label">

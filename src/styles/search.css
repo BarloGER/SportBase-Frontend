@@ -1,15 +1,16 @@
-.search-container {
-  margin-top: 6rem;
-  height: 100vh;
-  width: 100%;
+.search {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  position: absolute;
+  top: 0.5rem;
+  left: 10rem;
+  margin: 1rem 0;
 }
 
 .searchInputs {
   display: flex;
   align-items: center;
+  margin-bottom: 1.5rem;
 }
 
 .search input {
@@ -19,13 +20,13 @@
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
   font-size: 1.8rem;
-  padding: 1.5rem;
   height: 3rem;
   width: 30rem;
+  padding-left: 1rem;
 }
 
 .searchIcon {
-  height: 6rem;
+  height: 3rem;
   width: 5rem;
   background-color: white;
   display: grid;
@@ -40,14 +41,13 @@ input:focus {
 }
 
 .dataResult {
-  margin-top: 0.5rem;
-  width: 30rem;
-  height: 20rem;
+  height: fit-content;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   overflow: hidden;
   overflow-y: auto;
   font-size: 4rem;
+  padding-left: 1rem;
 }
 
 .dataResult::-webkit-scrollbar {
@@ -77,4 +77,16 @@ input:focus {
 .searchIcon .fontawesomeicon {
   color: #333;
   font-size: 1.5rem;
+}
+
+@media screen and (max-width: 510px) {
+  .search input {
+    width: 20rem;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .search input {
+    width: 15rem;
+  }
 }

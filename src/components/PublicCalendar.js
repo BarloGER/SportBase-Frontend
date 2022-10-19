@@ -41,8 +41,6 @@ export default function PublicCalendar() {
     end: e.endDate,
   }));
 
-  console.log(new Date());
-
   return (
     <main className="public-calendar">
       <Calendar
