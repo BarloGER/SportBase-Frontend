@@ -62,6 +62,7 @@ export default function App() {
             />
           }
         />
+        <Route path="calendar" element={<PublicCalendar />} />
         {/* WEGEN ROUTER IM SIGNUP GUCKEN. WIE ERREICHT MAN DIE VON HIER =? */}
 
         <Route
@@ -73,7 +74,6 @@ export default function App() {
           <Route path="events" element={<Events />} />
           <Route path="eventform" element={<EventForm />} />
           <Route path="search" element={<Search />} />
-          <Route path="/calendar" element={<PublicCalendar />} />
           <Route path="account/:id" element={<Account />} />
         </Route>
       </Routes>
