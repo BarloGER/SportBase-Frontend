@@ -133,7 +133,7 @@ export default function SignUp({
       localStorage.setItem("token", data);
       setToken(data);
       if (token) setIsAuthenticated(true);
-      // setErrorMessage(error.response.data);
+      setErrorMessage(error.response.data);
       if (error) throw error;
     } catch (err) {
       console.error(err);

@@ -9,7 +9,7 @@ function dashboard() {
         <DashboardCard cardText={"Verfügbare Events"} cardLink={"events"} />
         <DashboardCard cardText={"Event anlegen"} cardLink={"eventform"} />
         <DashboardCard cardText={"Mitglied suchen"} cardLink={"search"} />
-
+        <DashboardCard cardText={"Account"} cardLink={"account"} />
         <Outlet />
       </div>
     </main>
