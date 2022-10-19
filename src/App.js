@@ -70,11 +70,7 @@ export default function App() {
           element={<ProtectedLayout isAuthenticated={isAuthenticated} />}
         >
           {/* <Route element={<Dashboard />} /> */}
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route
-            path="dashboard"
-            element={<ProtectedLayout isAuthenticated={isAuthenticated} />}
-          >
+          <Route path="dashboard" element={<Dashboard />}>
             <Route path="events" element={<Events />} />
             <Route path="eventform" element={<EventForm />} />
             <Route path="search" element={<Search />} />
