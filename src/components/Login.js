@@ -1,5 +1,5 @@
 import "../styles/access.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { login } from "../utils/login";
 import { Navigate } from "react-router-dom";
 
@@ -10,6 +10,7 @@ export default function Login({
 }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isCapsLockOn, setIsCapsLockOn] = useState(false);
   // const [token, setToken] = useState("");
   // const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -26,6 +27,20 @@ export default function Login({
       setIsAuthenticated(true);
     } catch (error) {}
   };
+
+  const checkCapsLock = (event) => {
+    console.log(event);
+    if (event.getModifierState("CapsLock")) {
+      setIsCapsLockOn(true);
+    } else {
+      setIsCapsLockOn(false);
+    }
+  };
+
+  // useEffect(() => {
+  //   console.clear();
+  //   checkCapsLock();
+  // }, [isCapsLockOn]);
 
   // WENN EINGELOGT, DANN WIRD MAN DIREKT AUFS DASHBOARD GELEITET ANSONSTEN BLEIBT MAN IN DER LOGIN KOMPONENTE
   return isAuthenticated ? (
@@ -47,9 +62,13 @@ export default function Login({
             type="password"
             name="password"
             placeholder="Passwort"
+            onKeyUp={checkCapsLock}
             // required
             onInput={(e) => setPassword(e.target.value)}
           />
+          {isCapsLockOn && (
+            <p className="caps-lock-warning">Feststelltaste ist aktiviert!</p>
+          )}
           <div className="terms">
             <label className="label">
               Ich möchte angemeldet bleiben.

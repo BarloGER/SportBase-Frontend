@@ -86,9 +86,9 @@ label {
   display: block;
 }
 
-input,
-textarea,
-select {
+.events input,
+.events textarea,
+.events select {
   width: 100%;
   padding: 0.5rem;
   margin: 1rem 0;

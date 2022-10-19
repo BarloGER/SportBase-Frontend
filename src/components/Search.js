@@ -47,7 +47,7 @@ export default function Search() {
   };
 
   return (
-    <main className="search-container">
+    <section className="search-container">
       <div className="search">
         <div className="searchInputs">
           <input
@@ -85,6 +85,6 @@ export default function Search() {
           </div>
         )}
       </div>
-    </main>
+    </section>
   );
 }
