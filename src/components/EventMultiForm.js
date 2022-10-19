@@ -23,8 +23,8 @@ export default function EventMultiForm() {
 
   const FormTitles = [
     "Event Informationen",
-    "Spieler",
-    "Reserve",
+    "Verfügbare Spieler",
+    "Verfügbare Reserve",
     "Aufstellung",
   ];
 
@@ -34,7 +34,7 @@ export default function EventMultiForm() {
     } else if (page === 1) {
       return <Player avaiablePlayers={avaiablePlayers} setNewEvent={setNewEvent} />;
     } else if (page === 2) {
-      return <Reserve />;
+      return <Reserve newEvent={newEvent} setNewEvent={setNewEvent} />;
     } else return <DndProvider backend={HTML5Backend}><DnDField /></DndProvider>;
   };
 

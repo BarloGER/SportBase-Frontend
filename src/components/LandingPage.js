@@ -1,6 +1,7 @@
 import "../styles/landingPage.css";
 
 export default function LandingPage() {
+
   return (
     <main className="landing-page">
       <div className="hero">
