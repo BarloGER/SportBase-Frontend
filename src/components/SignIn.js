@@ -2,7 +2,11 @@ import { useState } from "react";
 import Login from "./Login";
 import SignUp from "./SignUp";
 
-export default function SignIn() {
+export default function SignIn({
+  isAuthenticated,
+  setIsAuthenticated,
+  setToken,
+}) {
   const [active, setActive] = useState(true);
   const handleClick = (state) => {
     setActive(state);
@@ -10,8 +14,20 @@ export default function SignIn() {
 
   return (
     <main className="signIn">
-      {active && <Login handleClick={handleClick} />}
-      {!active && <SignUp handleClick={handleClick} />}
+      {active && (
+        <Login
+          handleClick={handleClick}
+          isAuthenticated={isAuthenticated}
+          setIsAuthenticated={setIsAuthenticated}
+        />
+      )}
+      {!active && (
+        <SignUp
+          handleClick={handleClick}
+          isAuthenticated={isAuthenticated}
+          setIsAuthenticated={setIsAuthenticated}
+        />
+      )}
     </main>
   );
 }

@@ -1,14 +1,21 @@
 import { createUser } from "../utils/createUser";
+import { Navigate } from "react-router-dom";
 import { useState } from "react";
 import "../styles/access.css";
 
-export default function SignUp({ handleClick }) {
+export default function SignUp({
+  handleClick,
+  isAuthenticated,
+  setIsAuthenticated,
+}) {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [terms, setTerms] = useState(false);
+  const [token, setToken] = useState("");
+  // const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [input, setInput] = useState({
     firstname: "",
@@ -112,15 +119,21 @@ export default function SignUp({ handleClick }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const error = await createUser(formSubmission);
-      setErrorMessage(error.response.data);
+      const { error, data } = await createUser(formSubmission);
+      console.log(data);
+      localStorage.setItem("token", data);
+      setToken(data);
+      if (token) setIsAuthenticated(true);
+      // setErrorMessage(error.response.data);
       if (error) throw error;
     } catch (err) {
       console.error(err);
     }
   };
 
-  return (
+  return isAuthenticated ? (
+    <Navigate to={"../secret/dashboard"} />
+  ) : (
     <main className="access">
       <section className="access-container">
         <div className="image-desktop"></div>
@@ -188,6 +201,7 @@ export default function SignUp({ handleClick }) {
             value={input.confirmPassword}
             onChange={onInputChange}
             onBlur={validateInput}
+            onInput={() => (e) => setPassword(e.target.value)}
           />
           {error.confirmPassword && (
             <span className="err">{error.confirmPassword}</span>
