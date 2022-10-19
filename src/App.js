@@ -14,7 +14,7 @@ import { getUser } from "./utils/getUser";
 
 import Search from "./components/Search";
 import Account from "./components/Account";
-
+import PublicCalendar from "./components/PublicCalendar";
 import "./styles/global.css";
 
 export default function App() {
@@ -52,7 +52,6 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<LandingPage />} />
-
         <Route
           path="/signin"
           element={
@@ -74,6 +73,7 @@ export default function App() {
           <Route path="events" element={<Events />} />
           <Route path="eventform" element={<EventForm />} />
           <Route path="search" element={<Search />} />
+          <Route path="/calendar" element={<PublicCalendar />} />
           <Route path="account/:id" element={<Account />} />
         </Route>
       </Routes>

@@ -67,6 +67,14 @@ export default function Navbar() {
           >
             <li>Dashboard</li>
           </NavLink>
+          <NavLink
+            to="/calendar"
+            onClick={() => {
+              setIsNavExpanded(false);
+            }}
+          >
+            <li>Kalender</li>
+          </NavLink>
         </ul>
       </div>
     </nav>
