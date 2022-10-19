@@ -7,7 +7,6 @@ import SignIn from "./components/SignIn";
 import Events from "./components/Events";
 import EventForm from "./components/EventForm";
 import Dashboard from "./components/Dashboard";
-import Test from "./components/Test";
 
 import GlobalLayout from "./components/GlobalLayout";
 import ProtectedLayout from "./components/Protectedlayout";
@@ -54,7 +53,6 @@ export default function App() {
         <Route path="/" element={<GlobalLayout />}>
           <Route index element={<LandingPage />} />
           <Route path="calendar" element={<PublicCalendar />} />
-          <Route path="test" element={<Test />} />
 
           <Route
             path="/signin"
