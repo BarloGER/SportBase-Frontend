@@ -26,8 +26,8 @@ export default function Login({
       setIsAuthenticated(true);
     } catch (error) {}
   };
-  console.log(`Außerhalb handleSubmit ${isAuthenticated}`);
 
+  // WENN EINGELOGT, DANN WIRD MAN DIREKT AUFS DASHBOARD GELEITET ANSONSTEN BLEIBT MAN IN DER LOGIN KOMPONENTE
   return isAuthenticated ? (
     // from <Navigate to={"../secret/dashboard"} /> to
     <Navigate to={"/secret/dashboard"} />

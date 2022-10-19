@@ -132,7 +132,8 @@ export default function SignUp({
   };
 
   return isAuthenticated ? (
-    <Navigate to={"../secret/dashboard"} />
+    // CHANGED FROM <Navigate to={"../secret/dashboard"} />
+    <Navigate to={"/secret/dashboard"} />
   ) : (
     <main className="access">
       <section className="access-container">

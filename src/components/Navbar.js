@@ -60,6 +60,14 @@ export default function Navbar() {
             <li>Sign In</li>
           </NavLink>
           <NavLink
+            to="/test"
+            onClick={() => {
+              setIsNavExpanded(false);
+            }}
+          >
+            <li>Test</li>
+          </NavLink>
+          <NavLink
             to="/secret/dashboard"
             onClick={() => {
               setIsNavExpanded(false);

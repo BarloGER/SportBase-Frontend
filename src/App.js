@@ -7,8 +7,9 @@ import SignIn from "./components/SignIn";
 import Events from "./components/Events";
 import EventForm from "./components/EventForm";
 import Dashboard from "./components/Dashboard";
+import Test from "./components/Test";
 
-// import GlobalLayout from "./components/GlobalLayout";
+import GlobalLayout from "./components/GlobalLayout";
 import ProtectedLayout from "./components/Protectedlayout";
 import { getUser } from "./utils/getUser";
 
@@ -49,36 +50,36 @@ export default function App() {
   return (
     <>
       <Navbar isAuthenticated={isAuthenticated} logOut={logOut} user={user} />
-
       <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route
-          path="/signin"
-          element={
-            <SignIn
-              isAuthenticated={isAuthenticated}
-              setIsAuthenticated={setIsAuthenticated}
-              setToken={setToken}
-            />
-          }
-        />
-        <Route path="calendar" element={<PublicCalendar />} />
-        {/* WEGEN ROUTER IM SIGNUP GUCKEN. WIE ERREICHT MAN DIE VON HIER =? */}
+        <Route path="/" element={<GlobalLayout />}>
+          <Route index element={<LandingPage />} />
+          <Route path="calendar" element={<PublicCalendar />} />
+          <Route path="test" element={<Test />} />
 
-        <Route
-          path="secret"
-          element={<ProtectedLayout isAuthenticated={isAuthenticated} />}
-        >
-          {/* <Route element={<Dashboard />} /> */}
-          <Route path="dashboard" element={<Dashboard />}>
-            <Route path="events" element={<Events />} />
-            <Route path="eventform" element={<EventForm />} />
-            <Route path="search" element={<Search />} />
-            <Route path="account/:id" element={<Account />} />
+          <Route
+            path="/signin"
+            element={
+              <SignIn
+                isAuthenticated={isAuthenticated}
+                setIsAuthenticated={setIsAuthenticated}
+                setToken={setToken}
+              />
+            }
+          />
+
+          <Route
+            path="secret"
+            element={<ProtectedLayout isAuthenticated={isAuthenticated} />}
+          >
+            <Route path="dashboard" element={<Dashboard />}>
+              <Route path="events" element={<Events />} />
+              <Route path="eventform" element={<EventForm />} />
+              <Route path="search" element={<Search />} />
+              <Route path="account/:id" element={<Account />} />
+            </Route>
           </Route>
         </Route>
       </Routes>
-
       <Footer />
     </>
   );
