@@ -37,11 +37,6 @@ export default function Login({
     }
   };
 
-  // useEffect(() => {
-  //   console.clear();
-  //   checkCapsLock();
-  // }, [isCapsLockOn]);
-
   // WENN EINGELOGT, DANN WIRD MAN DIREKT AUFS DASHBOARD GELEITET ANSONSTEN BLEIBT MAN IN DER LOGIN KOMPONENTE
   return isAuthenticated ? (
     // from <Navigate to={"../secret/dashboard"} /> to
@@ -80,7 +75,7 @@ export default function Login({
           <br />
           <div>
             <p>Noch nicht registriert?</p>
-            <button className="button" onClick={() => handleClick(false)}>
+            <button className="button" onClick={(e) => handleClick(false, e)}>
               SignUp
             </button>
           </div>

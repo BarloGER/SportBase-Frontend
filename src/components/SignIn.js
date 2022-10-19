@@ -8,7 +8,8 @@ export default function SignIn({
   setToken,
 }) {
   const [active, setActive] = useState(true);
-  const handleClick = (state) => {
+  const handleClick = (state, e) => {
+    e.preventDefault();
     setActive(state);
   };
 

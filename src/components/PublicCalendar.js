@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Calendar, dateFnsLocalizer } from "react-big-calendar";
+import { Calendar, momentLocalizer } from "react-big-calendar";
+import moment from "moment";
 import axios from "axios";
-import format from "date-fns/format";
-import parse from "date-fns/parse";
-import startOfWeek from "date-fns/startOfWeek";
-import getDay from "date-fns/getDay";
-import { de } from "date-fns/locale";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "../styles/public-calendar.css";
+import "moment/locale/de";
 
-export default function PublicCalendar() {
+export default function OtherCalendar() {
+  const localizer = momentLocalizer(moment);
+
   const [allEvents, setAllEvents] = useState([]);
 
   const getEvents = async () => {
@@ -25,16 +24,6 @@ export default function PublicCalendar() {
     getEvents();
   }, []);
 
-  const locales = { de };
-
-  const localizer = dateFnsLocalizer({
-    format,
-    parse,
-    startOfWeek,
-    getDay,
-    locales,
-  });
-
   const events = allEvents.map((e) => ({
     title: e.title,
     start: e.startDate,
@@ -49,6 +38,15 @@ export default function PublicCalendar() {
         startAccessor="start"
         endAccessor="end"
         style={{ height: "100%", margin: "5rem" }}
+        messages={{
+          month: "Monat",
+          day: "Tag",
+          week: "Woche",
+          today: "Heute",
+          previous: "Zurück",
+          next: "Nächste",
+        }}
+        culture="de"
       />
     </main>
   );

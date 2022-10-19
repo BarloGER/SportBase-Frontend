@@ -14,7 +14,7 @@
 }
 
 .search input {
-  background-color: white;
+  background-color: #eee;
   border: 0;
   border-radius: 2px;
   border-top-right-radius: 0px;
@@ -28,7 +28,7 @@
 .searchIcon {
   height: 3rem;
   width: 5rem;
-  background-color: white;
+  background-color: #eee;
   display: grid;
   place-items: center;
 }
@@ -42,12 +42,16 @@ input:focus {
 
 .dataResult {
   height: fit-content;
-  background-color: white;
+  background-color: #eee;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   overflow: hidden;
   overflow-y: auto;
-  font-size: 4rem;
+  font-size: 5rem;
   padding-left: 1rem;
+}
+
+.dataResult p {
+  padding-top: 1rem;
 }
 
 .dataResult::-webkit-scrollbar {
@@ -79,13 +83,13 @@ input:focus {
   font-size: 1.5rem;
 }
 
-@media screen and (max-width: 510px) {
+@media screen and (max-width: 515px) {
   .search input {
     width: 20rem;
   }
 }
 
-@media screen and (max-width: 410px) {
+@media screen and (max-width: 415px) {
   .search input {
     width: 15rem;
   }

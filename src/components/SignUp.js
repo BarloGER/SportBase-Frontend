@@ -122,7 +122,6 @@ export default function SignUp({
     password,
     terms,
   };
-  console.log(formSubmission);
 
   //function for handling the form submission
   const handleSubmit = async (e) => {
@@ -239,7 +238,7 @@ export default function SignUp({
           <br />
           <div>
             <p>Bereits registriert?</p>
-            <button className="button" onClick={() => handleClick(true)}>
+            <button className="button" onClick={(e) => handleClick(true, e)}>
               SignIn
             </button>
           </div>
