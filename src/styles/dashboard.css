@@ -1,30 +1,17 @@
 .dashboard {
   margin-top: 6rem;
   display: flex;
+  flex-direction: row;
   height: 100vh;
-  position: relative;
 }
 
-.dashboard::before {
-  background: url(https://cdn.discordapp.com/attachments/1021406713313763328/1027873313776738334/football-1-1551755.jpg) no-repeat center center/cover;
-  content: '';   
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  filter: brightness(60%);
-}
-
-.dashboard-card-container * {
-  z-index: 3;
-}
-
-.dashboard-card-container {
+.dashboard .sidebar {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: flex-start;
-  margin: 5rem;
-  gap: 3rem;
+  flex-direction: column;
+  z-index: 3;
+  background-color: aqua;
+  width: 40rem;
+}
+
+.dashboard-content {
 }

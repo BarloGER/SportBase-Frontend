@@ -2,7 +2,7 @@ import "../styles/aboutUs.css";
 
 function AboutUs() {
   return (
-    <div className="about-us">
+    <main className="about-us">
       <div className="about-us-Team">
         <div className="Mike">
           <a
@@ -92,7 +92,7 @@ function AboutUs() {
           things. Your Sport is our passion
         </p>
       </section>
-    </div>
+    </main>
   );
 }
 

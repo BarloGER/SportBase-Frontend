@@ -4,21 +4,21 @@ import EventInfo from "./EventInfo";
 import Player from "./Player";
 import Reserve from "./Reserve";
 import Fields from "./Fields";
-import { DndProvider } from 'react-dnd'
-import { HTML5Backend } from 'react-dnd-html5-backend'
-import DnDField from './DnDField';
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import DnDField from "./DnDField";
 import "../styles/eventMultiForm.css";
 
 export default function EventMultiForm() {
   const [page, setPage] = useState(0);
   const [avaiablePlayers, setAvaiablePlayers] = useState([]);
   const [newEvent, setNewEvent] = useState({
-    eventName: '',
-    date: '',
-    createdAt: '',
-    opponent: '',
+    eventName: "",
+    date: "",
+    createdAt: "",
+    opponent: "",
     activePlayers: [],
-    reservePlayers: []
+    reservePlayers: [],
   });
 
   const FormTitles = [
@@ -32,17 +32,26 @@ export default function EventMultiForm() {
     if (page === 0) {
       return <EventInfo setNewEvent={setNewEvent} />;
     } else if (page === 1) {
-      return <Player avaiablePlayers={avaiablePlayers} setNewEvent={setNewEvent} />;
+      return (
+        <Player avaiablePlayers={avaiablePlayers} setNewEvent={setNewEvent} />
+      );
     } else if (page === 2) {
       return <Reserve newEvent={newEvent} setNewEvent={setNewEvent} />;
-    } else return <DndProvider backend={HTML5Backend}><DnDField newEvent={newEvent} setNewEvent={setNewEvent} /></DndProvider>;
+    } else
+      return (
+        <DndProvider backend={HTML5Backend}>
+          <DnDField newEvent={newEvent} setNewEvent={setNewEvent} />
+        </DndProvider>
+      );
   };
 
-  //TODO: Use suitable endpoint: GetallUsersByTeam/GetallPlayersByTeam 
+  //TODO: Use suitable endpoint: GetallUsersByTeam/GetallPlayersByTeam
   const getAvaiablePlayers = async () => {
     try {
       const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/user`);
-      setAvaiablePlayers(data.filter((user) => user.player === true && user.inactive === false));
+      setAvaiablePlayers(
+        data.filter((user) => user.player === true && user.inactive === false)
+      );
     } catch (error) {
       console.log(error);
     }
@@ -53,7 +62,7 @@ export default function EventMultiForm() {
   }, []);
 
   return (
-    <main className="event-form">
+    <section className="event-form">
       <div className="form">
         <div className="progressbar">
           <div
@@ -62,10 +71,10 @@ export default function EventMultiForm() {
                 page === 0
                   ? "25%"
                   : page == 1
-                    ? "50%"
-                    : page == 2
-                      ? "75%"
-                      : "100%",
+                  ? "50%"
+                  : page == 2
+                  ? "75%"
+                  : "100%",
             }}
           ></div>
         </div>
@@ -97,6 +106,6 @@ export default function EventMultiForm() {
           </div>
         </div>
       </div>
-    </main>
+    </section>
   );
 }

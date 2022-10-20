@@ -1,9 +1,9 @@
 .event-form {
-  width: 100vw;
+  /* width: 100vw;
   height: 100vh;
   display: grid;
   place-items: center;
-  font-size: 16rem;
+  font-size: 16rem; */
 }
 
 .form {
@@ -61,9 +61,7 @@
 }
 
 .form-container .footer button:disabled {
-
   background-color: rgb(163, 16, 221);
-
 }
 
 .sign-up-container {

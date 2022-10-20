@@ -1,10 +1,152 @@
 .public-calendar {
-  margin-top: 10rem;
+  padding-top: 8rem;
   height: 100vh;
   width: 100%;
+  background-color: var(--white);
 }
 
-.public-calendar .rbc-day-bg {
-  display: block;
-  outline: 20px;
+.rbc-toolbar {
+  background-color: #47b5ff;
+  margin-bottom: 0;
+}
+
+.rbc-toolbar button {
+  background-color: #47b5ff;
+  padding: 0.5rem;
+}
+
+.rbc-btn-group {
+  padding: 0.5rem;
+  align-items: center;
+}
+
+.rbc-header {
+  background-color: blue;
+  border-bottom: 0.2rem solid #ddd;
+  border-top: 0.2rem solid #ddd;
+}
+
+.rbc-header + .rbc-header {
+  border-left: 0.2rem solid #ddd;
+  font-size: 62.5%;
+}
+
+.rbc-day-bg {
+  background-color: #1363df;
+}
+
+.rbc-off-range-bg {
+  background-color: var(--black);
+}
+
+.rbc-today {
+  background-color: rgb(33, 253, 26);
+}
+
+.rbc-event-content {
+  font-size: 1rem;
+}
+
+/* time line */
+
+.rbc-current-time-indicator {
+  display: none;
+}
+
+/* ----- start of month ----- */
+
+.rbc-month-view {
+  border: none;
+}
+
+.rbc-month-row {
+  border: none;
+}
+
+.rbc-month-row + .rbc-month-row {
+  border-top: 0.2rem solid #ddd;
+}
+
+.rbc-day-bg + .rbc-day-bg {
+  border-left: 0.2rem solid #ddd;
+}
+
+/* ----- end of month ----- */
+
+/* ----- start of week ----- */
+
+.rbc-time-view {
+  font-size: 10rem;
+  border: none;
+}
+
+.rbc-time-view .rbc-row {
+  box-sizing: border-box;
+  min-height: auto;
+}
+
+.rbc-time-header-content {
+  border-left: 0.2rem solid #ddd;
+}
+
+.rbc-time-header.rbc-overflowing {
+  border-right: none;
+}
+
+.rbc-timeslot-group {
+  background-color: #1363df;
+  border-left: 0.2rem solid #ddd;
+  border-bottom: 0.2rem solid #ddd;
+}
+
+.rbc-today .rbc-timeslot-group {
+  background-color: rgb(33, 253, 26);
+}
+
+.rbc-time-view .rbc-header {
+  border-bottom: none;
+}
+
+.rbc-day-slot .rbc-time-slot {
+  border-top: none;
+}
+
+/* ----- end of week ----- */
+
+/* ----- start of agenda ----- */
+
+.rbc-agenda-table {
+  background-color: #47b5ff;
+}
+
+.rbc-agenda-view table.rbc-agenda-table tbody > tr > td + td {
+  border-left: 0.2rem solid #ddd;
+}
+
+/* ----- end of agenda ----- */
+
+@media screen and (min-width: 830px) {
+  .public-calendar {
+    padding: 8rem 2rem 0 2rem;
+  }
+
+  .rbc-toolbar {
+    font-size: 4rem;
+  }
+
+  .rbc-month-view {
+    font-size: 4rem;
+  }
+
+  .rbc-month-row {
+    font-size: 6rem;
+  }
+
+  .rbc-event-content {
+    font-size: 2rem;
+  }
+
+  .rbc-time-header {
+    margin-right: 0 !important;
+  }
 }
