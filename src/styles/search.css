@@ -1,33 +1,34 @@
-.search-container {
-  margin-top: 6rem;
-  height: 100vh;
-  width: 100%;
+.search {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  position: absolute;
+  top: 0.5rem;
+  left: 10rem;
+  margin: 1rem 0;
 }
 
 .searchInputs {
   display: flex;
   align-items: center;
+  margin-bottom: 1.5rem;
 }
 
 .search input {
-  background-color: white;
+  background-color: #eee;
   border: 0;
   border-radius: 2px;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
-  font-size: 18px;
-  padding: 15px;
-  height: 30px;
-  width: 300px;
+  font-size: 1.8rem;
+  height: 3rem;
+  width: 30rem;
+  padding-left: 1rem;
 }
 
 .searchIcon {
-  height: 60px;
-  width: 50px;
-  background-color: white;
+  height: 3rem;
+  width: 5rem;
+  background-color: #eee;
   display: grid;
   place-items: center;
 }
@@ -37,18 +38,21 @@ input:focus {
 }
 
 .searchIcon svg {
-  font-size: 35px;
+  font-size: 3.5rem;
 }
 
 .dataResult {
-  margin-top: 5px;
-  width: 300px;
-  height: 200px;
-  background-color: white;
+  height: fit-content;
+  background-color: #eee;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   overflow: hidden;
   overflow-y: auto;
-  font-size: 4rem;
+  font-size: 5rem;
+  padding-left: 1rem;
+}
+
+.dataResult p {
+  padding-top: 1rem;
 }
 
 .dataResult::-webkit-scrollbar {
@@ -57,21 +61,18 @@ input:focus {
 
 .dataResult .dataItem {
   width: 100%;
-  height: 50px;
+  height: 5rem;
   display: flex;
   align-items: center;
   color: black;
 }
 
 .dataItem p {
-  margin-left: 10px;
+
+  margin-left: 1rem;
 }
 
-a {
-  text-decoration: none;
-}
-
-a:hover {
+.dataResult a:hover {
   background-color: lightgrey;
 }
 
@@ -83,3 +84,16 @@ a:hover {
   color: #333;
   font-size: 1.5rem;
 }
+
+@media screen and (max-width: 515px) {
+  .search input {
+    width: 20rem;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .search input {
+    width: 15rem;
+  }
+}
+

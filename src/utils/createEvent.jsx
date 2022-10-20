@@ -1,7 +1,7 @@
 import axios from "axios";
 export const createEvent = async (formData) => {
   try {
-    const resp = await axios.post(`${process.env.REACT_APP_BLOG_API}/event`, {
+    const resp = await axios.post(`${process.env.REACT_APP_FP_API}/event`, {
       body: JSON.stringify(formData),
       headers: {
         "Content-type": "application/json; charset=UTF-8",

@@ -2,8 +2,8 @@ import axios from "axios";
 
 export const login = async (formSubmission) => {
   try {
-    const post = await axios.post(
-      `${process.env.REACT_APP_BLOG_API}/user/login`,
+    const { data } = await axios.post(
+      `${process.env.REACT_APP_FP_API}/user/login`,
       {
         email: formSubmission.email,
         password: formSubmission.password,
@@ -12,7 +12,8 @@ export const login = async (formSubmission) => {
         },
       }
     );
-    console.log(post);
+    console.log(data);
+    return { data };
   } catch (error) {
     console.log(error.response);
 

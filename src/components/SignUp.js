@@ -1,14 +1,22 @@
 import { createUser } from "../utils/createUser";
+import { Navigate } from "react-router-dom";
 import { useState } from "react";
 import "../styles/access.css";
 
-export default function SignUp({ handleClick }) {
+export default function SignUp({
+  handleClick,
+  isAuthenticated,
+  setIsAuthenticated,
+}) {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [terms, setTerms] = useState(false);
+  const [token, setToken] = useState("");
+  const [isCapsLockOn, setIsCapsLockOn] = useState(false);
+  // const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [input, setInput] = useState({
     firstname: "",
@@ -98,6 +106,14 @@ export default function SignUp({ handleClick }) {
     });
   };
 
+  const checkCapsLock = (event) => {
+    if (event.getModifierState("CapsLock")) {
+      setIsCapsLockOn(true);
+    } else {
+      setIsCapsLockOn(false);
+    }
+  };
+
   const formSubmission = {
     firstname,
     lastname,
@@ -106,13 +122,16 @@ export default function SignUp({ handleClick }) {
     password,
     terms,
   };
-  console.log(formSubmission);
 
   //function for handling the form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const error = await createUser(formSubmission);
+      const { error, data } = await createUser(formSubmission);
+      console.log(data);
+      localStorage.setItem("token", data);
+      setToken(data);
+      if (token) setIsAuthenticated(true);
       setErrorMessage(error.response.data);
       if (error) throw error;
     } catch (err) {
@@ -120,7 +139,10 @@ export default function SignUp({ handleClick }) {
     }
   };
 
-  return (
+  return isAuthenticated ? (
+    // CHANGED FROM <Navigate to={"../secret/dashboard"} />
+    <Navigate to={"/secret/dashboard"} />
+  ) : (
     <main className="access">
       <section className="access-container">
         <div className="image-desktop"></div>
@@ -173,24 +195,32 @@ export default function SignUp({ handleClick }) {
             type="password"
             name="password"
             placeholder="Passwort"
+            onKeyUp={checkCapsLock}
             required
             value={input.password}
             onChange={onInputChange}
             onBlur={validateInput}
-            onInput={() => (e) => setPassword(e.target.value)}
           />
           {error.password && <span className="err">{error.password}</span>}
+          {isCapsLockOn && (
+            <p className="caps-lock-warning">Feststelltaste ist aktiviert!</p>
+          )}
           <input
             type="password"
             name="confirmPassword"
             placeholder="Passwort erneut eingeben"
+            onKeyUp={checkCapsLock}
             required
             value={input.confirmPassword}
             onChange={onInputChange}
             onBlur={validateInput}
+            onInput={(e) => setPassword(e.target.value)}
           />
           {error.confirmPassword && (
             <span className="err">{error.confirmPassword}</span>
+          )}
+          {isCapsLockOn && (
+            <p className="caps-lock-warning">Feststelltaste ist aktiviert!</p>
           )}
           <div className="terms">
             <label className="label">
@@ -208,7 +238,7 @@ export default function SignUp({ handleClick }) {
           <br />
           <div>
             <p>Bereits registriert?</p>
-            <button className="button" onClick={() => handleClick(true)}>
+            <button className="button" onClick={(e) => handleClick(true, e)}>
               SignIn
             </button>
           </div>

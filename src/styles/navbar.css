@@ -56,12 +56,12 @@
   width: 3rem;
   padding: 0.5rem;
   border-radius: 50%;
-  background-image: white;
+  background-image: #eee;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
   position: absolute;
   top: 50%;
-  right: 25px;
+  right: 2.5rem;
   transform: translateY(-50%);
   display: none;
 }
@@ -71,7 +71,7 @@
   list-style-type: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 830px) {
   .hamburger {
     display: block;
   }
@@ -90,7 +90,7 @@
 
   .navigation-menu li {
     text-align: center;
-    background-color: rgb(255, 255, 255);
+    background-color: #eee;
     border-radius: 0;
   }
 

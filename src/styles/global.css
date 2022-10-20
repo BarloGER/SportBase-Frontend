@@ -4,6 +4,16 @@
   box-sizing: border-box;
   font-size: 62.5%;
 }
+h1 {
+  font-family: "Bebas Neue", cursive;
+}
+h2,
+span,
+button,
+p,
+li {
+  font-family: "Nunito Sans", sans-serif;
+}
 
 ol,
 ul {
@@ -17,7 +27,7 @@ a {
 /* ----- start scrollbar styling ----- */
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 1rem;
 }
 
 /* Track */
@@ -34,8 +44,7 @@ a {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
- /* ----- endof scrollbar styling ----- */
-
+/* ----- endof scrollbar styling ----- */
 
 /* Debugging */
 .border {

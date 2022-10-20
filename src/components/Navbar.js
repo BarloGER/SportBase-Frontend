@@ -3,6 +3,7 @@ import { useState } from "react";
 // import Login from "./Login";
 // import SignUp from "./SignUp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Search from "./Search";
 import "../styles/navbar.css";
 
 export default function Navbar() {
@@ -37,6 +38,7 @@ export default function Navbar() {
           />
         </svg>
       </button>
+      <Search />
       <div
         className={
           isNavExpanded ? "navigation-menu expanded" : "navigation-menu"
@@ -59,13 +61,22 @@ export default function Navbar() {
           >
             <li>Sign In</li>
           </NavLink>
+
           <NavLink
-            to="/dashboard"
+            to="/secret/dashboard"
             onClick={() => {
               setIsNavExpanded(false);
             }}
           >
             <li>Dashboard</li>
+          </NavLink>
+          <NavLink
+            to="/calendar"
+            onClick={() => {
+              setIsNavExpanded(false);
+            }}
+          >
+            <li>Kalender</li>
           </NavLink>
         </ul>
       </div>

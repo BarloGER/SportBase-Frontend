@@ -1,0 +1,10 @@
+.public-calendar {
+  margin-top: 10rem;
+  height: 100vh;
+  width: 100%;
+}
+
+.public-calendar .rbc-day-bg {
+  display: block;
+  outline: 20px;
+}
