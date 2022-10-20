@@ -3,8 +3,9 @@ import "../styles/aboutUs.css";
 function AboutUs() {
   return (
     <div className="about-us">
+      <h1 className="gettoknowus">get to know us</h1>
       <div className="about-us-Team">
-        <div className="Mike">
+        <div className="personal-card">
           <a
             href={"https://github.com/BarloGER"}
             target="_blank"
@@ -13,7 +14,7 @@ function AboutUs() {
             <img
               className="imageFounders"
               src={
-                "https://www.pngfind.com/pngs/m/610-6104451_image-placeholder-png-user-profile-placeholder-image-png.png"
+                "https://png.pngitem.com/pimgs/s/506-5067022_sweet-shap-profile-placeholder-hd-png-download.png"
               }
               alt="img from Mike"
             />
@@ -26,7 +27,7 @@ function AboutUs() {
             minus quis reprehenderit accusantium ad fugit!
           </p>
         </div>
-        <div className="Niklas">
+        <div className="personal-card" id="margin">
           <a
             href={"https://github.com/niklasriebesell"}
             target="_blank"
@@ -35,7 +36,7 @@ function AboutUs() {
             <img
               className="imageFounders"
               src={
-                "https://www.pngfind.com/pngs/m/610-6104451_image-placeholder-png-user-profile-placeholder-image-png.png"
+                "https://png.pngitem.com/pimgs/s/506-5067022_sweet-shap-profile-placeholder-hd-png-download.png"
               }
               alt="img from Niklas"
             />
@@ -49,7 +50,7 @@ function AboutUs() {
           </p>
         </div>
 
-        <div className="Robin">
+        <div className="personal-card" id="margin">
           <a
             href={"https://github.com/OtisB"}
             target="_blank"
@@ -58,17 +59,17 @@ function AboutUs() {
             <img
               className="imageFounders"
               src={
-                "https://www.pngfind.com/pngs/m/610-6104451_image-placeholder-png-user-profile-placeholder-image-png.png"
+                "https://png.pngitem.com/pimgs/s/506-5067022_sweet-shap-profile-placeholder-hd-png-download.png"
               }
               alt="img from Robin"
             />
           </a>
           <h1 className="about-us-name">Robin</h1>
           <p className="about-each">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit
-            molestiae qui sed quae aliquid et cum dolore vitae placeat incidunt,
-            obcaecati distinctio, maxime facere! Aliquid praesentium est atque
-            consectetur laudantium.
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae,
+            praesentium. Optio quod maxime ad! Ex, molestias quas commodi fuga
+            recusandae et inventore veritatis officia. Quibusdam aliquid tempora
+            temporibus ab excepturi.
           </p>
         </div>
       </div>
