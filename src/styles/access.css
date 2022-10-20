@@ -2,7 +2,7 @@
 
 .access {
   margin-top: 6rem;
-  height: 93vh;
+  height: 95vh;
   width: 100%;
   display: flex;
   align-items: center;
@@ -15,8 +15,8 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background-image: url(https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  height: 100vh;
+  background-image: url(https://cdn.discordapp.com/attachments/1021406713313763328/1027873313776738334/football-1-1551755.jpg);
   background-size: cover;
   background-position: center center;
   filter: brightness(60%);
@@ -29,23 +29,7 @@
   height: 80%;
   width: 80%;
   border-radius: 2rem;
-  background: rgb(115, 55, 156);
-  background-image: linear-gradient(
-    180deg,
-    hsl(32deg 83% 55%) 0%,
-    hsl(16deg 75% 58%) 10%,
-    hsl(0deg 67% 60%) 17%,
-    hsl(344deg 57% 63%) 22%,
-    hsl(328deg 47% 65%) 26%,
-    hsl(303deg 35% 56%) 29%,
-    hsl(277deg 30% 47%) 33%,
-    hsl(251deg 33% 38%) 37%,
-    hsl(226deg 36% 30%) 44%,
-    hsl(251deg 35% 33%) 53%,
-    hsl(277deg 34% 37%) 66%,
-    hsl(303deg 33% 40%) 81%,
-    hsl(328deg 32% 44%) 100%
-  );
+  background: rgb(49, 173, 111);
   z-index: 1;
 }
 
@@ -90,7 +74,7 @@
 }
 
 .image-desktop {
-  background: url(https://images.pexels.com/photos/1702624/pexels-photo-1702624.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  /* background: url(https://images.pexels.com/photos/1702624/pexels-photo-1702624.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1); */
   background-size: cover;
   background-position: center center;
   height: 100%;

@@ -22,7 +22,6 @@ export default function Navbar() {
           setIsNavExpanded(!isNavExpanded);
         }}
       >
-        {/* icon from Heroicons.com */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -45,7 +44,11 @@ export default function Navbar() {
         }
       >
         <ul className="nav-link">
-          <NavLink to="/" onClick={() => setIsNavExpanded(false)}>
+          <NavLink
+            to="/"
+            onClick={() => setIsNavExpanded(false)}
+            aria-label="redirects to landing page"
+          >
             <li>
               <FontAwesomeIcon
                 className="fontawesomeicon"
@@ -58,6 +61,7 @@ export default function Navbar() {
             onClick={() => {
               setIsNavExpanded(false);
             }}
+            aria-label="redirects to SignIn"
           >
             <li>Sign In</li>
           </NavLink>
@@ -67,6 +71,7 @@ export default function Navbar() {
             onClick={() => {
               setIsNavExpanded(false);
             }}
+            aria-label="redirects to dashboard"
           >
             <li>Dashboard</li>
           </NavLink>
@@ -75,6 +80,7 @@ export default function Navbar() {
             onClick={() => {
               setIsNavExpanded(false);
             }}
+            aria-label="redirects to calendar"
           >
             <li>Kalender</li>
           </NavLink>

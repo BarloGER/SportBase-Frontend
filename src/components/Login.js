@@ -42,8 +42,8 @@ export default function Login({
     // from <Navigate to={"../secret/dashboard"} /> to
     <Navigate to={"/secret/dashboard"} />
   ) : (
-    <main className="access">
-      <section className="access-container">
+    <section className="access">
+      <div className="access-container">
         <div className="image-desktop"></div>
         <form onSubmit={handleSubmit}>
           <input
@@ -80,7 +80,7 @@ export default function Login({
             </button>
           </div>
         </form>
-      </section>
-    </main>
+      </div>
+    </section>
   );
 }

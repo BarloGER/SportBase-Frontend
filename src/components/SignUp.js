@@ -143,8 +143,8 @@ export default function SignUp({
     // CHANGED FROM <Navigate to={"../secret/dashboard"} />
     <Navigate to={"/secret/dashboard"} />
   ) : (
-    <main className="access">
-      <section className="access-container">
+    <section className="access">
+      <div className="access-container">
         <div className="image-desktop"></div>
         <form onSubmit={handleSubmit}>
           <input
@@ -243,7 +243,7 @@ export default function SignUp({
             </button>
           </div>
         </form>
-      </section>
-    </main>
+      </div>
+    </section>
   );
 }

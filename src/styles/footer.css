@@ -25,11 +25,6 @@
 .social-container .fontawesomeicon {
   font-size: 3rem;
   color: #00ff41;
-
-}
-
-.active {
-  color: black;
 }
 
 @media screen and (max-width: 768px) {
