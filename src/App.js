@@ -55,6 +55,7 @@ export default function App() {
           <Route index element={<LandingPage />} />
           <Route path="aboutus" element={<AboutUs />} />
           <Route path="calendar" element={<PublicCalendar />} />
+          <Route path="account/:id" element={<Account />} />
           <Route
             path="/signin"
             element={
@@ -74,7 +75,6 @@ export default function App() {
               <Route path="events" element={<Events />} />
               <Route path="eventMultiForm" element={<EventMultiForm />} />
               <Route path="search" element={<Search />} />
-              <Route path="account/:id" element={<Account />} />
             </Route>
           </Route>
         </Route>
