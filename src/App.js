@@ -5,8 +5,9 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import SignIn from "./components/SignIn";
 import Events from "./components/Events";
-import EventForm from "./components/EventForm";
+import EventMultiForm from "./components/EventMultiForm";
 import Dashboard from "./components/Dashboard";
+import AboutUs from "./components/AboutUs";
 
 import GlobalLayout from "./components/GlobalLayout";
 import ProtectedLayout from "./components/Protectedlayout";
@@ -52,8 +53,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<GlobalLayout />}>
           <Route index element={<LandingPage />} />
+          <Route path="aboutus" element={<AboutUs />} />
           <Route path="calendar" element={<PublicCalendar />} />
-
           <Route
             path="/signin"
             element={
@@ -71,7 +72,7 @@ export default function App() {
           >
             <Route path="dashboard" element={<Dashboard />}>
               <Route path="events" element={<Events />} />
-              <Route path="eventform" element={<EventForm />} />
+              <Route path="eventMultiForm" element={<EventMultiForm />} />
               <Route path="search" element={<Search />} />
               <Route path="account/:id" element={<Account />} />
             </Route>
