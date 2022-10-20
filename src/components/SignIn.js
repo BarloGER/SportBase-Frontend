@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { useState } from "react";
 import Login from "./Login";
 import SignUp from "./SignUp";
@@ -15,6 +16,11 @@ export default function SignIn({
 
   return (
     <main className="signIn">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>SignIn</title>
+        <meta name="description" content="SignIn Seite mit 2 Komponenten." />
+      </Helmet>
       {active && (
         <Login
           handleClick={handleClick}

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import React, { useState, useEffect } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
@@ -32,6 +33,11 @@ export default function OtherCalendar() {
 
   return (
     <section className="public-calendar">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Kalender</title>
+        <meta name="description" content="Kalender Seite mit 1 Komponente." />
+      </Helmet>
       <Calendar
         localizer={localizer}
         events={events}
