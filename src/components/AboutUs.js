@@ -93,7 +93,7 @@ function AboutUs() {
           things. Your Sport is our passion
         </p>
       </section>
-    </div>
+    </main>
   );
 }
 

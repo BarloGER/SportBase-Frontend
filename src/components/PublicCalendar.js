@@ -31,13 +31,17 @@ export default function OtherCalendar() {
   }));
 
   return (
-    <main className="public-calendar">
+    <section className="public-calendar">
       <Calendar
         localizer={localizer}
         events={events}
-        startAccessor="start"
-        endAccessor="end"
-        style={{ height: "100%", margin: "5rem" }}
+        startAccessor={(event) => {
+          return new Date(event.start);
+        }}
+        // startAccessor="start"
+        endAccessor={(event) => {
+          return new Date(event.end);
+        }}
         messages={{
           month: "Monat",
           day: "Tag",
@@ -48,6 +52,6 @@ export default function OtherCalendar() {
         }}
         culture="de"
       />
-    </main>
+    </section>
   );
 }

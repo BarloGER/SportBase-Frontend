@@ -1,11 +1,11 @@
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../styles/footer.css";
+import "../styles/navigation.css";
 
 export default function Footer() {
   return (
-    <section className="footer">
-      <ul className="exanple-container">
+    <footer className="footer">
+      <ul className="example-container">
         <NavLink className="nav-link" to="/">
           <li>Beispiel</li>
         </NavLink>
@@ -16,7 +16,7 @@ export default function Footer() {
       <ul className="social-container">
         <li>
           <a
-            aria-label="redirects to youtube"
+            aria-label="Leitet zu Youtube weiter"
             href="https://www.youtube.com/"
             target="_blank"
             rel="noreferrer"
@@ -29,7 +29,7 @@ export default function Footer() {
         </li>
         <li>
           <a
-            aria-label="redirects to facebook"
+            aria-label="Leitet zu Facebook weiter"
             href="https://www.facebook.com/"
             target="_blank"
             rel="noreferrer"
@@ -42,7 +42,7 @@ export default function Footer() {
         </li>
         <li>
           <a
-            aria-label="redirects to instagram"
+            aria-label="Leitet zu Instagram weiter"
             href="https://www.instagram.com/"
             target="_blank"
             rel="noreferrer"
@@ -55,7 +55,7 @@ export default function Footer() {
         </li>
         <li>
           <a
-            aria-label="redirects to twitter"
+            aria-label="Leitet zu Twitter weiter"
             href="https://www.twitter.com/"
             target="_blank"
             rel="noreferrer"
@@ -67,6 +67,6 @@ export default function Footer() {
           </a>
         </li>
       </ul>
-    </section>
+    </footer>
   );
 }

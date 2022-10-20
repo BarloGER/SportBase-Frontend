@@ -1,9 +1,34 @@
+/* ----- start of globale color vars ----- */
+
+:root {
+  --navigation-li: #00ff41;
+  --navigation-bg: #424344;
+  --white: #eee;
+  --black: #333;
+}
+
+/* ----- end of globale color vars ----- */
+
+/* ----- start of globale styling ----- */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-size: 62.5%;
 }
+
+main::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-image: url(https://cdn.discordapp.com/attachments/1021406713313763328/1027873313776738334/football-1-1551755.jpg);
+  background-size: cover;
+  background-position: center center;
+  filter: brightness(60%);
+}
+
 h1 {
   font-family: "Bebas Neue", cursive;
 }
@@ -24,29 +49,29 @@ a {
   text-decoration: none;
 }
 
-/* ----- start scrollbar styling ----- */
-/* width */
+/* ----- endof globale styling -----*/
+
+/* ----- start of scrollbar styling ----- */
+
 ::-webkit-scrollbar {
   width: 1rem;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--white);
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-/* ----- endof scrollbar styling ----- */
 
-/* Debugging */
+/* ----- end of scrollbar styling ----- */
+
+/* ----- debugging ----- */
 .border {
   border: 1px solid red;
 }

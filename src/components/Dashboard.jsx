@@ -5,12 +5,12 @@ import { Outlet } from "react-router-dom";
 function dashboard() {
   return (
     <main className="dashboard">
-      <div className="dashboard-card-container">
-        {/* <DashboardCard cardText={"Verfügbare Events"} cardLink={"events"} /> */}
-        <DashboardCard cardText={"Event anlegen"} cardLink={"eventMultiForm"} /> 
+      <div className="sidebar">
+        <DashboardCard cardText={"Event anlegen"} cardLink={"eventMultiForm"} />
         <DashboardCard cardText={"Account"} cardLink={"account"} />
-        <Outlet />,
+        <Outlet />
       </div>
+      <div className="dashboard-content"></div>
     </main>
   );
 }
