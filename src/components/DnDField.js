@@ -1,10 +1,11 @@
 import update from "immutability-helper";
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import DnDPlayer from './DnDPlayer';
+//import domtoimage from 'dom-to-image';
 import { useDrop } from "react-dnd";
 import { ItemTypes } from "../utils/ItemTypes.js";
 
-export default function DnDField({ newEvent, setNewEvent }) {
+export default function DnDField({ newEvent, setNewEvent, lineupRef }) {
   const [activePlayers, setActivePlayers] = useState(newEvent.activePlayers);
   const [playerCard, setPlayerCard] = useState();
 
@@ -35,6 +36,16 @@ export default function DnDField({ newEvent, setNewEvent }) {
     [movePlayer]
   );
 
+  const onClickHandler = async () => {
+    console.log(drop);
+    //const dataUrl = await domtoimage.toJpeg(drop.current, { quality: 0.95 });
+    //console.log(dataUrl);
+    // const link = document.createElement('a');
+    // link.download = `my-meme-${Date.now()}.jpeg`;
+    // link.href = dataUrl;
+    // link.click();
+  };
+
   useEffect(() => {
     setPlayerCard(
       activePlayers.map((player) => ({
@@ -42,28 +53,29 @@ export default function DnDField({ newEvent, setNewEvent }) {
         left: Math.random() * 100,
       })
       )
-    )
+    );
   }, [activePlayers]);
 
   return (
-    <main className="DnDfield" ref={drop}>
-      {playerCard && Object.keys(playerCard).map((key) => {
-        const { left, top } = playerCard[key];
-        return (
-          <DnDPlayer
-            key={key}
-            id={key}
-            left={left}
-            top={top}
-          >
-            <img
-              src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
-              alt="pictureOfPlayer"
-            />
-            {/* </div> */}
-          </DnDPlayer>
-        );
-      })}
-    </main>
+    <div className="lineup-container" ref={lineupRef}>
+      <main className="DnDfield" ref={drop}>
+        {playerCard && Object.keys(playerCard).map((key) => {
+          const { left, top } = playerCard[key];
+          return (
+            <DnDPlayer
+              key={key}
+              id={key}
+              left={left}
+              top={top}
+            >
+              <img
+                src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
+                alt="pictureOfPlayer"
+              />
+            </DnDPlayer>
+          );
+        })}
+      </main>
+    </div>
   )
-}
+};

@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import domtoimage from 'dom-to-image';
 import EventInfo from "./EventInfo";
 import Player from "./Player";
 import Reserve from "./Reserve";
@@ -21,6 +22,8 @@ export default function EventMultiForm() {
     reservePlayers: []
   });
 
+  const lineupRef = useRef(null);
+
   const FormTitles = [
     "Event Informationen",
     "Verfügbare Spieler",
@@ -35,7 +38,17 @@ export default function EventMultiForm() {
       return <Player avaiablePlayers={avaiablePlayers} setNewEvent={setNewEvent} />;
     } else if (page === 2) {
       return <Reserve newEvent={newEvent} setNewEvent={setNewEvent} />;
-    } else return <DndProvider backend={HTML5Backend}><DnDField newEvent={newEvent} setNewEvent={setNewEvent} /></DndProvider>;
+    } else return <DndProvider backend={HTML5Backend}>
+      <DnDField newEvent={newEvent} setNewEvent={setNewEvent} lineupRef={lineupRef} /></DndProvider>;
+  };
+
+  const handleSubmit = async () => {
+    const dataUrl = await domtoimage.toJpeg(lineupRef.current, { quality: 0.95 });
+    console.log(dataUrl);
+    const link = document.createElement('a');
+    link.download = `event-${Date.now()}.jpeg`;
+    link.href = dataUrl;
+    link.click();
   };
 
   //TODO: Use suitable endpoint: GetallUsersByTeam/GetallPlayersByTeam 
@@ -55,7 +68,7 @@ export default function EventMultiForm() {
   return (
     <main className="event-form">
       <div className="form">
-        <div className="progressbar">
+        {/* <div className="progressbar">
           <div
             style={{
               width:
@@ -68,7 +81,7 @@ export default function EventMultiForm() {
                       : "100%",
             }}
           ></div>
-        </div>
+        </div> */}
         <div className="form-container">
           <div className="header">
             <h1>{FormTitles[page]}</h1>
@@ -86,7 +99,7 @@ export default function EventMultiForm() {
             <button
               onClick={() => {
                 if (page === FormTitles.length - 1) {
-                  alert("FORM SUBMITTED");
+                  handleSubmit();
                 } else {
                   setPage((currPage) => currPage + 1);
                 }
