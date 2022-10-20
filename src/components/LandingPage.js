@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../styles/landingPage.css";
 
 export default function LandingPage() {
@@ -7,9 +8,11 @@ export default function LandingPage() {
         <div className="hero-content">
           <h1 className="hero-title">Willkommen bei SportBase</h1>
           <h2 className="hero-subtitle">Your Sport is our passion</h2>
-          <button type="button" className="hero-button" onClick="#">
-            Erfahrt mehr über uns &raquo;
-          </button>
+          <Link to="/aboutus">
+            <button type="button" className="hero-button">
+              Erfahrt mehr über uns &raquo;
+            </button>
+          </Link>
         </div>
         <article className="text-container ">
           <span>
