@@ -72,7 +72,7 @@ export default function App() {
           >
             <Route path="dashboard" element={<Dashboard />}>
               <Route path="events" element={<Events />} />
-              <Route path="eventform" element={<EventForm />} />
+              <Route path="eventMultiForm" element={<EventMultiForm />} />
               <Route path="search" element={<Search />} />
               <Route path="account/:id" element={<Account />} />
             </Route>
