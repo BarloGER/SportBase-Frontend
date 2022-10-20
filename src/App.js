@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import SignIn from "./components/SignIn";
 import Events from "./components/Events";
-import EventForm from "./components/EventForm";
+import EventMultiForm from "./components/EventMultiForm";
 import Dashboard from "./components/Dashboard";
 import AboutUs from "./components/AboutUs";
 
@@ -55,7 +55,6 @@ export default function App() {
           <Route index element={<LandingPage />} />
           <Route path="aboutus" element={<AboutUs />} />
           <Route path="calendar" element={<PublicCalendar />} />
-
           <Route
             path="/signin"
             element={

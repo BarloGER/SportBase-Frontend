@@ -60,6 +60,12 @@
   margin: 5px;
 }
 
+.form-container .footer button:disabled {
+
+  background-color: rgb(163, 16, 221);
+
+}
+
 .sign-up-container {
   height: 100%;
   width: 100%;
