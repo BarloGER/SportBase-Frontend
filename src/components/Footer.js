@@ -15,7 +15,12 @@ export default function Footer() {
       </ul>
       <ul className="social-container">
         <li>
-          <a href="https://www.youtube.com/" target="_blank">
+          <a
+            aria-label="redirects to youtube"
+            href="https://www.youtube.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <FontAwesomeIcon
               className="fontawesomeicon"
               icon={["fab", "youtube"]}
@@ -23,7 +28,12 @@ export default function Footer() {
           </a>
         </li>
         <li>
-          <a href="https://www.facebook.com/" target="_blank">
+          <a
+            aria-label="redirects to facebook"
+            href="https://www.facebook.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <FontAwesomeIcon
               className="fontawesomeicon"
               icon={["fab", "facebook"]}
@@ -31,7 +41,12 @@ export default function Footer() {
           </a>
         </li>
         <li>
-          <a href="https://www.instagram.com/" target="_blank">
+          <a
+            aria-label="redirects to instagram"
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <FontAwesomeIcon
               className="fontawesomeicon"
               icon={["fab", "instagram"]}
@@ -39,7 +54,12 @@ export default function Footer() {
           </a>
         </li>
         <li>
-          <a href="https://www.twitter.com/" target="_blank">
+          <a
+            aria-label="redirects to twitter"
+            href="https://www.twitter.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <FontAwesomeIcon
               className="fontawesomeicon"
               icon={["fab", "twitter"]}
