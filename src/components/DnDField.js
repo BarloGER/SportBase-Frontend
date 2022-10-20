@@ -1,7 +1,6 @@
 import update from "immutability-helper";
 import { useState, useCallback, useEffect, useRef } from 'react';
 import DnDPlayer from './DnDPlayer';
-//import domtoimage from 'dom-to-image';
 import { useDrop } from "react-dnd";
 import { ItemTypes } from "../utils/ItemTypes.js";
 
@@ -36,16 +35,6 @@ export default function DnDField({ newEvent, setNewEvent, lineupRef }) {
     [movePlayer]
   );
 
-  const onClickHandler = async () => {
-    console.log(drop);
-    //const dataUrl = await domtoimage.toJpeg(drop.current, { quality: 0.95 });
-    //console.log(dataUrl);
-    // const link = document.createElement('a');
-    // link.download = `my-meme-${Date.now()}.jpeg`;
-    // link.href = dataUrl;
-    // link.click();
-  };
-
   useEffect(() => {
     setPlayerCard(
       activePlayers.map((player) => ({
@@ -57,7 +46,7 @@ export default function DnDField({ newEvent, setNewEvent, lineupRef }) {
   }, [activePlayers]);
 
   return (
-    <div className="lineup-container" ref={lineupRef}>
+    <div className="DnDfield" ref={lineupRef}>
       <main className="DnDfield" ref={drop}>
         {playerCard && Object.keys(playerCard).map((key) => {
           const { left, top } = playerCard[key];
