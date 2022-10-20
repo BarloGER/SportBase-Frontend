@@ -1,0 +1,36 @@
+.about-us {
+  height: 100vh;
+}
+
+.about-us-Team {
+  display: flex;
+  width: 80vw;
+  margin-top: 20vh;
+  border: blue solid 2px;
+  justify-items: center;
+  justify-content: center;
+  margin-left: 10vw;
+}
+
+.imageFounders {
+  width: 200px;
+  height: auto;
+}
+
+.about-each {
+  font-size: 2rem;
+}
+
+.about-us-name {
+  font-size: 3rem;
+}
+.about-SportBase {
+  display: flex;
+  border: green solid 2px;
+  width: 80vw;
+  margin-left: 10vw;
+}
+
+.our-passion {
+  font-size: 2rem;
+}
