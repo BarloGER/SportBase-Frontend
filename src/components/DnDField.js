@@ -1,23 +1,12 @@
 import update from "immutability-helper";
 import { useState, useCallback, useEffect } from 'react';
 import DnDPlayer from './DnDPlayer';
-import axios from "axios";
 import { useDrop } from "react-dnd";
 import { ItemTypes } from "../utils/ItemTypes.js";
 
-export default function DnDField() {
-  const [activePlayer, setActivePlayer] = useState([]);
+export default function DnDField({ newEvent, setNewEvent }) {
+  const [activePlayers, setActivePlayers] = useState(newEvent.activePlayers);
   const [playerCard, setPlayerCard] = useState();
-
-  const getPlayer = async () => {
-    try {
-      const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/user`);
-      setActivePlayer(data.filter((user) => user.player === true));
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
 
   const movePlayer = useCallback(
     (id, left, top) => {
@@ -47,18 +36,14 @@ export default function DnDField() {
   );
 
   useEffect(() => {
-    getPlayer();
-  }, []);
-
-  useEffect(() => {
     setPlayerCard(
-      activePlayer.map((player) => ({
+      activePlayers.map((player) => ({
         top: Math.random() * 100,
         left: Math.random() * 100,
       })
       )
     )
-  }, [activePlayer]);
+  }, [activePlayers]);
 
   return (
     <main className="DnDfield" ref={drop}>
@@ -71,7 +56,6 @@ export default function DnDField() {
             left={left}
             top={top}
           >
-            {/* <div className="player"> */}
             <img
               src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
               alt="pictureOfPlayer"

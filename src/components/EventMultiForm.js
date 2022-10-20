@@ -35,7 +35,7 @@ export default function EventMultiForm() {
       return <Player avaiablePlayers={avaiablePlayers} setNewEvent={setNewEvent} />;
     } else if (page === 2) {
       return <Reserve newEvent={newEvent} setNewEvent={setNewEvent} />;
-    } else return <DndProvider backend={HTML5Backend}><DnDField /></DndProvider>;
+    } else return <DndProvider backend={HTML5Backend}><DnDField newEvent={newEvent} setNewEvent={setNewEvent} /></DndProvider>;
   };
 
   //TODO: Use suitable endpoint: GetallUsersByTeam/GetallPlayersByTeam 
