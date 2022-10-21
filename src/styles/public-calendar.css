@@ -26,7 +26,7 @@
   border-top: 0.2rem solid #ddd;
 }
 
-.rbc-header + .rbc-header {
+.rbc-header+.rbc-header {
   border-left: 0.2rem solid #ddd;
   font-size: 62.5%;
 }
@@ -63,11 +63,11 @@
   border: none;
 }
 
-.rbc-month-row + .rbc-month-row {
+.rbc-month-row+.rbc-month-row {
   border-top: 0.2rem solid #ddd;
 }
 
-.rbc-day-bg + .rbc-day-bg {
+.rbc-day-bg+.rbc-day-bg {
   border-left: 0.2rem solid #ddd;
 }
 
@@ -119,7 +119,7 @@
   background-color: #47b5ff;
 }
 
-.rbc-agenda-view table.rbc-agenda-table tbody > tr > td + td {
+.rbc-agenda-view table.rbc-agenda-table tbody>tr>td+td {
   border-left: 0.2rem solid #ddd;
 }
 

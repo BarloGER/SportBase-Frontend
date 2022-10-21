@@ -44,7 +44,7 @@ export default function Player({ avaiablePlayers, setNewEvent }) {
 
   //TODO: function to Check if there are alredy activ players to set checkbox checked
   return (
-    <main className="select-player">
+    <section className="select-player">
       {avaiablePlayers && avaiablePlayers.length > 0 ? (
         avaiablePlayers.map((player) => {
           return (
@@ -62,6 +62,6 @@ export default function Player({ avaiablePlayers, setNewEvent }) {
       ) : (
         <h2>Keine aktiven Spieler</h2>
       )}
-    </main>
+    </section>
   );
 }
