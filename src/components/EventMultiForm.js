@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import domtoimage from 'dom-to-image';
 import EventInfo from "./EventInfo";
 import Player from "./Player";
 import Reserve from "./Reserve";
@@ -13,13 +14,17 @@ export default function EventMultiForm() {
   const [page, setPage] = useState(0);
   const [avaiablePlayers, setAvaiablePlayers] = useState([]);
   const [newEvent, setNewEvent] = useState({
-    eventName: "",
-    date: "",
-    createdAt: "",
-    opponent: "",
+    title: '',
+    startDate: '',
+    endDate: '',
+    createdAt: '',
+    opponent: '',
     activePlayers: [],
     reservePlayers: [],
+    lineUp: ''
   });
+
+  const lineupRef = useRef(null);
 
   const FormTitles = [
     "Event Informationen",
@@ -37,12 +42,25 @@ export default function EventMultiForm() {
       );
     } else if (page === 2) {
       return <Reserve newEvent={newEvent} setNewEvent={setNewEvent} />;
-    } else
-      return (
-        <DndProvider backend={HTML5Backend}>
-          <DnDField newEvent={newEvent} setNewEvent={setNewEvent} />
-        </DndProvider>
-      );
+    } else return <DndProvider backend={HTML5Backend}>
+      <DnDField newEvent={newEvent} lineupRef={lineupRef} /></DndProvider>;
+  };
+
+  const handleSubmit = async () => {
+    const dataUrl = await domtoimage.toJpeg(lineupRef.current, { quality: 0.95, style: { margin: 0 } });
+    // const link = document.createElement('a');
+    // link.download = `event-${Date.now()}.jpeg`;
+    // link.href = dataUrl;
+    // link.click();
+
+    const newEventObj = { ...newEvent };
+    newEventObj.startDate = new Date(newEventObj.startDate).toISOString();
+    newEventObj.endDate = new Date(newEventObj.endDate).toISOString();
+    newEventObj.createdAt = new Date().toISOString();
+    newEventObj.lineUp = dataUrl;
+
+    setNewEvent(newEventObj);
+    alert(`Event: ${newEventObj.title} was submitted`);
   };
 
   //TODO: Use suitable endpoint: GetallUsersByTeam/GetallPlayersByTeam
@@ -64,20 +82,6 @@ export default function EventMultiForm() {
   return (
     <section className="event-form">
       <div className="form">
-        <div className="progressbar">
-          <div
-            style={{
-              width:
-                page === 0
-                  ? "25%"
-                  : page == 1
-                  ? "50%"
-                  : page == 2
-                  ? "75%"
-                  : "100%",
-            }}
-          ></div>
-        </div>
         <div className="form-container">
           <div className="header">
             <h1>{FormTitles[page]}</h1>
@@ -95,7 +99,7 @@ export default function EventMultiForm() {
             <button
               onClick={() => {
                 if (page === FormTitles.length - 1) {
-                  alert("FORM SUBMITTED");
+                  handleSubmit();
                 } else {
                   setPage((currPage) => currPage + 1);
                 }
@@ -108,4 +112,4 @@ export default function EventMultiForm() {
       </div>
     </section>
   );
-}
+};
