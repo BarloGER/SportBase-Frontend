@@ -6,13 +6,12 @@ import { Navigate } from "react-router-dom";
 export default function Login({
   handleClick,
   isAuthenticated,
+  setToken,
   setIsAuthenticated,
 }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isCapsLockOn, setIsCapsLockOn] = useState(false);
-  // const [token, setToken] = useState("");
-  // const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,7 +22,7 @@ export default function Login({
         return error;
       }
       localStorage.setItem("token", data.token);
-      // setToken(data);
+      setToken(data.token);
       setIsAuthenticated(true);
     } catch (error) {}
   };
