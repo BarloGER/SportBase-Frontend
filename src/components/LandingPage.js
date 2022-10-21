@@ -7,7 +7,6 @@ export default function LandingPage() {
     <main className="landing-page">
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Startseite</title>
         <meta name="description" content="Startseite mit Info Text" />
       </Helmet>
       <div className="hero">

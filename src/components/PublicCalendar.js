@@ -35,7 +35,6 @@ export default function OtherCalendar() {
     <section className="public-calendar">
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Kalender</title>
         <meta name="description" content="Kalender Seite mit 1 Komponente." />
       </Helmet>
       <Calendar
