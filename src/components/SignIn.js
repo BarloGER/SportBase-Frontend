@@ -18,7 +18,6 @@ export default function SignIn({
     <main className="signIn">
       <Helmet>
         <meta charSet="utf-8" />
-        <title>SignIn</title>
         <meta name="description" content="SignIn Seite mit 2 Komponenten." />
       </Helmet>
       {active && (

@@ -8,7 +8,6 @@ function dashboard() {
     <main className="dashboard-section">
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Dashboard</title>
         <meta
           name="description"
           content="Dashboard Seite mit mehreren Komponenten."

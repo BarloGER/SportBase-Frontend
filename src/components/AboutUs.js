@@ -6,7 +6,6 @@ function AboutUs() {
     <main className="about-us-container">
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Über uns</title>
         <meta
           name="description"
           content="Über uns Seite mit Informationen über Gründer."
