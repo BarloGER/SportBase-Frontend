@@ -9,8 +9,7 @@
 }
 
 .account::before {
-  background: url(https://cdn.discordapp.com/attachments/1021406713313763328/1027873313776738334/football-1-1551755.jpg)
-    no-repeat center center/cover;
+  background: url(https://cdn.discordapp.com/attachments/1021406713313763328/1027873313776738334/football-1-1551755.jpg) no-repeat center center/cover;
   content: "";
   position: absolute;
   top: 0;
@@ -22,7 +21,7 @@
 
 .account-container {
   display: flex;
-  background-color: #424344;
+  background-color: var(--clear-white);
   height: 90rem;
   width: 140rem;
   border-radius: 1rem;
@@ -57,7 +56,8 @@
 }
 
 .user-image button {
-  background-color: #4caf50; /* Green */
+  background-color: #4caf50;
+  /* Green */
   border: none;
   color: white;
   padding: 1rem 3rem;
@@ -103,7 +103,7 @@
 }
 
 .user-info {
-  height: 50%;
+  height: 41%;
   font-size: 4rem;
   padding: 3rem;
   background-color: #eee;
@@ -114,7 +114,7 @@
 }
 
 .user-comments {
-  height: 50%;
+  height: 56%;
   overflow: auto;
   font-size: 4rem;
   background-color: #eee;

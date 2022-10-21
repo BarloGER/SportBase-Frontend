@@ -15,7 +15,7 @@ export default function LandingPage() {
           <h1 className="hero-title">Willkommen bei SportBase</h1>
           <h2 className="hero-subtitle">Your Sport is our passion</h2>
           <Link to="/aboutus">
-            <button type="button" className="hero-button">
+            <button type="button" className="hero-button btn">
               Erfahrt mehr über uns &raquo;
             </button>
           </Link>

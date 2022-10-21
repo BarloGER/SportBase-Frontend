@@ -1,0 +1,39 @@
+.create-team-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  z-index: 3;
+  background-color: var(--clear-white);
+  height: 100%;
+  width: 40rem;
+  padding: 3rem;
+  border-radius: 5px;
+  gap: 4rem;
+}
+
+.create-team-section h2 {
+  font-size: 3rem;
+  color: var(--black);
+}
+
+.create-team-section .form {
+  font-size: 6rem;
+}
+
+.create-team-section .input-container {
+  background-color: var(--white);
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 5px;
+}
+
+.create-team-section label {
+  font-size: 3rem;
+}
+
+.create-team-section button {
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  background-color: var(--btn-color-secundary);
+}

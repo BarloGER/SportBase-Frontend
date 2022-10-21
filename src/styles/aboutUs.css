@@ -44,6 +44,7 @@
   font-size: 3rem;
   color: #cb376a;
 }
+
 .about-SportBase {
   display: flex;
   width: 80vw;
@@ -83,12 +84,15 @@
   .about-us-Team {
     flex-direction: column;
   }
+
   .personal-card {
     margin-bottom: 4rem;
   }
+
   #margin {
     margin-left: 0rem;
   }
+
   .about-SportBase {
     display: none;
   }
@@ -98,13 +102,16 @@
   .hero-title {
     font-size: 5rem;
   }
+
   .hero-subtitle {
     font-size: 3.5rem;
   }
+
   .hero-button {
     font-size: 2rem;
     margin-top: 3rem;
   }
+
   .text-container span {
     font-size: 1.7rem;
   }
@@ -114,13 +121,16 @@
   .hero-title {
     font-size: 7rem;
   }
+
   .hero-subtitle {
     font-size: 5rem;
   }
+
   .hero-button {
     font-size: 3rem;
     margin-top: 3rem;
   }
+
   .text-container span {
     font-size: 1.8rem;
   }
@@ -130,13 +140,16 @@
   .hero-title {
     font-size: 10rem;
   }
+
   .hero-subtitle {
     font-size: 8rem;
   }
+
   .hero-button {
     font-size: 3rem;
     margin-top: 3rem;
   }
+
   .text-container span {
     font-size: 2rem;
   }

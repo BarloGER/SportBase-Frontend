@@ -10,14 +10,18 @@
   justify-content: flex-start;
   align-items: stretch;
   z-index: 3;
-  /* background-color: var(--navigation-bg); */
-  background-color: #838582e3;
+  background-color: var(--clear-white);
   height: 90vh;
   width: 40rem;
   margin: 4rem;
   padding: 3rem;
   border-radius: 5px;
   gap: 3rem;
+}
+
+.dashboard-section .sidebar h2 {
+  font-size: 3rem;
+  color: var(--black);
 }
 
 .dashboard-content {
@@ -28,6 +32,7 @@
   width: 80vw;
   z-index: 3;
   height: 90vh;
+  /* width: fit-content; */
   margin: 4rem 2rem;
   background-color: transparent;
   border-radius: 5px;

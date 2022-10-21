@@ -89,7 +89,7 @@ export default function EventMultiForm() {
           </div>
           <div className="body">{pageDisplay()}</div>
           <div className="footer">
-            <button
+            <button className="btn"
               disabled={page == 0}
               onClick={() => {
                 setPage((currPage) => currPage - 1);
@@ -97,7 +97,7 @@ export default function EventMultiForm() {
             >
               Prev
             </button>
-            <button
+            <button className="btn"
               onClick={() => {
                 if (page === FormTitles.length - 1) {
                   handleSubmit();

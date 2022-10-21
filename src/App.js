@@ -8,6 +8,7 @@ import Events from "./components/Events";
 import EventMultiForm from "./components/EventMultiForm";
 import Dashboard from "./components/Dashboard";
 import AboutUs from "./components/AboutUs";
+import TeamCreateForm from "./components/TeamCreateForm";
 
 import GlobalLayout from "./components/GlobalLayout";
 import ProtectedLayout from "./components/Protectedlayout";
@@ -75,6 +76,7 @@ export default function App() {
               <Route path="events" element={<Events />} />
               <Route path="eventMultiForm" element={<EventMultiForm />} />
               <Route path="search" element={<Search />} />
+              <Route path="teamCreateForm" element={<TeamCreateForm />} />
               <Route path="calendar" element={<PublicCalendar />} />
             </Route>
           </Route>

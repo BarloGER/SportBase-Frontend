@@ -25,7 +25,7 @@ export default function Login({
       localStorage.setItem("token", data.token);
       // setToken(data);
       setIsAuthenticated(true);
-    } catch (error) {}
+    } catch (error) { }
   };
 
   const checkCapsLock = (event) => {
@@ -75,7 +75,7 @@ export default function Login({
           <br />
           <div>
             <p>Noch nicht registriert?</p>
-            <button className="button" onClick={(e) => handleClick(false, e)}>
+            <button className="button btn" onClick={(e) => handleClick(false, e)}>
               SignUp
             </button>
           </div>
