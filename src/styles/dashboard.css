@@ -1,14 +1,34 @@
-.dashboard {
+.dashboard-section {
   margin-top: 6rem;
   display: flex;
-  flex-direction: row;
   height: 100vh;
 }
 
-.dashboard .sidebar {
+.dashboard-section .sidebar {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
   z-index: 3;
-  background-color: aqua;
+  /* background-color: var(--navigation-bg); */
+  background-color: #838582e3;
+  height: 90vh;
   width: 40rem;
+  margin: 4rem;
+  padding: 3rem;
+  border-radius: 5px;
+  gap: 3rem;
+}
+
+.dashboard-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow-x: hidden;
+  width: 80vw;
+  z-index: 3;
+  height: 90vh;
+  margin: 4rem 2rem;
+  background-color: transparent;
+  border-radius: 5px;
 }

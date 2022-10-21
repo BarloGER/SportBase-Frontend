@@ -1,16 +1,16 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import "../styles/dashboardCard.css";
 
 function DashboardCard({ cardText, cardLink }) {
   return (
-    <Link to={`/secret/dashboard/${cardLink}`}>
+    <NavLink to={`/secret/dashboard/${cardLink}`}>
       <div className="dashboard-card">
         <div className="card-title">
           <h2>{cardText}</h2>
         </div>
       </div>
-    </Link>
+    </NavLink>
   );
 }
 

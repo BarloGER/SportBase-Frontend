@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 
 function dashboard() {
   return (
-    <main className="dashboard">
+    <main className="dashboard-section">
       <Helmet>
         <meta charSet="utf-8" />
         <title>Dashboard</title>
@@ -15,11 +15,13 @@ function dashboard() {
         />
       </Helmet>
       <div className="sidebar">
-        <DashboardCard cardText={"Event anlegen"} cardLink={"eventMultiForm"} />
+        <DashboardCard cardText={"Kalender"} cardLink={"calendar"} />
         <DashboardCard cardText={"Account"} cardLink={"account"} />
+        <DashboardCard cardText={"Event anlegen"} cardLink={"eventMultiForm"} />
+      </div>
+      <div className="dashboard-content">
         <Outlet />
       </div>
-      <div className="dashboard-content"></div>
     </main>
   );
 }
