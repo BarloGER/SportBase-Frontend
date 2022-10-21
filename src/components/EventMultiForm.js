@@ -48,10 +48,10 @@ export default function EventMultiForm() {
 
   const handleSubmit = async () => {
     const dataUrl = await domtoimage.toJpeg(lineupRef.current, { quality: 0.95, style: { margin: 0 } });
-    // const link = document.createElement('a');
-    // link.download = `event-${Date.now()}.jpeg`;
-    // link.href = dataUrl;
-    // link.click();
+    const link = document.createElement('a');
+    link.download = `event-${Date.now()}.jpeg`;
+    link.href = dataUrl;
+    link.click();
 
     const newEventObj = { ...newEvent };
     newEventObj.startDate = new Date(newEventObj.startDate).toISOString();

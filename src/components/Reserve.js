@@ -35,7 +35,7 @@ export default function Reserve({ newEvent, setNewEvent }) {
   }, [reservePlayers]);
 
   return (
-    <main className="select-player">
+    <section className="select-player">
       {avaiableForReserve && avaiableForReserve.length > 0 ? (
         avaiableForReserve.map((player) => {
           return (
@@ -53,6 +53,6 @@ export default function Reserve({ newEvent, setNewEvent }) {
       ) : (
         <h2>Keine Spieler auf der Bank</h2>
       )}
-    </main>
+    </section>
   );
 };

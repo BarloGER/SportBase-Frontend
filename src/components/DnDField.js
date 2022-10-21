@@ -47,7 +47,7 @@ export default function DnDField({ newEvent, lineupRef }) {
 
   return (
     <div className="DnDfield" ref={lineupRef}>
-      <main className="DnDfield" ref={drop}>
+      <section className="DnDfield" ref={drop}>
         {playerCard && Object.keys(playerCard).map((key) => {
           const { left, top } = playerCard[key];
           return (
@@ -64,7 +64,7 @@ export default function DnDField({ newEvent, lineupRef }) {
             </DnDPlayer>
           );
         })}
-      </main>
+      </section>
     </div>
   )
 };
