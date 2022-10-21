@@ -48,6 +48,7 @@ export default function EventMultiForm() {
 
   const handleSubmit = async () => {
     const dataUrl = await domtoimage.toJpeg(lineupRef.current, { quality: 0.95, style: { margin: 0 } });
+    console.log(dataUrl);
     const link = document.createElement('a');
     link.download = `event-${Date.now()}.jpeg`;
     link.href = dataUrl;
