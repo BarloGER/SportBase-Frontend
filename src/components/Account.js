@@ -37,7 +37,7 @@ export default function Account() {
                     alt="Profilbild"
                   />
                   <p>{thisUser.username}</p>
-                  <button>Nachricht</button>
+                  <button className="btn">Nachricht</button>
                 </div>
                 <div className="user-aboutMe">
                   <h2>Über mich</h2>
@@ -67,6 +67,7 @@ export default function Account() {
                   <p>Position: Wasserjunge</p>
                   <hr />
                   <button
+                    className="btn"
                     onClick={() => {
                       setEdit(false);
                     }}
@@ -91,7 +92,7 @@ export default function Account() {
                     defaultValue={thisUser.username}
                     required
                   ></input>
-                  <button>Nachricht</button>
+                  <button className="btn">Nachricht</button>
                 </div>
                 <div className="user-aboutMe">
                   <h2>Über mich</h2>
@@ -143,7 +144,7 @@ export default function Account() {
                     placeholder="Position"
                   ></input>
                   <hr />
-                  <button
+                  <button className="btn"
                     onClick={() => {
                       setEdit(true);
                     }}

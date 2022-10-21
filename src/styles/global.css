@@ -4,7 +4,10 @@
   --navigation-li: #00ff41;
   --navigation-bg: #424344;
   --white: #eee;
+  --clear-white: #838582e3;
   --black: #333;
+  --btn-color-primary: #ae2d59;
+  --btn-color-secundary: #4caf50;
 }
 
 /* ----- end of globale color vars ----- */
@@ -37,7 +40,8 @@ h2,
 span,
 button,
 p,
-li {
+li,
+label {
   font-family: "Nunito Sans", sans-serif;
 }
 
@@ -50,7 +54,31 @@ a {
   text-decoration: none;
 }
 
+input {
+  padding: 0.5rem 2rem;
+}
+
+
 /* ----- endof globale styling -----*/
+
+
+/* ----- startof button styling -----*/
+
+.btn {
+  border-radius: 5px;
+}
+
+.btn:active {
+  box-shadow:
+    7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+  transform: translateY(4px);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+}
+
+/* ----- startof button styling -----*/
 
 /* ----- start of scrollbar styling ----- */
 

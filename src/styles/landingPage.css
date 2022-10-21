@@ -19,17 +19,20 @@
   text-align: center;
   margin: auto;
 }
+
 .landing-page .hero-title {
   font-size: 3rem;
   font-weight: 600;
 }
+
 .landing-page .hero-subtitle {
   font-size: 2rem;
   font-weight: 200;
   margin-top: 1rem;
 }
+
 .landing-page .hero-button {
-  background-color: #ae2d59;
+  background-color: var(--btn-color-primary);
   color: var(--white);
   border: 1px solid #cb376a;
   margin-top: 5rem;
@@ -38,6 +41,7 @@
   font-weight: 200;
   cursor: pointer;
 }
+
 .landing-page .hero-button:hover {
   background-color: #cb376a;
   border: 1px solid #db7598;
@@ -55,7 +59,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #838582e3;
+  background-color: var(--clear-white);
   padding: 2rem;
 }
 
@@ -70,13 +74,16 @@
   .landing-page .hero-title {
     font-size: 4rem;
   }
+
   .landing-page .hero-subtitle {
     font-size: 2.5rem;
   }
+
   .landing-page .hero-button {
     font-size: 1.5rem;
     margin-top: 3rem;
   }
+
   .landing-page .text-container span {
     font-size: 1.5rem;
   }
@@ -86,13 +93,16 @@
   .landing-page .hero-title {
     font-size: 5rem;
   }
+
   .landing-page .hero-subtitle {
     font-size: 3.5rem;
   }
+
   .landing-page .hero-button {
     font-size: 2rem;
     margin-top: 3rem;
   }
+
   .landing-page .text-container span {
     font-size: 1.7rem;
   }
@@ -102,13 +112,16 @@
   .landing-page .hero-title {
     font-size: 7rem;
   }
+
   .landing-page .hero-subtitle {
     font-size: 5rem;
   }
+
   .landing-page .hero-button {
     font-size: 3rem;
     margin-top: 3rem;
   }
+
   .landing-page .text-container span {
     font-size: 1.8rem;
   }
@@ -118,13 +131,16 @@
   .landing-page .hero-title {
     font-size: 10rem;
   }
+
   .landing-page .hero-subtitle {
     font-size: 8rem;
   }
+
   .landing-page .hero-button {
     font-size: 3rem;
     margin-top: 3rem;
   }
+
   .landing-page .text-container span {
     font-size: 2rem;
   }

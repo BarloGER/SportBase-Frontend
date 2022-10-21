@@ -234,11 +234,11 @@ export default function SignUp({
             </label>
           </div>
           <p>{errorMessage}</p>
-          <button className="button">Sign UP</button>
+          <button className="button btn">Sign UP</button>
           <br />
           <div>
             <p>Bereits registriert?</p>
-            <button className="button" onClick={(e) => handleClick(true, e)}>
+            <button className="button btn" onClick={(e) => handleClick(true, e)}>
               SignIn
             </button>
           </div>

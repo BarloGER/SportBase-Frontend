@@ -14,9 +14,11 @@ function dashboard() {
         />
       </Helmet>
       <div className="sidebar">
+        <h2>Navigation</h2>
         <DashboardCard cardText={"Kalender"} cardLink={"calendar"} />
         <DashboardCard cardText={"Account"} cardLink={"account"} />
         <DashboardCard cardText={"Event anlegen"} cardLink={"eventMultiForm"} />
+        <DashboardCard cardText={"Verein anlegen"} cardLink={"teamCreateForm"} />
       </div>
       <div className="dashboard-content">
         <Outlet />
