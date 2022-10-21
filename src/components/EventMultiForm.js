@@ -21,7 +21,7 @@ export default function EventMultiForm() {
     opponent: '',
     activePlayers: [],
     reservePlayers: [],
-    lineUp: ''
+    // lineUp: ''
   });
 
   const lineupRef = useRef(null);
@@ -58,7 +58,7 @@ export default function EventMultiForm() {
     newEventObj.startDate = new Date(newEventObj.startDate).toISOString();
     newEventObj.endDate = new Date(newEventObj.endDate).toISOString();
     newEventObj.createdAt = new Date().toISOString();
-    newEventObj.lineUp = dataUrl;
+    // newEventObj.lineUp = dataUrl;
 
     setNewEvent(newEventObj);
     alert(`Event: ${newEventObj.title} was submitted`);
