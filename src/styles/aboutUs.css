@@ -1,36 +1,143 @@
+.about-us-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin-top: 6rem;
+}
+
 .about-us {
   height: 100vh;
+  z-index: 1;
+}
+
+.gettoknowus {
+  display: flex;
+  justify-content: center;
+  padding-top: 20rem;
+  font-size: 5rem;
+  color: #cb376a;
 }
 
 .about-us-Team {
   display: flex;
   width: 80vw;
-  margin-top: 20vh;
-  border: blue solid 2px;
+  margin-top: 3rem;
   justify-items: center;
   justify-content: center;
   margin-left: 10vw;
+  padding-bottom: 5rem;
 }
 
 .imageFounders {
   width: 200px;
   height: auto;
+  border-radius: 25rem;
+  padding-top: 1rem;
 }
 
 .about-each {
   font-size: 2rem;
+  margin: 1rem;
 }
 
 .about-us-name {
   font-size: 3rem;
+  color: #cb376a;
 }
 .about-SportBase {
   display: flex;
-  border: green solid 2px;
   width: 80vw;
   margin-left: 10vw;
+  -webkit-box-shadow: 8px 5px 15px 5px rgba(119, 120, 117, 0.8);
+  box-shadow: 8px 5px 15px 5px rgba(119, 120, 117, 0.8);
+  border-radius: 1rem;
+  background-color: var(--white);
 }
 
 .our-passion {
   font-size: 2rem;
+}
+
+.personal-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--white);
+  gap: 1rem;
+  -webkit-box-shadow: 8px 5px 15px 5px rgba(119, 120, 117, 0.8);
+  box-shadow: 8px 5px 15px 5px rgba(119, 120, 117, 0.8);
+  border-radius: 1rem;
+}
+
+#margin {
+  margin-left: 5rem;
+}
+
+.personal-card:hover {
+  -webkit-box-shadow: 8px 5px 15px 5px rgba(203, 55, 106, 0.8);
+  box-shadow: 8px 5px 15px 5px rgba(66, 67, 68, 0.8);
+}
+
+@media screen and (max-width: 768px) {
+  .about-us-Team {
+    flex-direction: column;
+  }
+  .personal-card {
+    margin-bottom: 4rem;
+  }
+  #margin {
+    margin-left: 0rem;
+  }
+  .about-SportBase {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .hero-title {
+    font-size: 5rem;
+  }
+  .hero-subtitle {
+    font-size: 3.5rem;
+  }
+  .hero-button {
+    font-size: 2rem;
+    margin-top: 3rem;
+  }
+  .text-container span {
+    font-size: 1.7rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .hero-title {
+    font-size: 7rem;
+  }
+  .hero-subtitle {
+    font-size: 5rem;
+  }
+  .hero-button {
+    font-size: 3rem;
+    margin-top: 3rem;
+  }
+  .text-container span {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .hero-title {
+    font-size: 10rem;
+  }
+  .hero-subtitle {
+    font-size: 8rem;
+  }
+  .hero-button {
+    font-size: 3rem;
+    margin-top: 3rem;
+  }
+  .text-container span {
+    font-size: 2rem;
+  }
 }

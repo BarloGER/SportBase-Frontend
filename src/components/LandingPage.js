@@ -1,10 +1,15 @@
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import "../styles/landingPage.css";
 
 export default function LandingPage() {
-
   return (
     <main className="landing-page">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Startseite</title>
+        <meta name="description" content="Startseite mit Info Text" />
+      </Helmet>
       <div className="hero">
         <div className="hero-content">
           <h1 className="hero-title">Willkommen bei SportBase</h1>

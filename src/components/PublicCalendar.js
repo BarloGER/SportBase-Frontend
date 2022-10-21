@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import React, { useState, useEffect } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
@@ -31,13 +32,22 @@ export default function OtherCalendar() {
   }));
 
   return (
-    <main className="public-calendar">
+    <section className="public-calendar">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Kalender</title>
+        <meta name="description" content="Kalender Seite mit 1 Komponente." />
+      </Helmet>
       <Calendar
         localizer={localizer}
         events={events}
-        startAccessor="start"
-        endAccessor="end"
-        style={{ height: "100%", margin: "5rem" }}
+        startAccessor={(event) => {
+          return new Date(event.start);
+        }}
+        // startAccessor="start"
+        endAccessor={(event) => {
+          return new Date(event.end);
+        }}
         messages={{
           month: "Monat",
           day: "Tag",
@@ -48,6 +58,6 @@ export default function OtherCalendar() {
         }}
         culture="de"
       />
-    </main>
+    </section>
   );
 }

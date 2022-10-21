@@ -1,8 +1,7 @@
 import "../styles/eventInfo.css";
 
 export default function EventInfo({ setNewEvent }) {
-
-  const handleInputChange = e => {
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewEvent((prev) => ({
       ...prev,
@@ -11,7 +10,7 @@ export default function EventInfo({ setNewEvent }) {
   };
 
   return (
-    <main className="event-info">
+    <section className="event-info">
       <fieldset>
         <form>
           <label>
@@ -56,6 +55,6 @@ export default function EventInfo({ setNewEvent }) {
           </label>
         </form>
       </fieldset>
-    </main>
+    </section>
   );
 }

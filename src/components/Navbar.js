@@ -4,7 +4,7 @@ import { useState } from "react";
 // import SignUp from "./SignUp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Search from "./Search";
-import "../styles/navbar.css";
+import "../styles/navigation.css";
 
 export default function Navbar() {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
@@ -12,80 +12,82 @@ export default function Navbar() {
   // const [isSignUpToggled, setIsSignUpToggled] = useState(false);
 
   return (
-    <nav className="navigation">
-      <a href="/" className="brand-name">
-        FP
-      </a>
-      <button
-        className="hamburger"
-        onClick={() => {
-          setIsNavExpanded(!isNavExpanded);
-        }}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="currentColor"
-          className="w-6 h-6"
+    <header>
+      <nav className="navigation">
+        <a href="/" className="brand-name">
+          FP
+        </a>
+        <button
+          className="hamburger"
+          onClick={() => {
+            setIsNavExpanded(!isNavExpanded);
+          }}
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-          />
-        </svg>
-      </button>
-      <Search />
-      <div
-        className={
-          isNavExpanded ? "navigation-menu expanded" : "navigation-menu"
-        }
-      >
-        <ul className="nav-link">
-          <NavLink
-            to="/"
-            onClick={() => setIsNavExpanded(false)}
-            aria-label="redirects to landing page"
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            className="w-6 h-6"
           >
-            <li>
-              <FontAwesomeIcon
-                className="fontawesomeicon"
-                icon={["fa", "home"]}
-              />
-            </li>
-          </NavLink>
-          <NavLink
-            to="/signin"
-            onClick={() => {
-              setIsNavExpanded(false);
-            }}
-            aria-label="redirects to SignIn"
-          >
-            <li>Sign In</li>
-          </NavLink>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
+          </svg>
+        </button>
+        <Search />
+        <div
+          className={
+            isNavExpanded ? "navigation-menu expanded" : "navigation-menu"
+          }
+        >
+          <ul className="nav-link">
+            <NavLink
+              to="/"
+              onClick={() => setIsNavExpanded(false)}
+              aria-label="Leitet weiter zur Startseite"
+            >
+              <li>
+                <FontAwesomeIcon
+                  className="fontawesomeicon"
+                  icon={["fa", "home"]}
+                />
+              </li>
+            </NavLink>
+            <NavLink
+              to="/signin"
+              onClick={() => {
+                setIsNavExpanded(false);
+              }}
+              aria-label="Leitet weiter zum SignIn"
+            >
+              <li>Sign In</li>
+            </NavLink>
 
-          <NavLink
-            to="/secret/dashboard"
-            onClick={() => {
-              setIsNavExpanded(false);
-            }}
-            aria-label="redirects to dashboard"
-          >
-            <li>Dashboard</li>
-          </NavLink>
-          <NavLink
-            to="/calendar"
-            onClick={() => {
-              setIsNavExpanded(false);
-            }}
-            aria-label="redirects to calendar"
-          >
-            <li>Kalender</li>
-          </NavLink>
-        </ul>
-      </div>
-    </nav>
+            <NavLink
+              to="/secret/dashboard"
+              onClick={() => {
+                setIsNavExpanded(false);
+              }}
+              aria-label="Leitet weiter zum Dashboard"
+            >
+              <li>Dashboard</li>
+            </NavLink>
+            <NavLink
+              to="/calendar"
+              onClick={() => {
+                setIsNavExpanded(false);
+              }}
+              aria-label="Leitet weiter zum Kalender"
+            >
+              <li>Kalender</li>
+            </NavLink>
+          </ul>
+        </div>
+      </nav>
+    </header>
   );
 }

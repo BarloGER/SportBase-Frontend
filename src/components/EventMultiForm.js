@@ -5,9 +5,9 @@ import EventInfo from "./EventInfo";
 import Player from "./Player";
 import Reserve from "./Reserve";
 import Fields from "./Fields";
-import { DndProvider } from 'react-dnd'
-import { HTML5Backend } from 'react-dnd-html5-backend'
-import DnDField from './DnDField';
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import DnDField from "./DnDField";
 import "../styles/eventMultiForm.css";
 
 export default function EventMultiForm() {
@@ -37,7 +37,9 @@ export default function EventMultiForm() {
     if (page === 0) {
       return <EventInfo setNewEvent={setNewEvent} />;
     } else if (page === 1) {
-      return <Player avaiablePlayers={avaiablePlayers} setNewEvent={setNewEvent} />;
+      return (
+        <Player avaiablePlayers={avaiablePlayers} setNewEvent={setNewEvent} />
+      );
     } else if (page === 2) {
       return <Reserve newEvent={newEvent} setNewEvent={setNewEvent} />;
     } else return <DndProvider backend={HTML5Backend}>
@@ -61,11 +63,13 @@ export default function EventMultiForm() {
     alert(`Event: ${newEventObj.title} was submitted`);
   };
 
-  //TODO: Use suitable endpoint: GetallUsersByTeam/GetallPlayersByTeam 
+  //TODO: Use suitable endpoint: GetallUsersByTeam/GetallPlayersByTeam
   const getAvaiablePlayers = async () => {
     try {
       const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/user`);
-      setAvaiablePlayers(data.filter((user) => user.player === true && user.inactive === false));
+      setAvaiablePlayers(
+        data.filter((user) => user.player === true && user.inactive === false)
+      );
     } catch (error) {
       console.log(error);
     }
@@ -76,7 +80,7 @@ export default function EventMultiForm() {
   }, []);
 
   return (
-    <main className="event-form">
+    <section className="event-form">
       <div className="form">
         <div className="form-container">
           <div className="header">
@@ -106,6 +110,6 @@ export default function EventMultiForm() {
           </div>
         </div>
       </div>
-    </main>
+    </section>
   );
 };
