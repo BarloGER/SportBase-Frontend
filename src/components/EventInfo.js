@@ -13,23 +13,32 @@ export default function EventInfo({ setNewEvent }) {
   return (
     <main className="event-info">
       <fieldset>
-        {/* <form onSubmit={handleSubmit}> */}
         <form>
           <label>
             Event Name:
             <input
               type="text"
-              name="eventName"
+              name="title"
               placeholder="Event Name"
               onChange={(e) => handleInputChange(e)}
               required
             ></input>
           </label>
           <label>
-            Datum
+            Start
             <input
-              type="date"
-              name="date"
+              type="datetime-local"
+              name="startDate"
+              placeholder="Datum"
+              onChange={(e) => handleInputChange(e)}
+              required
+            ></input>
+          </label>
+          <label>
+            Ende
+            <input
+              type="datetime-local"
+              name="endDate"
               placeholder="Datum"
               onChange={(e) => handleInputChange(e)}
               required

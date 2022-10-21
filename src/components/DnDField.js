@@ -4,7 +4,7 @@ import DnDPlayer from './DnDPlayer';
 import { useDrop } from "react-dnd";
 import { ItemTypes } from "../utils/ItemTypes.js";
 
-export default function DnDField({ newEvent, setNewEvent, lineupRef }) {
+export default function DnDField({ newEvent, lineupRef }) {
   const [activePlayers, setActivePlayers] = useState(newEvent.activePlayers);
   const [playerCard, setPlayerCard] = useState();
 
