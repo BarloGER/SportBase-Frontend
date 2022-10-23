@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet";
+import { Outlet } from "react-router-dom";
 import DashboardCard from "./DashboardCard";
 import "../styles/dashboard.css";
-import { Outlet } from "react-router-dom";
 
 function dashboard() {
   return (
@@ -16,9 +16,12 @@ function dashboard() {
       <div className="sidebar">
         <h2>Navigation</h2>
         <DashboardCard cardText={"Kalender"} cardLink={"calendar"} />
-        <DashboardCard cardText={"Account"} cardLink={"account"} />
+        <DashboardCard cardText={"Account"} cardLink={"userprofiles"} />
         <DashboardCard cardText={"Event anlegen"} cardLink={"eventMultiForm"} />
-        <DashboardCard cardText={"Verein anlegen"} cardLink={"teamCreateForm"} />
+        <DashboardCard
+          cardText={"Verein anlegen"}
+          cardLink={"teamCreateForm"}
+        />
       </div>
       <div className="dashboard-content">
         <Outlet />

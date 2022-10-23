@@ -1,13 +1,19 @@
 /* ----- start of globale color vars ----- */
 
 :root {
-  --navigation-li: #00ff41;
-  --navigation-bg: #424344;
+  --navigation-color-li: #00ff41;
+  --navigation-color-bg: #424344;
+  --access-color-bg: rgb(49, 173, 111);
   --white: #eee;
   --clear-white: #838582e3;
   --black: #333;
   --btn-color-primary: #ae2d59;
-  --btn-color-secundary: #4caf50;
+  --btn-color-primary-hover: #cb376a;
+  --btn-color-primary-border: #db7598;
+  --btn-color-secondary: #4caf50;
+  --btn-color-tertiary: rgb(239, 16, 0);
+  --input-border: #999;
+  --input-border-focus: rgb(98, 0, 255);
 }
 
 /* ----- end of globale color vars ----- */
@@ -58,19 +64,16 @@ input {
   padding: 0.5rem 2rem;
 }
 
+/* ----- end of globale styling -----*/
 
-/* ----- endof globale styling -----*/
-
-
-/* ----- startof button styling -----*/
+/* ----- start of button styling -----*/
 
 .btn {
   border-radius: 5px;
 }
 
 .btn:active {
-  box-shadow:
-    7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+  box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
   transform: translateY(4px);
 }
 
@@ -78,7 +81,7 @@ input {
   opacity: 0.6;
 }
 
-/* ----- startof button styling -----*/
+/* ----- end of button styling -----*/
 
 /* ----- start of scrollbar styling ----- */
 

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import "../styles/account.css";
 
-export default function Account() {
+export default function UserProfiles() {
   let { id } = useParams();
   const [user, setUser] = useState([]);
   const [edit, setEdit] = useState(true);
@@ -144,7 +144,8 @@ export default function Account() {
                     placeholder="Position"
                   ></input>
                   <hr />
-                  <button className="btn"
+                  <button
+                    className="btn"
                     onClick={() => {
                       setEdit(true);
                     }}

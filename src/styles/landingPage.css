@@ -1,3 +1,5 @@
+/* ----- used in LandingPage.js ----- */
+
 .landing-page {
   display: flex;
   min-height: 100vh;
@@ -34,7 +36,7 @@
 .landing-page .hero-button {
   background-color: var(--btn-color-primary);
   color: var(--white);
-  border: 1px solid #cb376a;
+  border: 1px solid var(--btn-color-primary-hover);
   margin-top: 5rem;
   padding: 1rem 1.5rem;
   font-size: 1rem;
@@ -43,8 +45,8 @@
 }
 
 .landing-page .hero-button:hover {
-  background-color: #cb376a;
-  border: 1px solid #db7598;
+  background-color: var(--btn-color-primary-hover);
+  border: 1px solid var(--btn-color-primary-border);
 }
 
 .landing-page .hero-button .fontawesomeicon {

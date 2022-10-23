@@ -1,4 +1,3 @@
-import "../styles/access.css";
 import { useState } from "react";
 import { login } from "../utils/login";
 import { Navigate } from "react-router-dom";
@@ -24,7 +23,7 @@ export default function Login({
       localStorage.setItem("token", data.token);
       setToken(data.token);
       setIsAuthenticated(true);
-    } catch (error) { }
+    } catch (error) {}
   };
 
   const checkCapsLock = (event) => {
@@ -57,7 +56,7 @@ export default function Login({
             name="password"
             placeholder="Passwort"
             onKeyUp={checkCapsLock}
-            // required
+            required
             onInput={(e) => setPassword(e.target.value)}
           />
           {isCapsLockOn && (
@@ -70,11 +69,14 @@ export default function Login({
             </label>
           </div>
 
-          <button className="button">Sign In</button>
+          <button className="signIn-buttons btn">Sign In</button>
           <br />
-          <div>
+          <div className="switch">
             <p>Noch nicht registriert?</p>
-            <button className="button btn" onClick={(e) => handleClick(false, e)}>
+            <button
+              className="signIn-buttons btn"
+              onClick={(e) => handleClick(false, e)}
+            >
               SignUp
             </button>
           </div>

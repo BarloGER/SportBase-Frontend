@@ -1,12 +1,8 @@
-.event-form {
-  /* width: 100vw;
-  height: 100vh;
-  display: grid;
-  place-items: center;
-  font-size: 16rem; */
-}
+/* ----- used in EventMultiForm.js ----- */
 
-.form {
+/* ----- start of event form general styling ----- */
+
+.event-form {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -14,111 +10,127 @@
   align-items: center;
 }
 
-.body {
+.event-form .content-container {
   overflow: auto;
 }
 
-.form-container {
-  width: 400px;
-  height: 800px;
-  background-color: white;
+.event-form .form-container {
+  width: 40rem;
+  height: 80rem;
+  background-color: var(--white);
   border-radius: 8px;
   box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
 }
 
-.form-container .header {
+.event-form .title-container {
   flex: 10%;
   display: grid;
   place-items: center;
+  font-size: 6rem;
 }
 
-.form-container .body {
+.event-form .content-container {
   flex: 80%;
 }
 
-.form-container .footer {
+.event-form .btn-container {
   flex: 10%;
   display: flex;
   justify-content: center;
 }
 
-.form-container .footer button {
-  border-radius: 7px;
-  width: 100px;
-  height: 40px;
-  background-color: rgb(16, 221, 43);
+.event-form .btn-container button {
+  width: 10rem;
+  height: 4rem;
+  background-color: var(--btn-color-secondary);
   font-weight: bold;
-  color: white;
-  border: 0 none;
-  border-radius: 1px;
+  color: var(--white);
+  border: none;
   cursor: pointer;
-  padding: 10px 5px;
-  margin: 10px 5px;
-  margin: 5px;
+  margin: 1rem 0.5rem;
+  font-size: 2rem;
 }
 
-/* .form-container .footer button:disabled {
-  background-color: rgb(163, 16, 221);
-} */
+/* ----- end of event form general styling ----- */
 
-.sign-up-container {
-  height: 100%;
-  width: 100%;
+/* ----- start of page 1 ----- */
+
+.event-form .event-info {
+  display: flex;
+  justify-content: center;
+  font-size: 6rem;
+}
+
+.event-form .event-info label {
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
-.sign-up-container input {
-  margin: 5px;
-  width: 200px;
-  height: 40px;
-  padding-left: 5px;
-  font-size: 20px;
-}
-
-.personal-info-container {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.personal-info-container input {
-  margin: 5px;
-  width: 200px;
-  height: 40px;
-  padding-left: 5px;
-  font-size: 20px;
-}
-
-.other-info-container {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.other-info-container input {
-  margin: 5px;
-  width: 200px;
-  height: 40px;
-  padding-left: 5px;
-  font-size: 20px;
-}
-
-input {
-  border: 2px solid rgb(98, 0, 255);
+.event-form .event-info input {
+  width: 35rem;
+  height: 4rem;
+  padding-left: 0.5rem;
+  font-size: 2rem;
+  border: 2px solid var(--input-border);
   border-radius: 5px;
 }
 
-input:focus {
-  border: 3px solid rgb(98, 0, 255);
+.event-form .event-info input:focus {
+  border: 3px solid var(--input-border-focus);
 }
+
+/* ----- end of page 1 ----- */
+
+/* ----- start of page 2, 3 ----- */
+
+.event-form .select {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.event-form .select .player {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.event-form .select img {
+  height: 6rem;
+  width: 6rem;
+  margin-right: 2rem;
+}
+
+[type="checkbox"] {
+  width: 2rem;
+  margin-left: 1rem;
+}
+
+.event-form .select span {
+  font-size: 3rem;
+}
+
+/* ----- end of page 2, 3 ----- */
+
+/* ----- start of page 4 ----- */
+
+.event-form .DnDfield {
+  height: 100%;
+  width: 100%;
+  background-image: url(https://thumbs.dreamstime.com/b/fu%C3%9Fballplatz-skizze-92868869.jpg);
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+}
+
+.event-form .DnDfield img {
+  height: 6rem;
+  width: 6rem;
+  cursor: move;
+}
+
+/* ----- end of page 4 ----- */

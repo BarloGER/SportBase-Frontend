@@ -1,4 +1,4 @@
-/* used in Login and SignUp */
+/* ----- used in SignIn.js for Login.js and SignUp.js ----- */
 
 .access {
   margin-top: 6rem;
@@ -16,18 +16,23 @@
   height: 80%;
   width: 80%;
   border-radius: 2rem;
-  background: rgb(49, 173, 111);
+  background: var(--access-color-bg);
   z-index: 1;
 }
 
-.access input,
-.access button {
+.access input {
   padding: 0.7rem;
   display: block;
   margin: 1.5rem 0 0 0;
-  border-radius: 4px;
-  border: 1px solid #999;
+  border: 1px solid var(--input-border);
   width: 30rem;
+}
+
+.signIn-buttons {
+  background-color: var(--btn-color-tertiary);
+  width: 30rem;
+  color: var(--white);
+  border: none;
 }
 
 .access form {
@@ -51,6 +56,7 @@
 .access .terms label {
   display: flex;
   align-items: center;
+  margin: 1rem;
 }
 
 .access .label input {
@@ -60,8 +66,12 @@
   margin: 0;
 }
 
+.access .switch {
+  margin: 1rem;
+}
+
 .access .image-desktop {
-  /* background: url(https://images.pexels.com/photos/1702624/pexels-photo-1702624.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1); */
+  background: url(https://images.unsplash.com/photo-1543351611-58f69d7c1781?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80);
   background-size: cover;
   background-position: center center;
   height: 100%;

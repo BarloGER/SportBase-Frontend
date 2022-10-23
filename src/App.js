@@ -4,7 +4,7 @@ import LandingPage from "./components/LandingPage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import SignIn from "./components/SignIn";
-import Events from "./components/Events";
+// import Events from "./components/Events";
 import EventMultiForm from "./components/EventMultiForm";
 import Dashboard from "./components/Dashboard";
 import AboutUs from "./components/AboutUs";
@@ -73,7 +73,7 @@ export default function App() {
             element={<ProtectedLayout isAuthenticated={isAuthenticated} />}
           >
             <Route path="dashboard" element={<Dashboard />}>
-              <Route path="events" element={<Events />} />
+              {/* <Route path="events" element={<Events />} /> */}
               <Route path="eventMultiForm" element={<EventMultiForm />} />
               <Route path="search" element={<Search />} />
               <Route path="teamCreateForm" element={<TeamCreateForm />} />

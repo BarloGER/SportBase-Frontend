@@ -1,3 +1,5 @@
+/* ----- used in PublicCalendar.js ----- */
+
 .public-calendar {
   padding-top: 8rem;
   height: 100vh;
@@ -46,6 +48,10 @@
 .rbc-event-content {
   font-size: 1rem;
 }
+
+/* .rbc-time-view .rbc-row {
+  font-size: 4rem;
+} */
 
 /* time line */
 
