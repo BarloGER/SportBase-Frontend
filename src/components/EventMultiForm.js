@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import domtoimage from 'dom-to-image';
+import domtoimage from "dom-to-image";
 import EventInfo from "./EventInfo";
 import Player from "./Player";
 import Reserve from "./Reserve";
-import Fields from "./Fields";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import DnDField from "./DnDField";
@@ -14,11 +13,11 @@ export default function EventMultiForm() {
   const [page, setPage] = useState(0);
   const [avaiablePlayers, setAvaiablePlayers] = useState([]);
   const [newEvent, setNewEvent] = useState({
-    title: '',
-    startDate: '',
-    endDate: '',
-    createdAt: '',
-    opponent: '',
+    title: "",
+    startDate: "",
+    endDate: "",
+    createdAt: "",
+    opponent: "",
     activePlayers: [],
     reservePlayers: [],
     // lineUp: ''
@@ -42,14 +41,21 @@ export default function EventMultiForm() {
       );
     } else if (page === 2) {
       return <Reserve newEvent={newEvent} setNewEvent={setNewEvent} />;
-    } else return <DndProvider backend={HTML5Backend}>
-      <DnDField newEvent={newEvent} lineupRef={lineupRef} /></DndProvider>;
+    } else
+      return (
+        <DndProvider backend={HTML5Backend}>
+          <DnDField newEvent={newEvent} lineupRef={lineupRef} />
+        </DndProvider>
+      );
   };
 
   const handleSubmit = async () => {
-    const dataUrl = await domtoimage.toJpeg(lineupRef.current, { quality: 0.95, style: { margin: 0 } });
+    const dataUrl = await domtoimage.toJpeg(lineupRef.current, {
+      quality: 0.95,
+      style: { margin: 0 },
+    });
     console.log(dataUrl);
-    const link = document.createElement('a');
+    const link = document.createElement("a");
     link.download = `event-${Date.now()}.jpeg`;
     link.href = dataUrl;
     link.click();
@@ -82,35 +88,35 @@ export default function EventMultiForm() {
 
   return (
     <section className="event-form">
-      <div className="form">
-        <div className="form-container">
-          <div className="header">
-            <h1>{FormTitles[page]}</h1>
-          </div>
-          <div className="body">{pageDisplay()}</div>
-          <div className="footer">
-            <button className="btn"
-              disabled={page == 0}
-              onClick={() => {
-                setPage((currPage) => currPage - 1);
-              }}
-            >
-              Prev
-            </button>
-            <button className="btn"
-              onClick={() => {
-                if (page === FormTitles.length - 1) {
-                  handleSubmit();
-                } else {
-                  setPage((currPage) => currPage + 1);
-                }
-              }}
-            >
-              {page === FormTitles.length - 1 ? "Submit" : "Next"}
-            </button>
-          </div>
+      <div className="form-container">
+        <div className="title-container">
+          <h1>{FormTitles[page]}</h1>
+        </div>
+        <div className="content-container">{pageDisplay()}</div>
+        <div className="btn-container">
+          <button
+            className="btn"
+            disabled={page == 0}
+            onClick={() => {
+              setPage((currPage) => currPage - 1);
+            }}
+          >
+            Prev
+          </button>
+          <button
+            className="btn"
+            onClick={() => {
+              if (page === FormTitles.length - 1) {
+                handleSubmit();
+              } else {
+                setPage((currPage) => currPage + 1);
+              }
+            }}
+          >
+            {page === FormTitles.length - 1 ? "Submit" : "Next"}
+          </button>
         </div>
       </div>
     </section>
   );
-};
+}

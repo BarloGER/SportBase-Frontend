@@ -1,7 +1,6 @@
 import { createUser } from "../utils/createUser";
 import { Navigate } from "react-router-dom";
 import { useState } from "react";
-import "../styles/access.css";
 
 export default function SignUp({
   handleClick,
@@ -234,11 +233,14 @@ export default function SignUp({
             </label>
           </div>
           <p>{errorMessage}</p>
-          <button className="button btn">Sign UP</button>
+          <button className="signIn-buttons btn">Sign UP</button>
           <br />
-          <div>
+          <div className="switch">
             <p>Bereits registriert?</p>
-            <button className="button btn" onClick={(e) => handleClick(true, e)}>
+            <button
+              className="signIn-buttons btn"
+              onClick={(e) => handleClick(true, e)}
+            >
               SignIn
             </button>
           </div>

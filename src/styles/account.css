@@ -1,3 +1,5 @@
+/* ----- used in Account.js ----- */
+
 .account {
   margin-top: 6rem;
   height: 100vh;
@@ -9,7 +11,8 @@
 }
 
 .account::before {
-  background: url(https://cdn.discordapp.com/attachments/1021406713313763328/1027873313776738334/football-1-1551755.jpg) no-repeat center center/cover;
+  background: url(https://cdn.discordapp.com/attachments/1021406713313763328/1027873313776738334/football-1-1551755.jpg)
+    no-repeat center center/cover;
   content: "";
   position: absolute;
   top: 0;
@@ -56,7 +59,7 @@
 }
 
 .user-image button {
-  background-color: #4caf50;
+  background-color: var(--btn-color-secondary);
   /* Green */
   border: none;
   color: white;

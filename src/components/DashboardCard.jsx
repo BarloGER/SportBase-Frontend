@@ -1,7 +1,5 @@
 import { NavLink } from "react-router-dom";
 
-import "../styles/dashboardCard.css";
-
 function DashboardCard({ cardText, cardLink }) {
   return (
     <NavLink to={`/secret/dashboard/${cardLink}`}>

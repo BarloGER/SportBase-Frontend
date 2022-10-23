@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet";
 import { useState } from "react";
 import Login from "./Login";
 import SignUp from "./SignUp";
+import "../styles/access.css";
 
 export default function SignIn({
   isAuthenticated,

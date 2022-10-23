@@ -1,4 +1,4 @@
-.events {
+/* .events {
   display: flex;
   font-size: 15rem;
   padding-top: 6rem;
@@ -57,7 +57,6 @@
 .player img {
   height: 6rem;
   width: 6rem;
-  /* margin: 1.5rem; */
   cursor: move;
 }
 
@@ -70,7 +69,6 @@
   border: 0.5rem solid black;
 }
 
-/* form */
 
 fieldset {
   font-family: sans-serif;
@@ -114,4 +112,4 @@ label {
   flex-wrap: wrap;
   margin-bottom: 1rem;
   margin-top: 3rem;
-}
+} */

@@ -1,23 +1,19 @@
 import { useState, useEffect } from "react";
-import "../styles/player.css";
 
 export default function Reserve({ newEvent, setNewEvent }) {
-
-  const [avaiableForReserve, setAvaiableForReserve] = useState(newEvent.reservePlayers);
+  const [avaiableForReserve, setAvaiableForReserve] = useState(
+    newEvent.reservePlayers
+  );
   const [reservePlayers, setReservePlayers] = useState([]);
 
   const handleChange = (e, player) => {
-
     const newReservePlayers = [...reservePlayers];
 
     if (e.target.checked) {
-
       newReservePlayers.push(player);
       setReservePlayers(newReservePlayers);
-
     } else {
-
-      const index = newReservePlayers.findIndex(pl => pl._id === player._id);
+      const index = newReservePlayers.findIndex((pl) => pl._id === player._id);
       if (index > -1) {
         newReservePlayers.splice(index, 1);
       }
@@ -27,26 +23,33 @@ export default function Reserve({ newEvent, setNewEvent }) {
   };
 
   useEffect(() => {
-    setNewEvent((prev) => (
-      {
-        ...prev,
-        reservePlayers: [...reservePlayers]
-      }));
+    setNewEvent((prev) => ({
+      ...prev,
+      reservePlayers: [...reservePlayers],
+    }));
   }, [reservePlayers]);
 
   return (
-    <section className="select-player">
+    <section className="select">
       {avaiableForReserve && avaiableForReserve.length > 0 ? (
         avaiableForReserve.map((player) => {
           return (
             <div className="player">
-              <input type="checkbox" name="select" onChange={(e) => { handleChange(e, player) }} />
+              <input
+                type="checkbox"
+                name="select"
+                onChange={(e) => {
+                  handleChange(e, player);
+                }}
+              />
 
               <img
                 src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
                 alt="pictureOfPlayer"
               />
-              <span className="name">{player.firstname} {player.lastname}</span>
+              <span className="name">
+                {player.firstname} {player.lastname}
+              </span>
             </div>
           );
         })
@@ -55,4 +58,4 @@ export default function Reserve({ newEvent, setNewEvent }) {
       )}
     </section>
   );
-};
+}
