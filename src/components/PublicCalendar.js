@@ -25,8 +25,6 @@ export default function OtherCalendar() {
     getEvents();
   }, []);
 
-  // useEffect(() => {}, [allEvents]);
-
   const events =
     allEvents &&
     allEvents.map((e) => ({
@@ -47,7 +45,6 @@ export default function OtherCalendar() {
         startAccessor={(event) => {
           return new Date(event.start);
         }}
-        // startAccessor="start"
         endAccessor={(event) => {
           return new Date(event.end);
         }}

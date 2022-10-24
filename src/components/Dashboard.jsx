@@ -19,18 +19,15 @@ function Dashboard() {
 
     /* <div className="sidebar">
         <h2>Navigation</h2>
-        <DashboardCard cardText={"Kalender"} cardLink={"calendar"} />
-        <DashboardCard cardText={"Account"} cardLink={"userprofiles"} />
-        <DashboardCard cardText={"Event anlegen"} cardLink={"eventMultiForm"} />
-        <DashboardCard
-          cardText={"Verein anlegen"}
-          cardLink={"teamCreateForm"}
-        />
+        
+        
+        
+        
       </div>
       <div className="dashboard-content">
         <Outlet />
       </div> */
-    <main>
+    <main className="dashboard">
       <nav className="sidebar">
         <button
           className="hamburger"
@@ -55,12 +52,22 @@ function Dashboard() {
         </button>
         <div className={isSidebarExpanded ? "sidebar expanded" : "sidebar"}>
           <ul className="link">
-            <li>Sign In</li>
-            <li>Dashboard</li>
-            <li>Kalender</li>
+            <DashboardCard cardText={"Kalender"} cardLink={"calendar"} />
+            <DashboardCard cardText={"Account"} cardLink={"account"} />
+            <DashboardCard
+              cardText={"Event anlegen"}
+              cardLink={"eventMultiForm"}
+            />
+            <DashboardCard
+              cardText={"Verein anlegen"}
+              cardLink={"teamCreateForm"}
+            />
           </ul>
         </div>
       </nav>
+      <div className="dashboard-content">
+        <Outlet />
+      </div>
     </main>
   );
 }
