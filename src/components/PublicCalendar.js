@@ -23,13 +23,14 @@ export default function OtherCalendar() {
 
   useEffect(() => {
     getEvents();
-  }, []);
+  }, [allEvents]);
 
-  const events = allEvents.map((e) => ({
-    title: e.title,
-    start: e.startDate,
-    end: e.endDate,
-  }));
+  const events = async () =>
+    await allEvents.map((e) => ({
+      title: e.title,
+      start: e.startDate,
+      end: e.endDate,
+    }));
 
   return (
     <section className="public-calendar">
@@ -39,7 +40,7 @@ export default function OtherCalendar() {
       </Helmet>
       <Calendar
         localizer={localizer}
-        events={events}
+        events={events()}
         startAccessor={(event) => {
           return new Date(event.start);
         }}

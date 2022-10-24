@@ -1,15 +1,11 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-// import Login from "./Login";
-// import SignUp from "./SignUp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Search from "./Search";
 import "../styles/navigation.css";
 
 export default function Navbar() {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
-  // const [isLoginToggled, setIsLoginToggled] = useState(false);
-  // const [isSignUpToggled, setIsSignUpToggled] = useState(false);
 
   return (
     <header>
