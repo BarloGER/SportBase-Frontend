@@ -17,7 +17,7 @@
 .event-form .form-container {
   width: 40rem;
   height: 80rem;
-  background-color: var(--white);
+  background-color: var(--clear-white);
   border-radius: 8px;
   box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
   display: flex;
@@ -46,7 +46,7 @@
   height: 4rem;
   background-color: var(--btn-color-secondary);
   font-weight: bold;
-  color: var(--white);
+  color: var(--clear-white);
   border: none;
   cursor: pointer;
   margin: 1rem 0.5rem;
@@ -134,3 +134,27 @@
 }
 
 /* ----- end of page 4 ----- */
+
+/* ----- start of page 5 ----- */
+
+.event-info.upload {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 4rem;
+}
+
+.event-info.upload ul {
+  margin: 2.5rem 0;
+}
+
+.event-info.upload li {
+  list-style: disc;
+}
+
+.event-info.upload li,
+.event-info.upload a {
+  font-size: 2.5rem;
+  line-height: 3.5rem;
+}
+
+/* ----- end of page 5 ----- */

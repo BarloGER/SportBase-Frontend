@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import { createEvent } from "../../utils/createEvent";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 import axios from "axios";
 import domtoimage from "dom-to-image";
 import EventInfoForm from "./EventInfoForm";
 import Player from "./Player";
 import Reserve from "./Reserve";
-import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
 import DnDField from "./DnDField";
+import SubmitLineupForm from './SubmitLineupForm';
 import "../../styles/eventMultiForm.css";
 
 export default function EventMultiForm() {
@@ -30,7 +31,8 @@ export default function EventMultiForm() {
     "Event Informationen",
     "Verfügbare Spieler",
     "Verfügbare Reserve",
-    "Aufstellung"
+    "Aufstellung",
+    "Ablschließen"
   ];
 
   const pageDisplay = () => {
@@ -42,14 +44,18 @@ export default function EventMultiForm() {
       );
     } else if (page === 2) {
       return <Reserve newEvent={newEvent} setNewEvent={setNewEvent} />;
-    } else if (page === 3)
+    } else if (page === 3) {
       return (
         <DndProvider backend={HTML5Backend}>
           <DnDField newEvent={newEvent} lineupRef={lineupRef} />
         </DndProvider>
       );
+    } else {
+      return <SubmitLineupForm setNewEvent={setNewEvent} />
+    }
   };
 
+  // --------- post newEvent to BackEnd --------------//
   const postData = async () => {
     try {
       const { data } = await createEvent(newEvent);
@@ -60,7 +66,7 @@ export default function EventMultiForm() {
   };
 
   // ---------Download Lineup Pic --------------//
-  const handleSubmit = async () => {
+  const handleDownload = async () => {
     const dataUrl = await domtoimage.toJpeg(lineupRef.current, {
       quality: 0.95,
       style: { margin: 0 },
@@ -69,13 +75,13 @@ export default function EventMultiForm() {
     link.download = `event-${Date.now()}.jpeg`;
     link.href = dataUrl;
     link.click();
+  };
 
-    // ---------Set newEvent --------------//
+  // --------- convert dateTime to ISOString --------------//
+  const handleSubmit = () => {
     const newEventObj = { ...newEvent };
     newEventObj.startDate = new Date(newEventObj.startDate).toISOString();
     newEventObj.endDate = new Date(newEventObj.endDate).toISOString();
-    newEventObj.createdAt = new Date().toISOString();
-    // newEventObj.lineUp = dataUrl;
 
     setNewEvent(newEventObj);
 
@@ -120,6 +126,9 @@ export default function EventMultiForm() {
             onClick={() => {
               if (page === FormTitles.length - 1) {
                 handleSubmit();
+              } else if (page === FormTitles.length - 2) {
+                handleDownload();
+                setPage((currPage) => currPage + 1);
               } else {
                 setPage((currPage) => currPage + 1);
               }
