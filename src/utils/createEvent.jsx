@@ -1,11 +1,15 @@
 import axios from "axios";
-export const createEvent = async (formData) => {
+export const createEvent = async (data) => {
   try {
     const resp = await axios.post(`${process.env.REACT_APP_FP_API}/event`, {
-      body: JSON.stringify(formData),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
+      title: data.title,
+      startDate: data.startDate,
+      endDate: data.endDate,
+      createdAt: data.createdAt,
+      opponent: data.opponent,
+      activePlayers: data.activePlayers,
+      reservePlayers: data.reservePlayers,
+      lineUp: data.lineUp
     });
     console.log(resp);
   } catch (error) {

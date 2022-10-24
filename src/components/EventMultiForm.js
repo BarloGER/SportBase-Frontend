@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { createEvent } from "../utils/createEvent";
 import axios from "axios";
 import domtoimage from "dom-to-image";
 import EventInfo from "./EventInfo";
@@ -20,7 +21,7 @@ export default function EventMultiForm() {
     opponent: "",
     activePlayers: [],
     reservePlayers: [],
-    // lineUp: ''
+    lineUp: ''
   });
 
   const lineupRef = useRef(null);
@@ -49,17 +50,27 @@ export default function EventMultiForm() {
       );
   };
 
+  const postData = async () => {
+    try {
+      const { data } = await createEvent(newEvent);
+      console.log(data);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  // ---------Download Lineup Pic --------------//
   const handleSubmit = async () => {
     const dataUrl = await domtoimage.toJpeg(lineupRef.current, {
       quality: 0.95,
       style: { margin: 0 },
     });
-    console.log(dataUrl);
     const link = document.createElement("a");
     link.download = `event-${Date.now()}.jpeg`;
     link.href = dataUrl;
     link.click();
 
+    // ---------Set newEvent --------------//
     const newEventObj = { ...newEvent };
     newEventObj.startDate = new Date(newEventObj.startDate).toISOString();
     newEventObj.endDate = new Date(newEventObj.endDate).toISOString();
@@ -67,7 +78,8 @@ export default function EventMultiForm() {
     // newEventObj.lineUp = dataUrl;
 
     setNewEvent(newEventObj);
-    alert(`Event: ${newEventObj.title} was submitted`);
+
+    postData();
   };
 
   //TODO: Use suitable endpoint: GetallUsersByTeam/GetallPlayersByTeam

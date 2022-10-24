@@ -9,9 +9,6 @@ export const createUser = async (formSubmission) => {
       email: formSubmission.email,
       password: formSubmission.password,
       terms: formSubmission.terms,
-      // headers: {
-      //   "Content-type": "application/json; charset=UTF-8",
-      // },
     });
     return { data };
   } catch (error) {
