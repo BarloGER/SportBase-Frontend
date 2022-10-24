@@ -10,7 +10,7 @@ import "moment/locale/de";
 export default function OtherCalendar() {
   const localizer = momentLocalizer(moment);
 
-  const [allEvents, setAllEvents] = useState([]);
+  const [allEvents, setAllEvents] = useState();
 
   const getEvents = async () => {
     try {
@@ -23,10 +23,13 @@ export default function OtherCalendar() {
 
   useEffect(() => {
     getEvents();
-  }, [allEvents]);
+  }, []);
 
-  const events = async () =>
-    await allEvents.map((e) => ({
+  // useEffect(() => {}, [allEvents]);
+
+  const events =
+    allEvents &&
+    allEvents.map((e) => ({
       title: e.title,
       start: e.startDate,
       end: e.endDate,
@@ -40,7 +43,7 @@ export default function OtherCalendar() {
       </Helmet>
       <Calendar
         localizer={localizer}
-        events={events()}
+        events={events}
         startAccessor={(event) => {
           return new Date(event.start);
         }}
