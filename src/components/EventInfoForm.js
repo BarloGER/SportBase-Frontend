@@ -1,4 +1,4 @@
-export default function EventInfo({ setNewEvent }) {
+export default function EventInfoForm({ setNewEvent }) {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewEvent((prev) => ({

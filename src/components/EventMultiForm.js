@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { createEvent } from "../utils/createEvent";
 import axios from "axios";
 import domtoimage from "dom-to-image";
-import EventInfo from "./EventInfo";
+import EventInfoForm from "./EventInfoForm";
 import Player from "./Player";
 import Reserve from "./Reserve";
 import { DndProvider } from "react-dnd";
@@ -35,7 +35,7 @@ export default function EventMultiForm() {
 
   const pageDisplay = () => {
     if (page === 0) {
-      return <EventInfo setNewEvent={setNewEvent} />;
+      return <EventInfoForm setNewEvent={setNewEvent} />;
     } else if (page === 1) {
       return (
         <Player avaiablePlayers={avaiablePlayers} setNewEvent={setNewEvent} />
