@@ -1,5 +1,5 @@
 import { useDrag } from 'react-dnd'
-import { ItemTypes } from '../utils/ItemTypes.js'
+import { ItemTypes } from '../../utils/ItemTypes.js'
 
 const DnDPlayer = ({ id, left, top, children }) => {
   const [{ isDragging }, drag] = useDrag(
@@ -12,14 +12,14 @@ const DnDPlayer = ({ id, left, top, children }) => {
     }),
     [id, left, top],
   )
-  
+
   if (isDragging) return <div ref={drag} />
 
   return (
     <div className="player"
-    ref={drag}
-    style={{position: 'absolute', left, top }}
-    data-testid="player">{children}</div>
+      ref={drag}
+      style={{ position: 'absolute', left, top }}
+      data-testid="player">{children}</div>
   )
 }
 
