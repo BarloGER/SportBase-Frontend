@@ -47,7 +47,7 @@ function AboutUs() {
                   alt="img from Niklas"
                 />
               </a>
-              <h1 className="about-us-name">Niklas</h1>
+              <h1 className="aboutUs-name">Niklas</h1>
               <p className="about-each">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae,
                 praesentium. Optio quod maxime ad! Ex, molestias quas commodi
@@ -68,7 +68,7 @@ function AboutUs() {
                   alt="img from Robin"
                 />
               </a>
-              <h1 className="about-us-name">Robin</h1>
+              <h1 className="aboutUs-name">Robin</h1>
               <p className="about-each">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae,
                 praesentium. Optio quod maxime ad! Ex, molestias quas commodi
