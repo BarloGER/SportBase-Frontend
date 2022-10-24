@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { createEvent } from "../utils/createEvent";
+import { createEvent } from "../../utils/createEvent";
 import axios from "axios";
 import domtoimage from "dom-to-image";
 import EventInfoForm from "./EventInfoForm";
@@ -8,7 +8,7 @@ import Reserve from "./Reserve";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import DnDField from "./DnDField";
-import "../styles/eventMultiForm.css";
+import "../../styles/eventMultiForm.css";
 
 export default function EventMultiForm() {
   const [page, setPage] = useState(0);
@@ -30,7 +30,7 @@ export default function EventMultiForm() {
     "Event Informationen",
     "Verfügbare Spieler",
     "Verfügbare Reserve",
-    "Aufstellung",
+    "Aufstellung"
   ];
 
   const pageDisplay = () => {
@@ -42,7 +42,7 @@ export default function EventMultiForm() {
       );
     } else if (page === 2) {
       return <Reserve newEvent={newEvent} setNewEvent={setNewEvent} />;
-    } else
+    } else if (page === 3)
       return (
         <DndProvider backend={HTML5Backend}>
           <DnDField newEvent={newEvent} lineupRef={lineupRef} />
@@ -55,7 +55,7 @@ export default function EventMultiForm() {
       const { data } = await createEvent(newEvent);
       console.log(data);
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
     }
   };
 

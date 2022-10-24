@@ -2,7 +2,7 @@ import update from "immutability-helper";
 import { useState, useCallback, useEffect, useRef } from "react";
 import DnDPlayer from "./DnDPlayer";
 import { useDrop } from "react-dnd";
-import { ItemTypes } from "../utils/ItemTypes.js";
+import { ItemTypes } from "../../utils/ItemTypes.js";
 
 export default function DnDField({ newEvent, lineupRef }) {
   const [activePlayers, setActivePlayers] = useState(newEvent.activePlayers);

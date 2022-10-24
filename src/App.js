@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import SignIn from "./components/SignIn";
 // import Events from "./components/Events";
-import EventMultiForm from "./components/EventMultiForm";
+import EventMultiForm from "./components/event/EventMultiForm";
 import Dashboard from "./components/Dashboard";
 import AboutUs from "./components/AboutUs";
 import TeamCreateForm from "./components/TeamCreateForm";
