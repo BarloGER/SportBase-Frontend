@@ -30,7 +30,7 @@ function Dashboard() {
     <main className="dashboard">
       <nav className="sidebar">
         <button
-          className="hamburger"
+          className="sidebar-hamburger"
           onClick={() => {
             setIsSidebarExpanded(!isSidebarExpanded);
           }}
@@ -50,7 +50,11 @@ function Dashboard() {
             />
           </svg>
         </button>
-        <div className={isSidebarExpanded ? "sidebar expanded" : "sidebar"}>
+        <div
+          className={
+            isSidebarExpanded ? "sidebar-menu expanded" : "sidebar-menu"
+          }
+        >
           <ul className="link">
             <DashboardCard cardText={"Kalender"} cardLink={"calendar"} />
             <DashboardCard cardText={"Account"} cardLink={"account"} />
