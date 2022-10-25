@@ -80,6 +80,7 @@ export default function EventMultiForm() {
   // --------- convert dateTime to ISOString --------------//
   const handleSubmit = () => {
     const newEventObj = { ...newEvent };
+    console.log(newEventObj.startDate);
     newEventObj.startDate = new Date(newEventObj.startDate).toISOString();
     newEventObj.endDate = new Date(newEventObj.endDate).toISOString();
 
