@@ -34,7 +34,7 @@ export default function Reserve({ newEvent, setNewEvent }) {
       {avaiableForReserve && avaiableForReserve.length > 0 ? (
         avaiableForReserve.map((player) => {
           return (
-            <div className="player">
+            <div className="player" key={player._id}>
               <input
                 type="checkbox"
                 name="select"
