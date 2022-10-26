@@ -17,11 +17,18 @@
 .dashboard-content {
   width: 100%;
   position: relative;
+  padding: 3rem;
 }
 
 .dashboard-content .public-calendar {
   height: 90vh;
   padding: 0;
+}
+
+@media screen and (max-width: 830px) {
+  .dashboard-content {
+    padding: 0;
+  }
 }
 
 /* ----- end of dashboard content specific styling ----- */

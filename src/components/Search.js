@@ -79,7 +79,11 @@ export default function Search() {
           <div className="dataResult">
             {filteredData.slice(0, 15).map((value, key) => {
               return (
-                <Link to={`/account/${value._id}`} key={key}>
+                <Link
+                  to={`/account/${value._id}`}
+                  onClick={clearInput}
+                  key={key}
+                >
                   <p>
                     {value.username} {value.firstname} {value.lastname}
                   </p>
