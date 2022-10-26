@@ -14,6 +14,18 @@
   --btn-color-tertiary: rgb(239, 16, 0);
   --input-border: #999;
   --input-border-focus: rgb(98, 0, 255);
+
+  /* ----- Calendar ----- */
+
+  --rbc-toolbar: #47b5ff;
+  --rbc-toolbar-btn: #281dbf;
+  --rbc-header: blue;
+  --rbc-day-bg: #1363df;
+  --rbc-off-range-bg: rgb(28, 102, 148);
+  --rbc-today: green;
+  --rbc-event: rgb(92, 59, 15);
+  --rbc-event-selected: rgb(164, 17, 17);
+  --rbc-event-focus: #ceec07;
 }
 
 /* ----- end of globale color vars ----- */
