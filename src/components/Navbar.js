@@ -1,10 +1,10 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Search from "./Search";
 import "../styles/navigation.css";
 
-export default function Navbar() {
+export default function Navbar(isAuthenticated, logOut, user) {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
 
   return (
@@ -41,7 +41,7 @@ export default function Navbar() {
           }
         >
           <ul className="nav-link">
-            <NavLink
+            {/* <NavLink
               to="/"
               onClick={() => setIsNavExpanded(false)}
               aria-label="Leitet weiter zur Startseite"
@@ -52,7 +52,7 @@ export default function Navbar() {
                   icon={["fa", "home"]}
                 />
               </li>
-            </NavLink>
+            </NavLink> */}
             <NavLink
               to="/signin"
               onClick={() => {

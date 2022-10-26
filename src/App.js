@@ -4,16 +4,13 @@ import LandingPage from "./components/LandingPage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import SignIn from "./components/SignIn";
-// import Events from "./components/Events";
 import EventMultiForm from "./components/event/EventMultiForm";
 import Dashboard from "./components/Dashboard";
 import AboutUs from "./components/AboutUs";
 import TeamCreateForm from "./components/TeamCreateForm";
-
 import GlobalLayout from "./components/GlobalLayout";
 import ProtectedLayout from "./components/Protectedlayout";
 import { getUser } from "./utils/getUser";
-
 import Search from "./components/Search";
 import Account from "./components/Account";
 import PublicCalendar from "./components/PublicCalendar";
@@ -56,7 +53,7 @@ export default function App() {
           <Route index element={<LandingPage />} />
           <Route path="aboutus" element={<AboutUs />} />
           <Route path="calendar" element={<PublicCalendar />} />
-          <Route path="account/:id" element={<Account />} />
+          <Route path="account/:id" element={<Account user={user} />} />
           <Route
             path="/signin"
             element={
@@ -78,6 +75,7 @@ export default function App() {
               <Route path="search" element={<Search />} />
               <Route path="teamCreateForm" element={<TeamCreateForm />} />
               <Route path="calendar" element={<PublicCalendar />} />
+              <Route path="account/:id" element={<Account user={user} />} />
             </Route>
           </Route>
         </Route>
