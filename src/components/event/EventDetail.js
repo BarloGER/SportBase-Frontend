@@ -30,15 +30,22 @@ function EventDetail() {
 
   return (
     <main className='event-detail-section'>
-      <div className="lineup-field">
-        <img
-          src={currentEvent.lineUp ? currentEvent.lineUp : 'https://thumbs.dreamstime.com/b/fu%C3%9Fballplatz-skizze-92868869.jpg'}
-          alt="line-up"
-        />
+      <div className="event-detail-card">
+        <div className="title-container">
+          <h1>Aufstellung</h1>
+        </div>
+        <div className="content-container">
+          <img
+            src={currentEvent.lineUp ? currentEvent.lineUp : 'https://thumbs.dreamstime.com/b/fu%C3%9Fballplatz-skizze-92868869.jpg'}
+            alt="line-up"
+          />
+        </div>
       </div>
-      <div className="player-container">
-        <div className="player">
-          <h2>Aktiver Spieler</h2>
+      <div className="event-detail-card">
+        <div className="title-container">
+          <h1>Spieler</h1>
+        </div>
+        <div className="player-content">
           {currentEvent.activePlayers ? currentEvent.activePlayers.map(player => <div className="playerinfo" key={player._id}>
             <img
               src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
@@ -51,8 +58,10 @@ function EventDetail() {
             <h2>Keine aktiven Spieler</h2>
           )}
         </div>
-        <div className="player">
-          <h2>Reserve Spieler</h2>
+        <div className="title-container">
+          <h1>Reserve</h1>
+        </div>
+        <div className="player-content">
           {currentEvent.reservePlayers ? currentEvent.reservePlayers.map(player => <div className="playerinfo" key={player._id}>
             <img
               src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
@@ -66,52 +75,56 @@ function EventDetail() {
           )}
         </div>
       </div>
-      <div className='event-detail-info-container'>
-        <h2>Event Info's</h2>
-        <form>
-          <label>
-            Event Name
-            <input
-              type="text"
-              name="title"
-              defaultValue={currentEvent.title}
-              readOnly
-              required
-            ></input>
-          </label>
-          <label>
-            Start
-            <input
-              type="datetime-local"
-              name="startDate"
-              defaultValue={moment(currentEvent.startDate).format('YYYY-MM-DDTHH:mm')}
-              readOnly
-              required
-            ></input>
-          </label>
-          <label>
-            Ende
-            <input
-              type="datetime-local"
-              name="endDate"
-              value={moment(currentEvent.endDate).format('YYYY-MM-DDTHH:mm')}
-              readOnly
-              required
-            ></input>
-          </label>
-          <label>
-            Wir spielen gegen
-            <input
-              type="text"
-              name="opponent"
-              value={currentEvent.opponent}
-              required
-            ></input>
-          </label>
-        </form>
+      <div className="event-detail-card">
+        <div className="title-container">
+          <h1>Event Info's</h1>
+        </div>
+        <div className="content-container event-info">
+          <form>
+            <label>
+              Event Name
+              <input
+                type="text"
+                name="title"
+                defaultValue={currentEvent.title}
+                readOnly
+                required
+              ></input>
+            </label>
+            <label>
+              Start
+              <input
+                type="datetime-local"
+                name="startDate"
+                value={moment(currentEvent.startDate).format('YYYY-MM-DDTHH:mm')}
+                readOnly
+                required
+              ></input>
+            </label>
+            <label>
+              Ende
+              <input
+                type="datetime-local"
+                name="endDate"
+                value={moment(currentEvent.endDate).format('YYYY-MM-DDTHH:mm')}
+                readOnly
+                required
+              ></input>
+            </label>
+            <label>
+              Wir spielen gegen
+              <input
+                type="text"
+                name="opponent"
+                value={currentEvent.opponent}
+                required
+              ></input>
+            </label>
+          </form>
+        </div>
       </div>
     </main>
-  )
+  );
 };
 
 export default EventDetail;

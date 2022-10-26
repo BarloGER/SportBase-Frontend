@@ -75,6 +75,7 @@ export default function EventMultiForm() {
     link.download = `event-${Date.now()}.jpeg`;
     link.href = dataUrl;
     link.click();
+    setPage((currPage) => currPage + 1);
   };
 
   // --------- convert dateTime to ISOString --------------//
@@ -129,7 +130,6 @@ export default function EventMultiForm() {
                 handleSubmit();
               } else if (page === FormTitles.length - 2) {
                 handleDownload();
-                setPage((currPage) => currPage + 1);
               } else {
                 setPage((currPage) => currPage + 1);
               }
