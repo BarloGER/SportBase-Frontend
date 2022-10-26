@@ -45,13 +45,31 @@ function Dashboard() {
           }
         >
           <ul className="card-container">
-            <DashboardCard cardText={"Kalender"} cardLink={"calendar"} />
-            <DashboardCard cardText={"Account"} cardLink={"account"} />
             <DashboardCard
+              onClick={() => {
+                setIsSidebarExpanded(false);
+              }}
+              cardText={"Kalender"}
+              cardLink={"calendar"}
+            />
+            <DashboardCard
+              onClick={() => {
+                setIsSidebarExpanded(false);
+              }}
+              cardText={"Account"}
+              cardLink={"account"}
+            />
+            <DashboardCard
+              onClick={() => {
+                setIsSidebarExpanded(false);
+              }}
               cardText={"Event anlegen"}
               cardLink={"eventMultiForm"}
             />
             <DashboardCard
+              onClick={() => {
+                setIsSidebarExpanded(false);
+              }}
               cardText={"Verein anlegen"}
               cardLink={"teamCreateForm"}
             />
