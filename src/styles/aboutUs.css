@@ -3,12 +3,14 @@
 .aboutUs {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: fit-content;
+  min-height: 100vh;
   margin-top: 6rem;
+  padding: 4rem 0;
 }
 
 .aboutUs-container {
-  margin-top: 20rem;
+  /* margin-top: 20rem; */
   position: relative;
   display: flex;
   justify-content: center;
@@ -81,8 +83,8 @@
 
 @media screen and (max-width: 768px) {
   .aboutUs {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 6rem;
+
   }
 
   .aboutUs-Team {
