@@ -60,6 +60,10 @@
   font-size: 1rem;
 }
 
+.rbc-event-label {
+  display: none;
+}
+
 /* .rbc-time-view .rbc-row {
   font-size: 4rem;
 } */
