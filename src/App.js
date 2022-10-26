@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import SignIn from "./components/SignIn";
 import EventMultiForm from "./components/event/EventMultiForm";
+import EventDetail from "./components/event/EventDetail";
 import Dashboard from "./components/Dashboard";
 import AboutUs from "./components/AboutUs";
 import TeamCreateForm from "./components/TeamCreateForm";
@@ -53,7 +54,10 @@ export default function App() {
           <Route index element={<LandingPage />} />
           <Route path="aboutus" element={<AboutUs />} />
           <Route path="calendar" element={<PublicCalendar />} />
-          <Route path="account/:id" element={<Account user={user} />} />
+
+          <Route path="account/:id" element={<Account />} />
+          <Route path="event/:id" element={<EventDetail />} />
+
           <Route
             path="/signin"
             element={

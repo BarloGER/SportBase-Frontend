@@ -41,7 +41,7 @@ export default function Player({ avaiablePlayers, setNewEvent }) {
       {avaiablePlayers && avaiablePlayers.length > 0 ? (
         avaiablePlayers.map((player) => {
           return (
-            <div className="player">
+            <div className="player" key={player._id}>
               <input
                 type="checkbox"
                 name="select"

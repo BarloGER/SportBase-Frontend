@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
 import React, { useState, useEffect } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
+import { useNavigate } from "react-router-dom";
 import moment from "moment";
 import axios from "axios";
 import "react-big-calendar/lib/css/react-big-calendar.css";
@@ -8,9 +9,11 @@ import "../styles/public-calendar.css";
 import "moment/locale/de";
 
 export default function OtherCalendar() {
-  const localizer = momentLocalizer(moment);
 
   const [allEvents, setAllEvents] = useState();
+
+  const localizer = momentLocalizer(moment);
+  const navigate = useNavigate();
 
   const getEvents = async () => {
     try {
@@ -21,17 +24,24 @@ export default function OtherCalendar() {
     }
   };
 
+  const handleOnClick = (clickedEvent) => {
+    navigate(`/event/${clickedEvent.id}`);
+  };
+
   useEffect(() => {
     getEvents();
   }, []);
 
   const events =
     allEvents &&
-    allEvents.map((e) => ({
-      title: e.title,
-      start: e.startDate,
-      end: e.endDate,
-    }));
+    allEvents.map((event) => (
+      {
+        title: event.title,
+        start: event.startDate,
+        end: event.endDate,
+        id: event._id
+      }
+    ));
 
   return (
     <section className="public-calendar">
@@ -48,6 +58,7 @@ export default function OtherCalendar() {
         endAccessor={(event) => {
           return new Date(event.end);
         }}
+        onSelectEvent={event => handleOnClick(event)}
         messages={{
           month: "Monat",
           day: "Tag",

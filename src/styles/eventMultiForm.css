@@ -70,10 +70,7 @@
 }
 
 .event-form .event-info input {
-  width: 35rem;
-  height: 4rem;
-  padding-left: 0.5rem;
-  font-size: 2rem;
+
   border: 2px solid var(--input-border);
   border-radius: 5px;
 }
