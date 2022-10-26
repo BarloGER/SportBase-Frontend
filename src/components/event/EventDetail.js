@@ -1,11 +1,10 @@
-import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import moment from "moment";
-import axios from 'axios';
-import '../../styles/eventDetail.css';
+import axios from "axios";
+import "../../styles/eventDetail.css";
 
 function EventDetail() {
-
   const [currentEvent, setCurrentEvent] = useState({});
   const [isAllowed, setIsAllowed] = useState(false);
 
@@ -18,7 +17,7 @@ function EventDetail() {
       // setCurrentEvent(data);
 
       const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/event`);
-      const temp = data.find(event => event._id === id);
+      const temp = data.find((event) => event._id === id);
       setCurrentEvent(temp);
     } catch (error) {
       console.log(error);

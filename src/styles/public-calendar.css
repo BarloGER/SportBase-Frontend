@@ -60,6 +60,10 @@
   font-size: 1rem;
 }
 
+.rbc-event-label {
+  display: none;
+}
+
 /* .rbc-time-view .rbc-row {
   font-size: 4rem;
 } */
@@ -100,6 +104,7 @@
 .rbc-time-view .rbc-row {
   box-sizing: border-box;
   min-height: auto;
+  font-size: 4rem;
 }
 
 .rbc-time-header-content {
@@ -129,6 +134,10 @@
 
 .rbc-day-slot .rbc-time-slot {
   border-top: none;
+}
+
+.rbc-day-slot div:nth-child(25) {
+  display: none;
 }
 
 /* ----- end of week ----- */
