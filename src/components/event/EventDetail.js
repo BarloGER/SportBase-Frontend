@@ -7,8 +7,10 @@ import '../../styles/eventDetail.css';
 function EventDetail() {
 
   const [currentEvent, setCurrentEvent] = useState({});
+  const [isAllowed, setIsAllowed] = useState(false);
 
   const { id } = useParams();
+
 
   const getEventById = async () => {
     try {
@@ -23,10 +25,22 @@ function EventDetail() {
     }
   };
 
+  //-------------TODO: trigger update stuff here
+  const handleUpdateEvent = (e) => {
+    e.preventDefault();
+    console.log('update this event if you can!')
+  };
+
+  //------------- TODO:collecting chenged event data here
+  const handleChange = (e) => {
+    e.preventDefault();
+    const name = e.target.name;
+    const value = e.target.value;
+  };
 
   useEffect(() => {
     getEventById();
-  }, []);
+  }, [isAllowed]);
 
   return (
     <main className='event-detail-section'>
@@ -80,14 +94,14 @@ function EventDetail() {
           <h1>Event Info's</h1>
         </div>
         <div className="content-container event-info">
-          <form>
+          <form onSubmit={handleUpdateEvent}>
             <label>
               Event Name
               <input
                 type="text"
                 name="title"
                 defaultValue={currentEvent.title}
-                readOnly
+                readOnly={!isAllowed ? 'readOnly' : ''}
                 required
               ></input>
             </label>
@@ -97,7 +111,7 @@ function EventDetail() {
                 type="datetime-local"
                 name="startDate"
                 value={moment(currentEvent.startDate).format('YYYY-MM-DDTHH:mm')}
-                readOnly
+                readOnly={!isAllowed ? 'readOnly' : ''}
                 required
               ></input>
             </label>
@@ -107,7 +121,7 @@ function EventDetail() {
                 type="datetime-local"
                 name="endDate"
                 value={moment(currentEvent.endDate).format('YYYY-MM-DDTHH:mm')}
-                readOnly
+                readOnly={!isAllowed ? 'readOnly' : ''}
                 required
               ></input>
             </label>
@@ -117,9 +131,15 @@ function EventDetail() {
                 type="text"
                 name="opponent"
                 value={currentEvent.opponent}
+                readOnly={!isAllowed ? 'readOnly' : ''}
                 required
               ></input>
             </label>
+            <button
+              className={isAllowed ? 'btn' : 'btn-hidden'}
+              // className='btn'
+              disabled={!isAllowed}>
+              Event bearbeiten</button>
           </form>
         </div>
       </div>
