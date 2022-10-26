@@ -79,6 +79,21 @@
   border: 3px solid var(--input-border-focus);
 }
 
+@media screen and (max-width: 830px) {
+  .event-form .form-container {
+    width: 30rem;
+    height: 60rem;
+  }
+
+  .event-form .content-container {
+    width: 100%;
+  }
+
+  .event-form .event-info input {
+    width: 25rem;
+  }
+}
+
 /* ----- end of page 1 ----- */
 
 /* ----- start of page 2, 3 ----- */
@@ -111,6 +126,17 @@
   font-size: 3rem;
 }
 
+@media screen and (max-width: 830px) {
+  .event-form .select img {
+    height: 4rem;
+    width: 4rem;
+  }
+
+  .event-form .select span {
+    font-size: 2rem;
+  }
+}
+
 /* ----- end of page 2, 3 ----- */
 
 /* ----- start of page 4 ----- */
@@ -128,6 +154,13 @@
   height: 6rem;
   width: 6rem;
   cursor: move;
+}
+
+@media screen and (max-width: 830px) {
+  .event-form .DnDfield img {
+    height: 4rem;
+    width: 4rem;
+  }
 }
 
 /* ----- end of page 4 ----- */
@@ -152,6 +185,26 @@
 .event-info.upload a {
   font-size: 2.5rem;
   line-height: 3.5rem;
+}
+
+@media screen and (max-width: 830px) {
+  .event-info.upload {
+    padding: 1.5rem 3rem;
+  }
+
+  .event-info.upload ul {
+    margin: 1.5rem 0;
+  }
+
+  .event-info.upload li,
+  .event-info.upload a {
+    font-size: 2rem;
+    line-height: 3.5rem;
+  }
+
+  .event-info.upload h3 {
+    font-size: 3rem;
+  }
 }
 
 /* ----- end of page 5 ----- */

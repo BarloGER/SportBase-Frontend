@@ -8,12 +8,12 @@
 }
 
 .rbc-toolbar {
-  background-color: #47b5ff;
+  background-color: var(--rbc-toolbar);
   margin-bottom: 0;
 }
 
 .rbc-toolbar button {
-  background-color: #47b5ff;
+  background-color: var(--rbc-toolbar-btn);
   padding: 0.5rem;
 }
 
@@ -23,26 +23,37 @@
 }
 
 .rbc-header {
-  background-color: blue;
+  background-color: var(--rbc-header);
   border-bottom: 0.2rem solid #ddd;
   border-top: 0.2rem solid #ddd;
 }
 
 .rbc-header + .rbc-header {
   border-left: 0.2rem solid #ddd;
-  font-size: 62.5%;
 }
 
 .rbc-day-bg {
-  background-color: #1363df;
+  background-color: var(--rbc-day-bg);
 }
 
 .rbc-off-range-bg {
-  background-color: var(--black);
+  background-color: var(--rbc-off-range-bg);
 }
 
 .rbc-today {
-  background-color: rgb(33, 253, 26);
+  background-color: var(--rbc-today);
+}
+
+.rbc-event {
+  background-color: var(--rbc-event);
+}
+
+.rbc-event.rbc-selected {
+  background-color: rgb(164, 17, 17);
+}
+
+.rbc-event:focus {
+  outline: 5px auto var(--rbc-event-focus);
 }
 
 .rbc-event-content {
@@ -100,18 +111,17 @@
 }
 
 .rbc-timeslot-group {
-  background-color: #1363df;
+  background-color: var(--rbc-day-bg);
   border-left: 0.2rem solid #ddd;
   border-bottom: 0.2rem solid #ddd;
 }
 
 .rbc-today .rbc-timeslot-group {
-  background-color: rgb(33, 253, 26);
+  background-color: var(--rbc-today);
 }
 
-.rbc-time-content {
-  overflow-y: hidden visible;
-}
+/* .rbc-time-content {
+} */
 
 .rbc-time-view .rbc-header {
   border-bottom: none;
@@ -125,8 +135,13 @@
 
 /* ----- start of agenda ----- */
 
+.rbc-agenda-view {
+  font-size: 5rem;
+}
+
 .rbc-agenda-table {
-  background-color: #47b5ff;
+  background-color: var(--rbc-day-bg);
+  font-size: 5rem;
 }
 
 .rbc-agenda-view table.rbc-agenda-table tbody > tr > td + td {
@@ -158,5 +173,13 @@
 
   .rbc-time-header {
     margin-right: 0 !important;
+  }
+
+  .rbc-agenda-view {
+    font-size: 10rem;
+  }
+
+  .rbc-agenda-table {
+    font-size: 10rem;
   }
 }

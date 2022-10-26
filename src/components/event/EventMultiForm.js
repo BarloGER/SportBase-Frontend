@@ -8,7 +8,7 @@ import EventInfoForm from "./EventInfoForm";
 import Player from "./Player";
 import Reserve from "./Reserve";
 import DnDField from "./DnDField";
-import SubmitLineupForm from './SubmitLineupForm';
+import SubmitLineupForm from "./SubmitLineupForm";
 import "../../styles/eventMultiForm.css";
 
 export default function EventMultiForm() {
@@ -22,7 +22,7 @@ export default function EventMultiForm() {
     opponent: "",
     activePlayers: [],
     reservePlayers: [],
-    lineUp: ''
+    lineUp: "",
   });
 
   const lineupRef = useRef(null);
@@ -32,7 +32,7 @@ export default function EventMultiForm() {
     "Verfügbare Spieler",
     "Verfügbare Reserve",
     "Aufstellung",
-    "Ablschließen"
+    "Abschließen",
   ];
 
   const pageDisplay = () => {
@@ -51,7 +51,7 @@ export default function EventMultiForm() {
         </DndProvider>
       );
     } else {
-      return <SubmitLineupForm setNewEvent={setNewEvent} />
+      return <SubmitLineupForm setNewEvent={setNewEvent} />;
     }
   };
 
