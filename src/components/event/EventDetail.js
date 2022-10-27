@@ -93,6 +93,7 @@ function EventDetail() {
             <label>
               Event Name
               <input
+                className={isAllowed ? '' : 'no-background'}
                 type="text"
                 name="title"
                 defaultValue={currentEvent.title}
@@ -103,6 +104,7 @@ function EventDetail() {
             <label>
               Start
               <input
+                className={isAllowed ? '' : 'no-background'}
                 type="datetime-local"
                 name="startDate"
                 value={moment(currentEvent.startDate).format('YYYY-MM-DDTHH:mm')}
@@ -113,6 +115,7 @@ function EventDetail() {
             <label>
               Ende
               <input
+                className={isAllowed ? '' : 'no-background'}
                 type="datetime-local"
                 name="endDate"
                 value={moment(currentEvent.endDate).format('YYYY-MM-DDTHH:mm')}
@@ -123,6 +126,7 @@ function EventDetail() {
             <label>
               Wir spielen gegen
               <input
+                className={isAllowed ? '' : 'no-background'}
                 type="text"
                 name="opponent"
                 defaultValue={currentEvent.opponent}

@@ -80,6 +80,14 @@
   border: 3px solid var(--input-border-focus);
 }
 
+.event-detail-card .event-info .no-background {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background-color: transparent;
+  padding-left: 0;
+}
+
 .event-detail-card button {
   margin-top: 6rem;
   padding: 0.5rem 2rem;
