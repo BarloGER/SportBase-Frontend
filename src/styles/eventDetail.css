@@ -13,7 +13,7 @@
 }
 
 .event-detail-section .event-detail-card {
-  width: 38rem;
+  width: 44rem;
   height: 80rem;
   background-color: var(--clear-white);
   border-radius: 5px;
@@ -103,5 +103,12 @@
 
   .event-detail-section {
     flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 500px) {
+
+  .event-detail-section .event-detail-card {
+    width: 38rem;
   }
 }
