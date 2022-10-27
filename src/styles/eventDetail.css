@@ -13,7 +13,7 @@
 }
 
 .event-detail-section .event-detail-card {
-  width: 38rem;
+  width: 44rem;
   height: 80rem;
   background-color: var(--clear-white);
   border-radius: 5px;
@@ -80,6 +80,14 @@
   border: 3px solid var(--input-border-focus);
 }
 
+.event-detail-card .event-info .no-background {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background-color: transparent;
+  padding-left: 0;
+}
+
 .event-detail-card button {
   margin-top: 6rem;
   padding: 0.5rem 2rem;
@@ -95,5 +103,12 @@
 
   .event-detail-section {
     flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 500px) {
+
+  .event-detail-section .event-detail-card {
+    width: 38rem;
   }
 }

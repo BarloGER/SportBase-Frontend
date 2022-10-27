@@ -13,12 +13,8 @@ function EventDetail() {
 
   const getEventById = async () => {
     try {
-      // const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/event/${id}`);
-      // setCurrentEvent(data);
-
-      const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/event`);
-      const temp = data.find((event) => event._id === id);
-      setCurrentEvent(temp);
+      const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/event/${id}`);
+      setCurrentEvent(data);
     } catch (error) {
       console.log(error);
     }
@@ -97,6 +93,7 @@ function EventDetail() {
             <label>
               Event Name
               <input
+                className={isAllowed ? '' : 'no-background'}
                 type="text"
                 name="title"
                 defaultValue={currentEvent.title}
@@ -107,6 +104,7 @@ function EventDetail() {
             <label>
               Start
               <input
+                className={isAllowed ? '' : 'no-background'}
                 type="datetime-local"
                 name="startDate"
                 value={moment(currentEvent.startDate).format('YYYY-MM-DDTHH:mm')}
@@ -117,6 +115,7 @@ function EventDetail() {
             <label>
               Ende
               <input
+                className={isAllowed ? '' : 'no-background'}
                 type="datetime-local"
                 name="endDate"
                 value={moment(currentEvent.endDate).format('YYYY-MM-DDTHH:mm')}
@@ -127,16 +126,16 @@ function EventDetail() {
             <label>
               Wir spielen gegen
               <input
+                className={isAllowed ? '' : 'no-background'}
                 type="text"
                 name="opponent"
-                value={currentEvent.opponent}
+                defaultValue={currentEvent.opponent}
                 readOnly={!isAllowed ? 'readOnly' : ''}
                 required
               ></input>
             </label>
             <button
               className={isAllowed ? 'btn' : 'btn-hidden'}
-              // className='btn'
               disabled={!isAllowed}>
               Event bearbeiten</button>
           </form>
