@@ -59,7 +59,6 @@ export default function EventMultiForm() {
   const postData = async () => {
     try {
       const { data } = await createEvent(newEvent);
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -81,7 +80,6 @@ export default function EventMultiForm() {
   // --------- convert dateTime to ISOString --------------//
   const handleSubmit = () => {
     const newEventObj = { ...newEvent };
-    console.log(newEventObj.startDate);
     newEventObj.startDate = new Date(newEventObj.startDate).toISOString();
     newEventObj.endDate = new Date(newEventObj.endDate).toISOString();
 

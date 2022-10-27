@@ -11,7 +11,6 @@ export const createEvent = async (data) => {
       reservePlayers: data.reservePlayers,
       lineUp: data.lineUp
     });
-    console.log(resp);
   } catch (error) {
     console.log(error.response);
   }

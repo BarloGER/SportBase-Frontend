@@ -23,8 +23,7 @@
 .access input {
   padding: 0.7rem;
   display: block;
-  margin: 1.5rem 0 0 0;
-  border: 1px solid var(--input-border);
+  margin-top: 1.5rem;
   width: 30rem;
 }
 
@@ -91,6 +90,7 @@
 }
 
 @media screen and (max-width: 430px) {
+
   .access input,
   .access button {
     width: 25rem;
