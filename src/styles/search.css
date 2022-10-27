@@ -5,7 +5,7 @@
   flex-direction: column;
   position: absolute;
   top: 0.5rem;
-  left: 10rem;
+  left: 15rem;
   margin: 1rem 0;
 }
 
@@ -96,6 +96,9 @@ input:focus {
 }
 
 @media screen and (max-width: 415px) {
+  .search {
+    left: 10rem;
+  }
   .search input {
     width: 15rem;
   }

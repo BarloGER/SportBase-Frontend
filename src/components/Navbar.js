@@ -11,7 +11,8 @@ export default function Navbar(isAuthenticated, logOut, user) {
     <header>
       <nav className="navigation">
         <a href="/" className="brand-name">
-          FP
+          S<span id="brand-name-span">port</span>B
+          <span id="brand-name-span">ase</span>
         </a>
         <button
           className="hamburger"

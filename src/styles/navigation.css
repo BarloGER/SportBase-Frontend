@@ -16,11 +16,15 @@
 .brand-name {
   text-decoration: none;
   color: var(--white);
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-size: 3rem;
+  font-family: "Bebas Neue", cursive;
+  font-size: 5rem;
   margin-left: 1rem;
+  color: var(--btn-color-primary);
 }
-
+#brand-name-span {
+  font-family: "Bebas Neue", cursive;
+  color: var(--white);
+}
 .navigation-menu {
   margin-left: auto;
 }
@@ -94,7 +98,13 @@
   .hamburger {
     display: block;
   }
-
+  .brand-name {
+    font-size: 5rem;
+    margin-left: 3rem;
+  }
+  #brand-name-span {
+    display: none;
+  }
   .navigation-menu ul {
     margin-top: 3rem;
     flex-direction: column;

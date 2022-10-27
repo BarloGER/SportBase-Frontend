@@ -55,7 +55,7 @@ export default function App() {
           <Route path="aboutus" element={<AboutUs />} />
           <Route path="calendar" element={<PublicCalendar />} />
 
-          <Route path="account/:id" element={<Account />} />
+          <Route path="account/:id" element={<Account user={user} />} />
           <Route path="event/:id" element={<EventDetail />} />
 
           <Route
