@@ -13,12 +13,8 @@ function EventDetail() {
 
   const getEventById = async () => {
     try {
-      // const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/event/${id}`);
-      // setCurrentEvent(data);
-
-      const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/event`);
-      const temp = data.find((event) => event._id === id);
-      setCurrentEvent(temp);
+      const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/event/${id}`);
+      setCurrentEvent(data);
     } catch (error) {
       console.log(error);
     }
@@ -129,14 +125,13 @@ function EventDetail() {
               <input
                 type="text"
                 name="opponent"
-                value={currentEvent.opponent}
+                defaultValue={currentEvent.opponent}
                 readOnly={!isAllowed ? 'readOnly' : ''}
                 required
               ></input>
             </label>
             <button
               className={isAllowed ? 'btn' : 'btn-hidden'}
-              // className='btn'
               disabled={!isAllowed}>
               Event bearbeiten</button>
           </form>
