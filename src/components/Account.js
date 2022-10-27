@@ -6,39 +6,47 @@ import Loadingspinner from "./LoadingSpinner";
 
 export default function Account({ user }) {
   const { id } = useParams();
-  console.log(user);
-  const [searchUser, setSearchUser] = useState([]);
-  const thisUser = searchUser.length && searchUser.find((u) => u._id === id);
-  const [isAllowed, setIsAllowed] = useState(true);
+
+  console.log('recieved', user);
+
+  const [loggedInUser, setLoggedInUser] = useState(user)
+  const [currentUser, setCurrentUser] = useState({});
+  const [isAllowed, setIsAllowed] = useState(false);
 
   const getUser = async () => {
     try {
       const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/user`);
-      setSearchUser(data);
-      console.log(data);
+      setCurrentUser(data.find(user => user._id === id));
     } catch (error) {
       console.log(error);
     }
+    checkID();
   };
+
   useEffect(() => {
     getUser();
-    checkID();
-  }, [isAllowed]);
+  }, [loggedInUser]);
 
   const checkForData = () => {
-    return !searchUser || searchUser.length === 0 ? false : true;
+    return !currentUser ? false : true;
   };
 
-  console.log(user._id);
-  console.log(id);
   const checkID = () => {
-    if (!user.user) {
+    if (!user) {
       setIsAllowed(false);
+      console.log('no user found')
     } else if (id !== user._id) {
       setIsAllowed(false);
+      console.log('no match')
     } else {
       setIsAllowed(true);
+      console.log('match')
     }
+  };
+
+  const handleUpdateEvent = (e) => {
+    e.preventDefault();
+    console.log('Hoch die Hände, Wochenende');
   };
 
   return (
@@ -46,7 +54,8 @@ export default function Account({ user }) {
       {" "}
       {!checkForData() && <Loadingspinner />}
       <section className="account-container">
-        <form className="profile-container">
+        <form className="profile-container"
+          onSubmit={handleUpdateEvent}>
           <div className="left-container">
             <div className="user-image">
               <img
@@ -56,7 +65,7 @@ export default function Account({ user }) {
               <input
                 type="text"
                 name="username"
-                defaultValue={thisUser.username}
+                defaultValue={currentUser.username}
                 readOnly={!isAllowed ? "readOnly" : ""}
                 required
               ></input>
@@ -68,7 +77,7 @@ export default function Account({ user }) {
               <textarea
                 type="text"
                 name="aboutMe"
-                defaultValue={thisUser.aboutMe}
+                defaultValue={currentUser.aboutMe}
                 readOnly={!isAllowed ? "readOnly" : ""}
                 placeholder="Verein"
               ></textarea>
@@ -79,7 +88,7 @@ export default function Account({ user }) {
               <input
                 type="text"
                 name="firstname"
-                defaultValue={thisUser.firstname}
+                defaultValue={currentUser.firstname}
                 readOnly={!isAllowed ? "readOnly" : ""}
                 required
               ></input>
@@ -87,7 +96,7 @@ export default function Account({ user }) {
               <input
                 type="text"
                 name="lastname"
-                defaultValue={thisUser.lastname}
+                defaultValue={currentUser.lastname}
                 readOnly={!isAllowed ? "readOnly" : ""}
                 required
               ></input>
@@ -95,7 +104,7 @@ export default function Account({ user }) {
               <input
                 type="text"
                 name="team"
-                defaultValue={thisUser.team}
+                defaultValue={currentUser.team}
                 readOnly={!isAllowed ? "readOnly" : ""}
                 placeholder="Verein"
               ></input>
