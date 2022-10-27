@@ -127,7 +127,6 @@ export default function SignUp({
     e.preventDefault();
     try {
       const { error, data } = await createUser(formSubmission);
-      //console.log(data);
       localStorage.setItem("token", data);
       setToken(data);
       if (token) setIsAuthenticated(true);

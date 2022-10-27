@@ -69,16 +69,6 @@
   flex-direction: column;
 }
 
-.event-form .event-info input {
-
-  border: 2px solid var(--input-border);
-  border-radius: 5px;
-}
-
-.event-form .event-info input:focus {
-  border: 3px solid var(--input-border-focus);
-}
-
 @media screen and (max-width: 830px) {
   .event-form .form-container {
     width: 30rem;
@@ -87,10 +77,6 @@
 
   .event-form .content-container {
     width: 100%;
-  }
-
-  .event-form .event-info input {
-    width: 25rem;
   }
 }
 

@@ -79,6 +79,13 @@ a {
 
 input {
   padding: 0.5rem 2rem;
+  border: 2px solid var(--input-border);
+  border-radius: 5px;
+}
+
+input:focus {
+  border: 3px solid var(--input-border-focus);
+  outline: none;
 }
 
 /* ----- end of globale styling -----*/

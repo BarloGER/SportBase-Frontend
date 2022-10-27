@@ -38,8 +38,8 @@
   border-bottom-left-radius: 0;
 }
 
-input:focus {
-  outline: none;
+.search input:focus {
+  border: 2px solid var(--white);
 }
 
 .searchIcon svg {
