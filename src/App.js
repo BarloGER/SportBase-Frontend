@@ -14,6 +14,7 @@ import ProtectedLayout from "./components/Protectedlayout";
 import { getUser } from "./utils/getUser";
 import Search from "./components/Search";
 import Account from "./components/Account";
+import TeamProfile from "./components/TeamProfile";
 import PublicCalendar from "./components/PublicCalendar";
 import "./styles/global.css";
 
@@ -54,8 +55,8 @@ export default function App() {
           <Route index element={<LandingPage />} />
           <Route path="aboutus" element={<AboutUs />} />
           <Route path="calendar" element={<PublicCalendar />} />
-
           <Route path="account/:id" element={<Account user={user} />} />
+          <Route path="teamprofile/:id" element={<TeamProfile user={user} />} />
           <Route path="event/:id" element={<EventDetail />} />
 
           <Route
@@ -80,6 +81,10 @@ export default function App() {
               <Route path="teamCreateForm" element={<TeamCreateForm />} />
               <Route path="calendar" element={<PublicCalendar />} />
               <Route path="account/:id" element={<Account user={user} />} />
+              <Route
+                path="teamprofile/:id"
+                element={<TeamProfile user={user} />}
+              />
             </Route>
           </Route>
         </Route>
