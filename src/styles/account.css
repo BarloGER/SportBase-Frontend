@@ -116,7 +116,7 @@
   width: 100%;
 }
 
-.user-comments {
+.event-container {
   height: 56%;
   overflow: auto;
   font-size: 4rem;

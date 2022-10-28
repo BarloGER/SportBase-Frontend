@@ -1,31 +1,61 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
+import moment from "moment";
 import "../styles/account.css";
 import Loadingspinner from "./LoadingSpinner";
 
 export default function Account({ user }) {
   const { id } = useParams();
 
-  console.log('recieved', user);
+  console.log("recieved", user);
 
-  const [loggedInUser, setLoggedInUser] = useState(user)
+  const [loggedInUser, setLoggedInUser] = useState(user);
   const [currentUser, setCurrentUser] = useState({});
   const [isAllowed, setIsAllowed] = useState(false);
+  const [events, setEvents] = useState();
 
   const getUser = async () => {
     try {
       const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/user`);
-      setCurrentUser(data.find(user => user._id === id));
+      setCurrentUser(data.find((user) => user._id === id));
     } catch (error) {
       console.log(error);
     }
     checkID();
   };
 
+  const getEvents = async (id) => {
+    try {
+      const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/event`);
+      const checkActivePlayers = data.reduce(
+        (result, current) => result.concat(current.activePlayers),
+        []
+      );
+      const checkReservePlayers = data.reduce(
+        (result, current) => result.concat(current.reservePlayers),
+        []
+      );
+      setEvents(
+        data.filter(
+          (event) =>
+            event.activePlayers.some((ap) => ap._id === id) ||
+            event.reservePlayers.some((rp) => rp._id === id)
+        )
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     getUser();
+    getEvents(id);
   }, [loggedInUser]);
+
+  useEffect(() => {
+    console.log(events, "event state");
+  }, [events]);
 
   const checkForData = () => {
     return !currentUser ? false : true;
@@ -34,28 +64,26 @@ export default function Account({ user }) {
   const checkID = () => {
     if (!user) {
       setIsAllowed(false);
-      console.log('no user found')
+      console.log("no user found");
     } else if (id !== user._id) {
       setIsAllowed(false);
-      console.log('no match')
+      console.log("no match");
     } else {
       setIsAllowed(true);
-      console.log('match')
+      console.log("match");
     }
   };
 
   const handleUpdateEvent = (e) => {
     e.preventDefault();
-    console.log('Hoch die Hände, Wochenende');
+    console.log("Hoch die Hände, Wochenende");
   };
 
   return (
     <main className="account">
-      {" "}
       {!checkForData() && <Loadingspinner />}
       <section className="account-container">
-        <form className="profile-container"
-          onSubmit={handleUpdateEvent}>
+        <form className="profile-container" onSubmit={handleUpdateEvent}>
           <div className="left-container">
             <div className="user-image">
               <img
@@ -124,7 +152,20 @@ export default function Account({ user }) {
                 Absenden
               </button>
             </div>
-            <div className="user-comments">hi</div>
+            <div className="event-container">
+              <h2>Event teilnahme</h2>
+              {events ? (
+                events.map((e) => (
+                  <Link to={`/event/${e._id}`} key={e._id}>
+                    <p className="event-name">
+                      {moment(e.startDate).format("DD-MM-YYYY")} {e.opponent}
+                    </p>
+                  </Link>
+                ))
+              ) : (
+                <h3>Keine aktiven Events</h3>
+              )}
+            </div>
           </div>
         </form>
       </section>
