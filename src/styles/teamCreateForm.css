@@ -6,7 +6,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   background-color: var(--clear-white);
-  height: 100%;
+  height: 80rem;
   width: 40rem;
   padding: 3rem;
   border-radius: 5px;
@@ -36,5 +36,7 @@
 .create-team-section button {
   font-size: 2rem;
   padding: 1rem 2rem;
-  background-color: var(--btn-color-secundary);
+  border: none;
+  color: var(--white);
+  background-color: var(--btn-color-secondary);
 }
