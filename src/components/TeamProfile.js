@@ -24,9 +24,11 @@ export default function TeamProfile() {
   };
 
   useEffect(() => {
-    getTeam(id);
+    getTeam();
   }, []);
   //   }, [loggedInUser]);
+
+  console.log(currentTeam);
 
   const checkForData = () => {
     return !currentTeam ? false : true;
@@ -109,9 +111,9 @@ export default function TeamProfile() {
               <hr />
               <input
                 type="text"
-                name="Position"
-                defaultValue="Wasserjunge"
-                placeholder="Position"
+                name="trainer"
+                // defaultValue={`${currentTeam.trainer.firstname} ${currentTeam.trainer.lastname}`}
+                placeholder="Trainer"
                 disabled={!isAllowed}
               ></input>
               <hr />
@@ -124,15 +126,17 @@ export default function TeamProfile() {
             </div>
             <div className="event-container">
               <h2>Event teilnahme</h2>
-              {/* {currentTeam ? (
-                currentTeam.map((m) => (
+              {currentTeam.member ? (
+                currentTeam.member.map((m) => (
                   <Link to={`/account/${m._id}`} key={m._id}>
-                    <p className="event-name">{m.firstname}</p>
+                    <p className="event-name">
+                      {m.username} {m.firstname} {m.lastname}
+                    </p>
                   </Link>
                 ))
               ) : (
                 <h3>Keine aktiven Member</h3>
-              )} */}
+              )}
             </div>
           </div>
         </form>
