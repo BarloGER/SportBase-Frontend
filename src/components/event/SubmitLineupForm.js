@@ -14,7 +14,7 @@ function SubmitLineupForm({ setNewEvent }) {
       <div>
         <ul>
           <li><a href="https://de.share-your-photo.com/" target='_blank'>Lade hier deine Aufstellung hoch</a></li>
-          <li>Kopiere den dort generierten Link in unten stehendes Feld</li>
+          <li>Kopiere den dort generierten Direktlink (endet auf.jpg) in unten stehendes Feld</li>
           <li>Drücke auf Bestaätigen</li>
         </ul>
       </div>
