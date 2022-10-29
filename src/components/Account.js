@@ -7,16 +7,16 @@ import Loadingspinner from "./LoadingSpinner";
 export default function Account({ user }) {
   const { id } = useParams();
 
-  console.log('recieved', user);
+  console.log("recieved", user);
 
-  const [loggedInUser, setLoggedInUser] = useState(user)
+  const [loggedInUser, setLoggedInUser] = useState(user);
   const [currentUser, setCurrentUser] = useState({});
   const [isAllowed, setIsAllowed] = useState(false);
 
   const getUser = async () => {
     try {
       const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/user`);
-      setCurrentUser(data.find(user => user._id === id));
+      setCurrentUser(data.find((user) => user._id === id));
     } catch (error) {
       console.log(error);
     }
@@ -24,6 +24,9 @@ export default function Account({ user }) {
   };
 
   useEffect(() => {
+    if (!id) {
+      setCurrentUser(loggedInUser);
+    }
     getUser();
   }, [loggedInUser]);
 
@@ -34,28 +37,36 @@ export default function Account({ user }) {
   const checkID = () => {
     if (!user) {
       setIsAllowed(false);
-      console.log('no user found')
+      console.log("no user found");
     } else if (id !== user._id) {
       setIsAllowed(false);
-      console.log('no match')
+      console.log("no match");
     } else {
       setIsAllowed(true);
-      console.log('match')
+      console.log("match");
     }
   };
 
   const handleUpdateEvent = (e) => {
     e.preventDefault();
-    console.log('Hoch die Hände, Wochenende');
+    console.log("Hoch die Hände, Wochenende");
   };
+
+  // const onInputChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setInput((prev) => ({
+  //     ...prev,
+  //     [name]: value,
+  //   }));
+  //   validateInput(e);
+  // };
 
   return (
     <main className="account">
       {" "}
       {!checkForData() && <Loadingspinner />}
       <section className="account-container">
-        <form className="profile-container"
-          onSubmit={handleUpdateEvent}>
+        <form className="profile-container" onSubmit={handleUpdateEvent}>
           <div className="left-container">
             <div className="user-image">
               <img

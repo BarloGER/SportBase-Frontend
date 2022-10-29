@@ -3,10 +3,14 @@ import { Outlet } from "react-router-dom";
 import { useState } from "react";
 import DashboardCard from "./DashboardCard";
 import "../styles/dashboard.css";
+import LoadingSpinner from "./LoadingSpinner";
 
-function Dashboard() {
+function Dashboard({ user }) {
   const [isSidebarExpanded, setIsSidebarExpanded] = useState(false);
-
+  // const [id, setId] = useState();
+  // setId(user._id);
+  // console.log(id);
+  console.log(user._id);
   return (
     <main className="dashboard">
       <Helmet>
@@ -16,6 +20,7 @@ function Dashboard() {
           content="Dashboard Seite mit mehreren Komponenten."
         />
       </Helmet>
+      {!user ? <LoadingSpinner /> : ""}
       <nav className="sidebar">
         <button
           className="sidebar-hamburger"
@@ -57,7 +62,7 @@ function Dashboard() {
                 setIsSidebarExpanded(false);
               }}
               cardText={"Account"}
-              cardLink={"account"}
+              cardLink={`account/${user._id}`}
             />
             <DashboardCard
               onClick={() => {
