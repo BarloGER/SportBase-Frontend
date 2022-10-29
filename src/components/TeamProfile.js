@@ -11,41 +11,29 @@ export default function TeamProfile() {
   //   const [loggedInUser, setLoggedInUser] = useState(user);
   const [currentTeam, setCurrentTeam] = useState({});
   const [isAllowed, setIsAllowed] = useState(false);
+  const [isLoading, setIsLoading] = useState(true)
 
   const getTeam = async () => {
     try {
       const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/team`);
       setCurrentTeam(data.find((team) => team._id === id));
       console.log(data);
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
+      setIsLoading(false);
     }
-    // checkID();
   };
 
   useEffect(() => {
     getTeam();
   }, []);
-  //   }, [loggedInUser]);
 
   console.log(currentTeam);
 
-  const checkForData = () => {
-    return !currentTeam ? false : true;
+  const loadSpinner = () => {
+    return !currentTeam ? true : false;
   };
-
-  //   const checkID = () => {
-  //     if (!user) {
-  //       setIsAllowed(false);
-  //       console.log("no user found");
-  //     } else if (id !== user._id) {
-  //       setIsAllowed(false);
-  //       console.log("no match");
-  //     } else {
-  //       setIsAllowed(true);
-  //       console.log("match");
-  //     }
-  //   };
 
   const handleUpdateEvent = (e) => {
     e.preventDefault();
@@ -54,7 +42,7 @@ export default function TeamProfile() {
 
   return (
     <main className="account">
-      {!checkForData() && <Loadingspinner />}
+      {isLoading && <Loadingspinner />}
       <section className="account-container">
         <form className="profile-container" onSubmit={handleUpdateEvent}>
           <div className="left-container">
@@ -77,7 +65,7 @@ export default function TeamProfile() {
               <textarea
                 type="text"
                 name="aboutMe"
-                // defaultValue={currentTeam.team}
+                defaultValue={currentTeam.team}
                 readOnly={!isAllowed ? "readOnly" : ""}
                 placeholder="Verein"
               ></textarea>
