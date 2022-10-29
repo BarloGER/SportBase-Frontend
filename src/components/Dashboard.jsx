@@ -7,10 +7,6 @@ import LoadingSpinner from "./LoadingSpinner";
 
 function Dashboard({ user }) {
   const [isSidebarExpanded, setIsSidebarExpanded] = useState(false);
-  // const [id, setId] = useState();
-  // setId(user._id);
-  // console.log(id);
-  console.log(user._id);
   return (
     <main className="dashboard">
       <Helmet>
@@ -49,36 +45,40 @@ function Dashboard({ user }) {
             isSidebarExpanded ? "sidebar-menu expanded" : "sidebar-menu"
           }
         >
-          <ul className="card-container">
-            <DashboardCard
-              onClick={() => {
-                setIsSidebarExpanded(false);
-              }}
-              cardText={"Kalender"}
-              cardLink={"calendar"}
-            />
-            <DashboardCard
-              onClick={() => {
-                setIsSidebarExpanded(false);
-              }}
-              cardText={"Account"}
-              cardLink={`account/${user._id}`}
-            />
-            <DashboardCard
-              onClick={() => {
-                setIsSidebarExpanded(false);
-              }}
-              cardText={"Event anlegen"}
-              cardLink={"eventMultiForm"}
-            />
-            <DashboardCard
-              onClick={() => {
-                setIsSidebarExpanded(false);
-              }}
-              cardText={"Verein anlegen"}
-              cardLink={"teamCreateForm"}
-            />
-          </ul>
+          {user ? (
+            <ul className="card-container">
+              <DashboardCard
+                onClick={() => {
+                  setIsSidebarExpanded(false);
+                }}
+                cardText={"Kalender"}
+                cardLink={"calendar"}
+              />
+              <DashboardCard
+                onClick={() => {
+                  setIsSidebarExpanded(false);
+                }}
+                cardText={"Account"}
+                cardLink={`account/${user._id}`}
+              />
+              <DashboardCard
+                onClick={() => {
+                  setIsSidebarExpanded(false);
+                }}
+                cardText={"Event anlegen"}
+                cardLink={"eventMultiForm"}
+              />
+              <DashboardCard
+                onClick={() => {
+                  setIsSidebarExpanded(false);
+                }}
+                cardText={"Verein anlegen"}
+                cardLink={"teamCreateForm"}
+              />
+            </ul>
+          ) : (
+            " "
+          )}
         </div>
       </nav>
       <div className="dashboard-content">
