@@ -1,7 +1,5 @@
 import "../styles/loadingSpinner.css";
 
-import React from "react";
-
 function LoadingSpinner() {
   return (
     <div className="main-fader">

@@ -25,6 +25,15 @@ export default function Search() {
     }
   };
 
+  // const getTeam = async () => {
+  //   try {
+  //     const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/team`);
+  //     setUsers(data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
   const handleFilter = (event) => {
     const searchWord = event.target.value;
 

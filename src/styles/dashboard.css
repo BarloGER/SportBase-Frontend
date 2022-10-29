@@ -15,8 +15,10 @@
 /* ----- start of dashboard content specific styling ----- */
 
 .dashboard-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  position: relative;
   padding: 3rem;
 }
 

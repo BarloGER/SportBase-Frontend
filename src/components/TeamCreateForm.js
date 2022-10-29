@@ -1,15 +1,16 @@
 import { useState } from 'react';
+import { createTeam } from "../utils/createTeam";
 import '../styles/teamCreateForm.css';
 
-function TeamCreateForm() {
+function TeamCreateForm({ user }) {
 
   const [newTeam, setNewTeam] = useState({
     team: '',
     sport: '',
-    MemberCount: '',
+    memberCount: '',
+    member: [],
     trainer: '',
-    logoUrl: '',
-    createdAt: ''
+    logoUrl: ''
   });
 
   const handleInputChange = (e) => {
@@ -20,13 +21,27 @@ function TeamCreateForm() {
     }));
   };
 
-  const handleSubmit = () => {
-    const newTeamObj = { ...newTeam };
-    //newTeamObj.trainer = currentUser.firstname + ' ' + currentUser.lastname
-    newTeamObj.createdAt = new Date().toISOString();
+  // --------- post newTeam to BackEnd --------------//
+  const postData = async () => {
+    try {
+      const { data } = await createTeam(newTeam);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
+  // --------- set up newTeam --------------//
+  const handleSubmit = () => {
+
+    const newTeamObj = { ...newTeam };
+    const member = [];
+    newTeamObj.trainer = (`${user.firstname} ${user.lastname}`);
+    newTeamObj.memberCount = 1;
+    member.push(user);
+    newTeamObj.member = [...member];
     setNewTeam(newTeamObj);
-    alert(`Verein ${newTeam.team} gegründet`);
+
+    postData();
   };
 
   return (
@@ -59,7 +74,7 @@ function TeamCreateForm() {
           <label htmlFor="logo">
             Logo URL
             <input type="text"
-              name="logo"
+              name="logoUrl"
               placeholder='Logo URL einfügen'
               onChange={(e) => handleInputChange(e)}
             />

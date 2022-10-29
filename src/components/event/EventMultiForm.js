@@ -19,6 +19,7 @@ export default function EventMultiForm() {
     startDate: "",
     endDate: "",
     createdAt: "",
+    location: "",
     opponent: "",
     activePlayers: [],
     reservePlayers: [],
