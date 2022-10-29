@@ -9,7 +9,7 @@ function TeamCreateForm({ user }) {
     sport: '',
     memberCount: '',
     member: [],
-    trainer: {},
+    trainer: '',
     logoUrl: ''
   });
 
@@ -26,7 +26,7 @@ function TeamCreateForm({ user }) {
     try {
       const { data } = await createTeam(newTeam);
     } catch (error) {
-      console.log(error.data);
+      console.log(error);
     }
   };
 
@@ -34,11 +34,12 @@ function TeamCreateForm({ user }) {
   const handleSubmit = () => {
 
     const newTeamObj = { ...newTeam };
-    newTeamObj.trainer = user;
-    newTeamObj.memberCount = newTeamObj.member.push(user);
-    newTeamObj.member = newTeamObj.member;
+    const member = [];
+    newTeamObj.trainer = (`${user.firstname} ${user.lastname}`);
+    newTeamObj.memberCount = 1;
+    member.push(user);
+    newTeamObj.member = [...member];
     setNewTeam(newTeamObj);
-    // alert(`Verein ${newTeam.team} gegründet`);
 
     postData();
   };

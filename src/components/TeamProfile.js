@@ -17,7 +17,7 @@ export default function TeamProfile() {
     try {
       const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/team`);
       setCurrentTeam(data.find((team) => team._id === id));
-      console.log(data);
+      const temp = data.find((team) => team._id === id);
       setIsLoading(false);
     } catch (error) {
       console.log(error);
@@ -28,8 +28,6 @@ export default function TeamProfile() {
   useEffect(() => {
     getTeam();
   }, []);
-
-  console.log(currentTeam);
 
   const loadSpinner = () => {
     return !currentTeam ? true : false;
@@ -92,7 +90,7 @@ export default function TeamProfile() {
               <input
                 type="text"
                 name="team"
-                //   defaultValue={currentUser.team}
+                defaultValue={currentTeam.team}
                 readOnly={!isAllowed ? "readOnly" : ""}
                 placeholder="Verein"
               ></input>
@@ -100,7 +98,7 @@ export default function TeamProfile() {
               <input
                 type="text"
                 name="trainer"
-                // defaultValue={`${currentTeam.trainer.firstname} ${currentTeam.trainer.lastname}`}
+                defaultValue={currentTeam.trainer}
                 placeholder="Trainer"
                 disabled={!isAllowed}
               ></input>
