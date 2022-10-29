@@ -1,3 +1,5 @@
+import Autocomplete from "react-google-autocomplete";
+
 export default function EventInfoForm({ setNewEvent }) {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -6,6 +8,8 @@ export default function EventInfoForm({ setNewEvent }) {
       [name]: value,
     }));
   };
+
+  const key = process.env.REACT_APP_PLACES;
 
   return (
     <section className="event-info">
@@ -39,6 +43,18 @@ export default function EventInfoForm({ setNewEvent }) {
             onChange={(e) => handleInputChange(e)}
             required
           ></input>
+        </label>
+        <label>
+          Ort
+          <Autocomplete
+            apiKey={key}
+            onPlaceSelected={(place) => {
+              console.log(place);
+              console.log(place.address_components[0].long_name);
+            }}
+            name="location"
+            onBlur={(e) => handleInputChange(e)}
+          />
         </label>
         <label>
           Wir spielen gegen
