@@ -15,7 +15,7 @@ export default function SignUp({
   const [terms, setTerms] = useState(false);
   const [token, setToken] = useState("");
   const [isCapsLockOn, setIsCapsLockOn] = useState(false);
-  // const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   const [errorMessage, setErrorMessage] = useState("");
   const [input, setInput] = useState({
     firstname: "",
@@ -25,7 +25,6 @@ export default function SignUp({
     password: "",
     confirmPassword: "",
   });
-
   const [error, setError] = useState({
     firstname: "",
     lastname: "",
@@ -131,14 +130,14 @@ export default function SignUp({
       setToken(data);
       if (token) setIsAuthenticated(true);
       setErrorMessage(error.response.data);
+      console.log(errorMessage);
       if (error) throw error;
     } catch (err) {
-      console.error(err);
+      console.log(err);
     }
   };
-
+  console.log(isAuthenticated);
   return isAuthenticated ? (
-    // CHANGED FROM <Navigate to={"../secret/dashboard"} />
     <Navigate to={"/secret/dashboard"} />
   ) : (
     <section className="access">

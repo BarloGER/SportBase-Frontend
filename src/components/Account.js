@@ -47,6 +47,9 @@ export default function Account({ user }) {
   };
 
   useEffect(() => {
+    if (!id) {
+      setCurrentUser(loggedInUser);
+    }
     getUser();
     getEvents(id);
   }, [loggedInUser]);
@@ -76,6 +79,15 @@ export default function Account({ user }) {
     e.preventDefault();
     console.log("Hoch die Hände, Wochenende");
   };
+
+  // const onInputChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setInput((prev) => ({
+  //     ...prev,
+  //     [name]: value,
+  //   }));
+  //   validateInput(e);
+  // };
 
   return (
     <main className="account">
