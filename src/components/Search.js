@@ -44,8 +44,6 @@ export default function Search() {
   const handleSearch = (event) => {
     const searchQuery = event.target.value;
 
-    console.clear();
-
     setWordEntered(searchQuery);
     setActive(true);
 
@@ -66,33 +64,39 @@ export default function Search() {
 
   const checkType = (value) => {
 
-    //log('incheck value', value);
-
     if (value.dataType === 'user') {
-      console.log('user', value.title[0]);
       return (
         <Link
           to={value.link}
           onClick={clearInput}
           key={value.id}
         >
-          <p>
-            {/* title=[ firstname, lastname, username] */}
-            {value.title[0]} {value[1]} {value.title[2]}
-          </p>
+          <div className="data-item-container">
+            < p className="title">
+              {/* title=[ firstname, lastname, username] */}
+              {value.title[0]} {value[1]} {value.title[2]}
+            </p>
+            <p className="type">
+              {value.dataType}
+            </p>
+          </div>
         </Link>)
     } else if (value.dataType === 'team') {
-      console.log('team', value.title[0]);
       return (
         <Link
           to={value.link}
           onClick={clearInput}
           key={value.id}
         >
-          <p>
-            {/* title=[ title] */}
-            {value.title[0]}
-          </p>
+          <div className="data-item-container">
+            <p className="title">
+              {/* title=[ title] */}
+              {value.title[0]}
+            </p>
+            <p className="type">
+              {value.dataType}
+            </p>
+          </div>
         </Link>)
     }
   }
@@ -135,7 +139,7 @@ export default function Search() {
         </div>
         {(filteredData.length > 0) && (
           <div className="dataResult">
-            {filteredData.map((value) => {
+            {filteredData.slice(0, 10).map((value) => {
               return checkType(value);
             })}
           </div>
