@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { login } from "../utils/login";
 import { Navigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Login({
   handleClick,
@@ -34,6 +36,8 @@ export default function Login({
       setIsCapsLockOn(false);
     }
   };
+
+  const notify = () => toast("Erfolgreich eingeloggt!");
 
   // WENN EINGELOGT, DANN WIRD MAN DIREKT AUFS DASHBOARD GELEITET ANSONSTEN BLEIBT MAN IN DER LOGIN KOMPONENTE
   return isAuthenticated ? (
@@ -79,6 +83,22 @@ export default function Login({
             >
               SignUp
             </button>
+            <button className="signIn-buttons btn" onClick={notify}>
+              Test
+            </button>
+            <ToastContainer
+              position="bottom-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="dark"
+              style={{ fontSize: "10rem" }}
+            />
           </div>
         </form>
       </div>

@@ -1,6 +1,8 @@
 import { createUser } from "../utils/createUser";
 import { Navigate } from "react-router-dom";
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function SignUp({
   handleClick,
@@ -137,6 +139,9 @@ export default function SignUp({
     }
   };
   console.log(isAuthenticated);
+
+  const notify = () => toast("Wow so easy!");
+
   return isAuthenticated ? (
     <Navigate to={"/secret/dashboard"} />
   ) : (
@@ -231,7 +236,10 @@ export default function SignUp({
             </label>
           </div>
           <p>{errorMessage}</p>
-          <button className="signIn-buttons btn">Sign UP</button>
+          <button className="signIn-buttons btn" onClick={notify}>
+            Sign UP
+          </button>
+          <ToastContainer margin-top="6rem" />
           <br />
           <div className="switch">
             <p>Bereits registriert?</p>
