@@ -4,7 +4,7 @@ import { useState } from "react";
 import Search from "./Search";
 import "../styles/navigation.css";
 
-export default function Navbar(isAuthenticated, logOut, user) {
+export default function Navbar({ isAuthenticated, logOut, user }) {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
 
   return (
@@ -42,28 +42,27 @@ export default function Navbar(isAuthenticated, logOut, user) {
           }
         >
           <ul className="nav-link">
-            {/* <NavLink
-              to="/"
-              onClick={() => setIsNavExpanded(false)}
-              aria-label="Leitet weiter zur Startseite"
-            >
-              <li>
-                <FontAwesomeIcon
-                  className="fontawesomeicon"
-                  icon={["fa", "home"]}
-                />
-              </li>
-            </NavLink> */}
-            <NavLink
-              to="/signin"
-              onClick={() => {
-                setIsNavExpanded(false);
-              }}
-              aria-label="Leitet weiter zum SignIn"
-            >
-              <li>Sign In</li>
-            </NavLink>
-
+            {isAuthenticated && user ? (
+              <NavLink
+                to="/"
+                onClick={() => {
+                  setIsNavExpanded(false);
+                }}
+                aria-label="Leitet zurück auf die Landingpage"
+              >
+                <li onClick={logOut}>Logout</li>
+              </NavLink>
+            ) : (
+              <NavLink
+                to="/signin"
+                onClick={() => {
+                  setIsNavExpanded(false);
+                }}
+                aria-label="Leitet weiter zum SignIn"
+              >
+                <li>Sign In</li>
+              </NavLink>
+            )}
             <NavLink
               to="/secret/dashboard"
               onClick={() => {

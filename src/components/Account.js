@@ -47,6 +47,9 @@ export default function Account({ user }) {
   };
 
   useEffect(() => {
+    if (!id) {
+      setCurrentUser(loggedInUser);
+    }
     getUser();
     getEvents(id);
   }, [loggedInUser]);
@@ -74,96 +77,103 @@ export default function Account({ user }) {
     console.log("Hoch die Hände, Wochenende");
   };
 
+  // const onInputChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setInput((prev) => ({
+  //     ...prev,
+  //     [name]: value,
+  //   }));
+  //   validateInput(e);
+  // };
+
   return (
     <main className="account">
       {!checkForData() && <Loadingspinner />}
-      <section className="account-container">
-        <form className="profile-container" onSubmit={handleUpdateEvent}>
-          <div className="left-container">
-            <div className="user-image">
-              <img
-                src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
-                alt="Profilbild"
-              />
-              <input
-                type="text"
-                name="username"
-                defaultValue={currentUser.username}
-                readOnly={!isAllowed ? "readOnly" : ""}
-                required
-              ></input>
-              <button className="btn">Nachricht</button>
-            </div>
-            <div className="user-aboutMe">
-              <h2>Über mich</h2>
-              <br />
-              <textarea
-                type="text"
-                name="aboutMe"
-                defaultValue={currentUser.aboutMe}
-                readOnly={!isAllowed ? "readOnly" : ""}
-                placeholder="Verein"
-              ></textarea>
-            </div>
+      <form className="profile-container" onSubmit={handleUpdateEvent}>
+        <div className="left-container">
+          <div className="user-image">
+            <img
+              src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
+              alt="Profilbild"
+            />
+            <input
+              type="text"
+              name="username"
+              defaultValue={currentUser.username}
+              readOnly={!isAllowed ? "readOnly" : ""}
+              required
+            ></input>
+            <button className="btn">Nachricht</button>
           </div>
-          <div className="right-container">
-            <div className="user-info">
-              <input
-                type="text"
-                name="firstname"
-                defaultValue={currentUser.firstname}
-                readOnly={!isAllowed ? "readOnly" : ""}
-                required
-              ></input>
-              <hr />
-              <input
-                type="text"
-                name="lastname"
-                defaultValue={currentUser.lastname}
-                readOnly={!isAllowed ? "readOnly" : ""}
-                required
-              ></input>
-              <hr />
-              <input
-                type="text"
-                name="team"
-                defaultValue={currentUser.team}
-                readOnly={!isAllowed ? "readOnly" : ""}
-                placeholder="Verein"
-              ></input>
-              <hr />
-              <input
-                type="text"
-                name="Position"
-                defaultValue="Wasserjunge"
-                placeholder="Position"
-                disabled={!isAllowed}
-              ></input>
-              <hr />
-              <button
-                className={isAllowed ? "btn" : "btn-hidden"}
-                disabled={!isAllowed}
-              >
-                Absenden
-              </button>
-            </div>
-            <div className="event-container">
-              <h2>Event teilnahme</h2>
-              {events ? (
-                events.map((e) => (
-                  <Link to={`/event/${e._id}`} key={e._id}>
-                    <p className="event-name">
-                      {moment(e.startDate).format("DD-MM-YYYY")} {e.opponent}
-                    </p>
-                  </Link>
-                ))
-              ) : (
-                <h3>Keine aktiven Events</h3>
-              )}
-            </div>
+          <div className="user-aboutMe">
+            <h2>Über mich</h2>
+            <br />
+            <textarea
+              type="text"
+              name="aboutMe"
+              defaultValue={currentUser.aboutMe}
+              readOnly={!isAllowed ? "readOnly" : ""}
+              placeholder="Verein"
+            ></textarea>
           </div>
-        </form>
-      </section>
+        </div>
+        <div className="right-container">
+          <div className="user-info">
+            <input
+              type="text"
+              name="firstname"
+              defaultValue={currentUser.firstname}
+              readOnly={!isAllowed ? "readOnly" : ""}
+              required
+            ></input>
+            <hr />
+            <input
+              type="text"
+              name="lastname"
+              defaultValue={currentUser.lastname}
+              readOnly={!isAllowed ? "readOnly" : ""}
+              required
+            ></input>
+            <hr />
+            <input
+              type="text"
+              name="team"
+              defaultValue={currentUser.team}
+              readOnly={!isAllowed ? "readOnly" : ""}
+              placeholder="Verein"
+            ></input>
+            <hr />
+            <input
+              type="text"
+              name="Position"
+              defaultValue="Wasserjunge"
+              placeholder="Position"
+              disabled={!isAllowed}
+            ></input>
+            <hr />
+            <button
+              className={isAllowed ? "btn" : "btn-hidden"}
+              disabled={!isAllowed}
+            >
+              Absenden
+            </button>
+          </div>
+          <div className="event-container">
+            <h2>Event teilnahme</h2>
+            {events ? (
+              events.map((e) => (
+                <Link to={`/event/${e._id}`} key={e._id}>
+                  <p className="event-name">
+                    {moment(e.startDate).format("DD-MM-YYYY")} {e.opponent}
+                  </p>
+                </Link>
+              ))
+            ) : (
+              <h3>Keine aktiven Events</h3>
+            )}
+          </div>
+        </div>
+      </form>
     </main>
   );
 }

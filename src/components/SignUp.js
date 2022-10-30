@@ -1,6 +1,8 @@
 import { createUser } from "../utils/createUser";
 import { Navigate } from "react-router-dom";
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function SignUp({
   handleClick,
@@ -15,7 +17,7 @@ export default function SignUp({
   const [terms, setTerms] = useState(false);
   const [token, setToken] = useState("");
   const [isCapsLockOn, setIsCapsLockOn] = useState(false);
-  // const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   const [errorMessage, setErrorMessage] = useState("");
   const [input, setInput] = useState({
     firstname: "",
@@ -25,7 +27,6 @@ export default function SignUp({
     password: "",
     confirmPassword: "",
   });
-
   const [error, setError] = useState({
     firstname: "",
     lastname: "",
@@ -131,14 +132,17 @@ export default function SignUp({
       setToken(data);
       if (token) setIsAuthenticated(true);
       setErrorMessage(error.response.data);
+      console.log(errorMessage);
       if (error) throw error;
     } catch (err) {
-      console.error(err);
+      console.log(err);
     }
   };
+  console.log(isAuthenticated);
+
+  const notify = () => toast("Wow so easy!");
 
   return isAuthenticated ? (
-    // CHANGED FROM <Navigate to={"../secret/dashboard"} />
     <Navigate to={"/secret/dashboard"} />
   ) : (
     <section className="access">
@@ -232,7 +236,10 @@ export default function SignUp({
             </label>
           </div>
           <p>{errorMessage}</p>
-          <button className="signIn-buttons btn">Sign UP</button>
+          <button className="signIn-buttons btn" onClick={notify}>
+            Sign UP
+          </button>
+          <ToastContainer margin-top="6rem" />
           <br />
           <div className="switch">
             <p>Bereits registriert?</p>

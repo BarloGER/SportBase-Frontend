@@ -10,29 +10,13 @@
   position: relative;
 }
 
-.account::before {
-  background: url(https://cdn.discordapp.com/attachments/1021406713313763328/1027873313776738334/football-1-1551755.jpg)
-    no-repeat center center/cover;
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  filter: brightness(60%);
-}
-
-.account-container {
+.profile-container {
   display: flex;
   background-color: var(--clear-white);
   height: 90rem;
-  width: 140rem;
+  min-width: 130rem;
   border-radius: 1rem;
   z-index: 1;
-}
-
-.profile-container {
-  display: flex;
 }
 
 /* ******* Left Container ******* */
@@ -40,7 +24,8 @@
 .left-container {
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 35%;
+  height: 100%;
   padding-top: 2rem;
   padding-left: 2rem;
   gap: 3rem;
@@ -51,10 +36,11 @@
   flex-direction: column;
   align-items: center;
   border-radius: 1rem;
-  height: 40%;
+  height: 100%;
   font-size: 3rem;
   gap: 1.5rem;
   background-color: #eee;
+  padding: 3rem;
   /* box-shadow: 0 2px 15px -3px rgb(0 0 0 / 7%), 0 10px 20px -2px rgb(0 0 0 / 4%); */
 }
 
@@ -71,8 +57,8 @@
 }
 
 .user-image img {
-  height: 25rem;
-  width: 25rem;
+  height: 20rem;
+  width: 20rem;
   border-radius: 50%;
   padding: 1rem;
 }
@@ -80,7 +66,7 @@
 .user-aboutMe {
   line-height: 1.4;
   background-color: #eee;
-  height: 60%;
+  height: 100%;
   border-radius: 1rem;
   /* box-shadow: 0 2px 15px -3px rgb(0 0 0 / 7%), 0 10px 20px -2px rgb(0 0 0 / 4%); */
   padding: 3rem;
@@ -98,7 +84,8 @@
 /* ******* Right Container ******* */
 
 .right-container {
-  width: 75%;
+  height: 100%;
+  width: 65%;
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -106,7 +93,7 @@
 }
 
 .user-info {
-  height: 41%;
+  height: 100%;
   font-size: 4rem;
   padding: 3rem;
   background-color: #eee;
@@ -117,11 +104,78 @@
 }
 
 .event-container {
-  height: 56%;
+  height: 100%;
   overflow: auto;
   font-size: 4rem;
   background-color: #eee;
   border-radius: 1rem;
   /* box-shadow: 0 2px 15px -3px rgb(0 0 0 / 7%), 0 10px 20px -2px rgb(0 0 0 / 4%); */
   padding: 3rem;
+}
+
+@media screen and (max-width: 1800px) {
+  .profile-container {
+    min-width: 120rem;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .profile-container {
+    min-width: 100rem;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .profile-container {
+    min-width: 60rem;
+  }
+}
+
+@media screen and (max-width: 1399px) {
+  .profile-container {
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+  }
+
+  .left-container {
+    width: 100%;
+    gap: 0;
+    padding: 0;
+  }
+
+  .user-aboutMe {
+    height: fit-content;
+    min-height: 40rem;
+  }
+
+  .right-container {
+    width: 100%;
+    gap: 0;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .profile-container {
+    min-width: 30rem;
+    height: 75rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .profile-container {
+    width: 20rem;
+  }
+
+  .user-aboutMe {
+    height: fit-content;
+    min-height: 30rem;
+  }
+}
+
+@media screen and (max-height: 200px) {
+  .profile-container {
+    height: 30rem;
+  }
 }
