@@ -5,59 +5,108 @@ import axios from "axios";
 import "../styles/search.css";
 
 export default function Search() {
+  const [formatedUsers, setFormatedUsers] = useState([]);
+  const [formatedTeams, setFormatedTeams] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
-  const [users, setUsers] = useState([]);
   const [active, setActive] = useState(false);
 
-  useEffect(() => {
-    if (active) {
-      getUser();
-    }
-  }, [active]);
 
-  const getUser = async () => {
+
+  const getData = async () => {
     try {
-      const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/user`);
-      setUsers(data);
+      const userData = await axios.get(`${process.env.REACT_APP_FP_API}/user`);
+      const teamData = await axios.get(`${process.env.REACT_APP_FP_API}/team`);
+
+      setFormatedUsers(userData.data.map(user => (
+        {
+          title: [user.firstname, user.lastname, user.username],
+          dataType: 'user',
+          link: `/account/${user._id}`,
+          id: user._id
+        }
+      )));
+
+      setFormatedTeams(teamData.data.map(team => (
+        {
+          title: [team.team],
+          dataType: 'team',
+          link: `/teamprofile/${team._id}`,
+          id: team._id
+        }
+      )));
+
     } catch (error) {
       console.log(error);
     }
   };
 
-  // const getTeam = async () => {
-  //   try {
-  //     const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/team`);
-  //     setUsers(data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  const handleSearch = (event) => {
+    const searchQuery = event.target.value;
 
-  const handleFilter = (event) => {
-    const searchWord = event.target.value;
+    console.clear();
 
-    setWordEntered(searchWord);
+    setWordEntered(searchQuery);
     setActive(true);
-    const newFilter = users.filter((u) => {
-      return (
-        u.username.toLowerCase().includes(searchWord.toLowerCase()) ||
-        u.firstname.toLowerCase().includes(searchWord.toLowerCase()) ||
-        u.lastname.toLowerCase().includes(searchWord.toLowerCase())
-      );
-    });
 
-    if (searchWord === "") {
+    const matchedTeams = formatedTeams.filter(({ title }) => title.some(t => t.toLowerCase().includes(searchQuery.toLowerCase())));
+
+    const matchedUsers = formatedUsers.filter(({ title }) => title.some(t => t.toLowerCase().includes(searchQuery.toLowerCase())));
+
+    let newFilter = [];
+    newFilter = newFilter.concat(matchedTeams);
+    newFilter = newFilter.concat(matchedUsers);
+
+    if (searchQuery === "") {
       setFilteredData([]);
     } else {
       setFilteredData(newFilter);
     }
   };
 
+  const checkType = (value) => {
+
+    //log('incheck value', value);
+
+    if (value.dataType === 'user') {
+      console.log('user', value.title[0]);
+      return (
+        <Link
+          to={value.link}
+          onClick={clearInput}
+          key={value.id}
+        >
+          <p>
+            {/* title=[ firstname, lastname, username] */}
+            {value.title[0]} {value[1]} {value.title[2]}
+          </p>
+        </Link>)
+    } else if (value.dataType === 'team') {
+      console.log('team', value.title[0]);
+      return (
+        <Link
+          to={value.link}
+          onClick={clearInput}
+          key={value.id}
+        >
+          <p>
+            {/* title=[ title] */}
+            {value.title[0]}
+          </p>
+        </Link>)
+    }
+  }
+
   const clearInput = () => {
     setFilteredData([]);
     setWordEntered("");
   };
+
+  useEffect(() => {
+    if (active) {
+      getData();
+    }
+  }, [active]);
 
   return (
     <section className="search-container">
@@ -67,7 +116,7 @@ export default function Search() {
             type="text"
             placeholder="Suchen"
             value={wordEntered}
-            onChange={handleFilter}
+            onChange={handleSearch}
           />
           <div className="searchIcon">
             {filteredData.length === 0 ? (
@@ -84,20 +133,10 @@ export default function Search() {
             )}
           </div>
         </div>
-        {filteredData.length !== 0 && (
+        {(filteredData.length > 0) && (
           <div className="dataResult">
-            {filteredData.slice(0, 15).map((value, key) => {
-              return (
-                <Link
-                  to={`/account/${value._id}`}
-                  onClick={clearInput}
-                  key={key}
-                >
-                  <p>
-                    {value.username} {value.firstname} {value.lastname}
-                  </p>
-                </Link>
-              );
+            {filteredData.map((value) => {
+              checkType(value);
             })}
           </div>
         )}

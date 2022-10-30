@@ -52,7 +52,7 @@ export default function Account({ user }) {
   }, [loggedInUser]);
 
   useEffect(() => {
-    console.log(events, "event state");
+    // console.log(events, "event state");
   }, [events]);
 
   const checkForData = () => {
@@ -62,13 +62,10 @@ export default function Account({ user }) {
   const checkID = () => {
     if (!user) {
       setIsAllowed(false);
-      console.log("no user found");
     } else if (id !== user._id) {
       setIsAllowed(false);
-      console.log("no match");
     } else {
       setIsAllowed(true);
-      console.log("match");
     }
   };
 

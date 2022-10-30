@@ -23,11 +23,10 @@ export default function Login({
       localStorage.setItem("token", data.token);
       setToken(data.token);
       setIsAuthenticated(true);
-    } catch (error) {}
+    } catch (error) { }
   };
 
   const checkCapsLock = (event) => {
-    console.log(event);
     if (event.getModifierState("CapsLock")) {
       setIsCapsLockOn(true);
     } else {
