@@ -136,7 +136,7 @@ export default function Search() {
         {(filteredData.length > 0) && (
           <div className="dataResult">
             {filteredData.map((value) => {
-              checkType(value);
+              return checkType(value);
             })}
           </div>
         )}
