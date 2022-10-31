@@ -29,9 +29,12 @@
 
 .signIn-buttons {
   background-color: var(--btn-color-tertiary);
-  width: 30rem;
+  width: 20rem;
   color: var(--white);
   border: none;
+  font-size: 1.5rem;
+  padding: 0.7rem;
+  margin-top: 1rem;
 }
 
 .access form {
@@ -44,6 +47,7 @@
 
 .access p {
   font-size: 1.5rem;
+  color: var(--white);
 }
 
 .access .terms {
@@ -56,6 +60,7 @@
   display: flex;
   align-items: center;
   margin: 1rem;
+  color: var(--white);
 }
 
 .access .label input {
@@ -90,9 +95,12 @@
 }
 
 @media screen and (max-width: 430px) {
-
   .access input,
   .access button {
     width: 25rem;
+  }
+
+  .access button {
+    width: 18rem;
   }
 }

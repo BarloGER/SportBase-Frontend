@@ -1,29 +1,32 @@
 /* ----- start of globale color vars ----- */
 
 :root {
-  --navigation-color-li: #00ff41;
-  --navigation-color-bg: #424344;
-  --access-color-bg: rgb(49, 173, 111);
+  --navigation-color-li: rgba(44, 181, 179, 0.9);
+  /* #22ad18 */
+  /* #2cb5b3 */
+  --navigation-color-bg: #525354;
+  /* --access-color-bg: rgba(44, 181, 179, 0.85); */
+  --access-color-bg: #838582e3;
   --white: #eee;
   --clear-white: #838582e3;
   --black: #333;
   --btn-color-primary: #ae2d59;
   --btn-color-primary-hover: #cb376a;
   --btn-color-primary-border: #db7598;
-  --btn-color-secondary: #4caf50;
-  --btn-color-tertiary: rgb(239, 16, 0);
+  --btn-color-secondary: rgba(44, 181, 179, 0.9);
+  --btn-color-tertiary: #ae2d58c9;
   --input-border: #999;
-  --input-border-focus: rgb(98, 0, 255);
+  --input-border-focus: rgba(44, 181, 179, 0.9);
 
   /* ----- Calendar ----- */
 
-  --rbc-toolbar: #47b5ff;
-  --rbc-toolbar-btn: #281dbf;
-  --rbc-header: blue;
-  --rbc-day-bg: #1363df;
-  --rbc-off-range-bg: rgb(28, 102, 148);
-  --rbc-today: green;
-  --rbc-event: rgb(92, 59, 15);
+  --rbc-toolbar: #eee;
+  --rbc-toolbar-btn: #eee;
+  --rbc-header: #eee;
+  --rbc-day-bg: #eee;
+  --rbc-off-range-bg: #c0c2c0e3;
+  --rbc-today: rgba(109, 109, 109, 0.9);
+  --rbc-event: #1467f6f0;
   --rbc-event-selected: rgb(164, 17, 17);
   --rbc-event-focus: #ceec07;
 }

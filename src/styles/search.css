@@ -55,6 +55,8 @@
   overflow: hidden;
   overflow-y: auto;
   padding: 1rem;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .data-item-container {
@@ -77,9 +79,11 @@
   display: none;
 }
 
-.dataResult a:hover {
-  background-color: rgb(180, 38, 38);
+.dataResult p {
+  color: var(--black);
 }
+
+/* media Q */
 
 #clearBtn {
   cursor: pointer;

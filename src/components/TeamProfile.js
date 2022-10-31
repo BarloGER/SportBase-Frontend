@@ -11,7 +11,7 @@ export default function TeamProfile() {
   //   const [loggedInUser, setLoggedInUser] = useState(user);
   const [currentTeam, setCurrentTeam] = useState({});
   const [isAllowed, setIsAllowed] = useState(false);
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
 
   const getTeam = async () => {
     try {
@@ -46,15 +46,13 @@ export default function TeamProfile() {
           <div className="left-container">
             <div className="user-image">
               <img
-                src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
-                alt="Profilbild"
+                src={
+                  currentTeam.logoUrl
+                    ? currentTeam.logoUrl
+                    : "https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
+                }
+                alt="Team URL"
               />
-              <input
-                type="text"
-                name="username"
-                readOnly={!isAllowed ? "readOnly" : ""}
-                required
-              ></input>
               <button className="btn">Verein Beitreten</button>
             </div>
             <div className="user-aboutMe">
@@ -78,7 +76,7 @@ export default function TeamProfile() {
                 readOnly={!isAllowed ? "readOnly" : ""}
                 required
               ></input>
-              <hr />
+              <br />
               <input
                 type="text"
                 name="sport"
@@ -86,7 +84,7 @@ export default function TeamProfile() {
                 readOnly={!isAllowed ? "readOnly" : ""}
                 required
               ></input>
-              <hr />
+              <br />
               <input
                 type="text"
                 name="team"
@@ -94,7 +92,7 @@ export default function TeamProfile() {
                 readOnly={!isAllowed ? "readOnly" : ""}
                 placeholder="Verein"
               ></input>
-              <hr />
+              <br />
               <input
                 type="text"
                 name="trainer"
@@ -102,7 +100,7 @@ export default function TeamProfile() {
                 placeholder="Trainer"
                 disabled={!isAllowed}
               ></input>
-              <hr />
+              <br />
               <button
                 className={isAllowed ? "btn" : "btn-hidden"}
                 disabled={!isAllowed}
@@ -111,7 +109,7 @@ export default function TeamProfile() {
               </button>
             </div>
             <div className="event-container">
-              <h2>Event teilnahme</h2>
+              <h2>Mitglieder</h2>
               {currentTeam.member ? (
                 currentTeam.member.map((m) => (
                   <Link to={`/account/${m._id}`} key={m._id}>

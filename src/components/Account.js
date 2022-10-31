@@ -126,7 +126,7 @@ export default function Account({ user }) {
               readOnly={!isAllowed ? "readOnly" : ""}
               required
             ></input>
-            <hr />
+            <br />
             <input
               type="text"
               name="lastname"
@@ -134,7 +134,7 @@ export default function Account({ user }) {
               readOnly={!isAllowed ? "readOnly" : ""}
               required
             ></input>
-            <hr />
+            <br />
             <input
               type="text"
               name="team"
@@ -142,7 +142,7 @@ export default function Account({ user }) {
               readOnly={!isAllowed ? "readOnly" : ""}
               placeholder="Verein"
             ></input>
-            <hr />
+            <br />
             <input
               type="text"
               name="Position"
@@ -150,7 +150,7 @@ export default function Account({ user }) {
               placeholder="Position"
               disabled={!isAllowed}
             ></input>
-            <hr />
+            <br />
             <button
               className={isAllowed ? "btn" : "btn-hidden"}
               disabled={!isAllowed}
