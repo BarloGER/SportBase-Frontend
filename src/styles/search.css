@@ -98,6 +98,14 @@
   .search input {
     width: 20rem;
   }
+
+  .dataResult {
+    width: 25rem;
+  }
+
+  .dataResult .title {
+    font-size: 1.5rem;
+  }
 }
 
 @media screen and (max-width: 415px) {
@@ -107,6 +115,14 @@
 
   .search input {
     width: 15rem;
+  }
+
+  .dataResult {
+    width: 20rem;
+  }
+
+  .dataResult .title {
+    font-size: 1rem;
   }
 
   .dataResult .type {
