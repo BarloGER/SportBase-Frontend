@@ -99,6 +99,10 @@ input:focus {
   border-radius: 5px;
 }
 
+.btn-hidden {
+  display: none;
+}
+
 .btn:active {
   box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
   transform: translateY(4px);
