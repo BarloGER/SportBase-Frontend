@@ -157,6 +157,9 @@
     width: fit-content;
     flex-direction: row-reverse;
     height: 70vh;
+    position: absolute;
+    left: 0;
+    z-index: 5;
   }
 
   .sidebar-hamburger {
@@ -170,7 +173,6 @@
   }
 
   .sidebar-menu ul {
-    /* position: absolute; */
     width: 100%;
     height: 100vh;
     display: none;
@@ -190,7 +192,6 @@
 
   .sidebar-menu.expanded ul {
     display: block;
-    z-index: 5;
     width: 50vw;
     height: 100%;
     padding: 1rem;
