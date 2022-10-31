@@ -210,11 +210,20 @@
   .sidebar-title {
     display: none;
   }
+
+  .sidebar-expanded-title {
+    font-size: 3rem;
+    color: var(--white);
+  }
 }
 
 @media screen and (min-width: 830px) {
   .sidebar-menu {
     width: 100%;
+  }
+
+  .sidebar-expanded-title {
+    display: none;
   }
 }
 

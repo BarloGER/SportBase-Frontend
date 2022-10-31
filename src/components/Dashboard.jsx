@@ -64,7 +64,7 @@ function Dashboard({ user }) {
         >
           {user ? (
             <ul className="card-container">
-              <h2 className="sidebar-title">Navigation</h2>
+              <h2 className="sidebar-expanded-title">Navigation</h2>
               <DashboardCard
                 onClick={() => {
                   setIsSidebarExpanded(false);
