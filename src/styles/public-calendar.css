@@ -40,10 +40,6 @@
   background-color: var(--rbc-off-range-bg);
 }
 
-/* .rbc-today {
-  background-color: var(--rbc-today);
-} */
-
 .rbc-event {
   background-color: var(--rbc-event);
 }
@@ -177,7 +173,7 @@
 
 @media screen and (min-width: 830px) {
   .public-calendar {
-    padding: 8rem 2rem 0 2rem;
+    padding: 8rem 0 0 0;
   }
 
   .rbc-toolbar {
