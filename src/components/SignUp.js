@@ -239,7 +239,6 @@ export default function SignUp({
           <button className="signIn-buttons btn" onClick={notify}>
             Sign UP
           </button>
-          <ToastContainer margin-top="6rem" />
           <br />
           <div className="switch">
             <p>Bereits registriert?</p>

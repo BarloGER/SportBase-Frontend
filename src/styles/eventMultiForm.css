@@ -35,7 +35,7 @@
 .event-form .btn-container button {
   width: 10rem;
   height: 4rem;
-  background-color: var(--btn-color-secondary);
+  background-color: var(--btn-color-tertiary);
   font-weight: bold;
   color: var(--clear-white);
   border: none;

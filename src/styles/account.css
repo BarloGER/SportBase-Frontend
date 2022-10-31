@@ -113,6 +113,10 @@
   padding: 3rem;
 }
 
+.event-container p {
+  color: var(--black);
+}
+
 @media screen and (max-width: 1800px) {
   .profile-container {
     min-width: 120rem;
