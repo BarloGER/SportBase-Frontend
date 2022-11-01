@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  min-height: min-content;
+  min-height: 100vh;
   width: 100vw;
   margin-top: 6rem;
   padding: 5rem 8rem;
@@ -87,6 +87,7 @@
 }
 
 @media screen and (max-width: 1200px) {
+
   .event-detail-section {
     flex-direction: column;
   }
@@ -95,5 +96,12 @@
 @media screen and (max-width: 500px) {
   .event-detail-section .event-detail-card {
     width: 38rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .event-detail-section .event-detail-card {
+    width: 32rem;
+    height: 60rem;
   }
 }

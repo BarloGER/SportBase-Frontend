@@ -147,7 +147,6 @@
   border-radius: 0.2rem;
   background-image: var(--white);
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
   transform: translateY(-50%);
   display: none;
   font-size: 0%;
@@ -156,8 +155,11 @@
 @media screen and (max-width: 830px) {
   .sidebar {
     width: fit-content;
-    flex-direction: row;
-    height: 90vh;
+    flex-direction: row-reverse;
+    height: 70vh;
+    position: absolute;
+    left: 0;
+    z-index: 5;
   }
 
   .sidebar-hamburger {
@@ -171,7 +173,6 @@
   }
 
   .sidebar-menu ul {
-    position: absolute;
     width: 100%;
     height: 100vh;
     display: none;
@@ -191,8 +192,6 @@
 
   .sidebar-menu.expanded ul {
     display: block;
-    z-index: 5;
-    transition: all 0.2s ease-out;
     width: 50vw;
     height: 100%;
     padding: 1rem;
@@ -211,11 +210,20 @@
   .sidebar-title {
     display: none;
   }
+
+  .sidebar-expanded-title {
+    font-size: 3rem;
+    color: var(--white);
+  }
 }
 
 @media screen and (min-width: 830px) {
   .sidebar-menu {
     width: 100%;
+  }
+
+  .sidebar-expanded-title {
+    display: none;
   }
 }
 

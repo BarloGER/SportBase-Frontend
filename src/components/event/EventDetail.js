@@ -49,7 +49,7 @@ function EventDetail() {
             src={
               currentEvent.lineUp
                 ? currentEvent.lineUp
-                : "https://thumbs.dreamstime.com/b/fu%C3%9Fballplatz-skizze-92868869.jpg"
+                : "https://cdn.discordapp.com/attachments/1021406713313763328/1036632430288834560/Fussballfeld-transformed.jpeg"
             }
             alt="line-up"
           />

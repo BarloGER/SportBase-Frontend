@@ -77,7 +77,7 @@ function AboutUs() {
               </p>
             </div>
           </div>
-          <article className="about-SportBase">
+          {/* <article className="about-SportBase">
             <p className="our-passion">
               An active life requires a lot of organization. Who doesn't know
               the problem of organizing trainings, locations and game days? The
@@ -97,7 +97,7 @@ function AboutUs() {
               makes your sports life easier, so you have more time for the
               important things. Your Sport is our passion
             </p>
-          </article>
+          </article> */}
         </div>
       </div>
     </main>
