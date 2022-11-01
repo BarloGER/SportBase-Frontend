@@ -27,6 +27,12 @@
   padding: 0;
 }
 
+@media screen and (max-width: 500px) {
+  .dashboard .public-calendar {
+    height: 50rem;
+  }
+}
+
 .dashboard-content .account {
   height: fit-content;
   margin-top: 0;
