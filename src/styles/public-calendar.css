@@ -99,8 +99,12 @@
 
 .rbc-date-cell.rbc-now button {
   font-weight: bold;
-  background-color: #ae2d58c9;
+  background-color: var(--rbc-event);
   border-radius: 50%;
+}
+
+.rbc-date-cell.rbc-now.rbc-off-range button {
+  color: var(--white);
 }
 
 /* ----- end of month ----- */
@@ -134,6 +138,12 @@
 
 .rbc-today .rbc-timeslot-group {
   background-color: var(--rbc-today);
+}
+
+.rbc-header.rbc-today {
+  font-weight: bold;
+  background-color: var(--rbc-event);
+  color: var(--white);
 }
 
 /* .rbc-time-content {
