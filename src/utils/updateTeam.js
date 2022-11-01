@@ -2,7 +2,7 @@ import axios from "axios";
 export const updateTeam = async (formData) => {
   console.log(formData);
   try {
-    const { data, error } = await axios.put(`${process.env.REACT_APP_FP_API}/${formData._id}`, {
+    const { data, error } = await axios.put(`${process.env.REACT_APP_FP_API}/team/${formData._id}`, {
       team: formData.team,
       sport: formData.sport,
       memberCount: formData.memberCount,

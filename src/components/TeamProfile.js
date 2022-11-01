@@ -32,19 +32,22 @@ export default function TeamProfile({ user }) {
       console.log(error);
       setIsLoading(false);
     }
-    checkIfAllowed();
   };
 
-  const checkIfAllowed = () => {
-    //console.log(`check ${user.firstname} ${user.lastname}`)
-    //console.log('check trainer', currentTeam.trainer,)
+  useEffect(() => {
+    getTeamById();
+  }, []);
 
+  useEffect(() => {
+    checkIfAllowed();
+  }, [currentTeam]);
+
+  console.log(currentTeam);
+
+  function checkIfAllowed() {
     if (!!user && (currentTeam.trainer === `${user.firstname} ${user.lastname}`)) {
-      //console.log('checked true')
-
       setIsAllowed(true);
     } else {
-      //console.log('checked false')
       setIsAllowed(false);
     }
   };
@@ -72,8 +75,8 @@ export default function TeamProfile({ user }) {
 
     if (currentTeam.member.some(m => m._id === user._id)) {
       console.log('you are already part of this team');
-      // } else if (user.team && user.team !== '') {
-      //   console.log('you are already part of an other team');
+    } else if (user.team && user.team !== '') {
+      console.log('you are already part of an other team');
     } else {
       const updatedTeam = { ...currentTeam };
       updatedTeam.member.push(user);
@@ -97,19 +100,16 @@ export default function TeamProfile({ user }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    updateCurrentTeam(input);
+    console.log(input);
+    // updateCurrentTeam(input);
   };
-
-  useEffect(() => {
-    getTeamById();
-  }, []);
 
   return (
     <main className="account">
       {isLoading && <Loadingspinner />}
       <section className="account-container">
-        {/* <form className="profile-container" onSubmit={handleSubmit}> */}
-        <form className="profile-container">
+        <form className="profile-container" onSubmit={handleSubmit}>
+          {/* <form className="profile-container"> */}
           <div className="left-container">
             <div className="user-image">
               <img
@@ -149,6 +149,7 @@ export default function TeamProfile({ user }) {
               <input
                 type="text"
                 name="sport"
+                value={currentTeam.sport}
                 defaultValue={currentTeam.sport}
                 readOnly={!isAllowed ? "readOnly" : ""}
                 required

@@ -52,7 +52,7 @@ export default function Account({ user }) {
     }
     getUser();
     getEvents(id);
-  }, [loggedInUser]);
+  }, [id]);
 
   useEffect(() => {
     // console.log(events, "event state");
