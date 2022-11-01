@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import { updateUser } from "../utils/updateUser";
 import axios from "axios";
 import moment from "moment";
 import "../styles/account.css";
@@ -12,13 +13,18 @@ export default function Account({ user }) {
   const [currentUser, setCurrentUser] = useState({});
   const [isAllowed, setIsAllowed] = useState(false);
   const [events, setEvents] = useState();
+  const [isLoading, setIsLoading] = useState(true);
 
-  const getUser = async () => {
+  const getUserById = async () => {
     try {
+      // const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/user/${id}`)
+      // setCurrentUser(data);
       const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/user`);
       setCurrentUser(data.find((user) => user._id === id));
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
+      setIsLoading(true);
     }
     checkID();
   };
@@ -26,14 +32,6 @@ export default function Account({ user }) {
   const getEvents = async (id) => {
     try {
       const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/event`);
-      const checkActivePlayers = data.reduce(
-        (result, current) => result.concat(current.activePlayers),
-        []
-      );
-      const checkReservePlayers = data.reduce(
-        (result, current) => result.concat(current.reservePlayers),
-        []
-      );
       setEvents(
         data.filter(
           (event) =>
@@ -46,22 +44,6 @@ export default function Account({ user }) {
     }
   };
 
-  useEffect(() => {
-    if (!id) {
-      setCurrentUser(loggedInUser);
-    }
-    getUser();
-    getEvents(id);
-  }, [id]);
-
-  useEffect(() => {
-    // console.log(events, "event state");
-  }, [events]);
-
-  const checkForData = () => {
-    return !currentUser ? false : true;
-  };
-
   const checkID = () => {
     if (!user) {
       setIsAllowed(false);
@@ -72,48 +54,68 @@ export default function Account({ user }) {
     }
   };
 
-  const handleUpdateEvent = (e) => {
-    e.preventDefault();
-    console.log("Hoch die Hände, Wochenende");
+  // --------- put updatedUser to BackEnd --------------//
+  const updateCurrentUser = async (updatedUser) => {
+    try {
+      const { data, error } = await updateUser(updatedUser);
+    } catch (error) {
+      console.log(error.data);
+    }
   };
 
-  // const onInputChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setInput((prev) => ({
-  //     ...prev,
-  //     [name]: value,
-  //   }));
-  //   validateInput(e);
-  // };
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setCurrentUser((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    updateCurrentUser(currentUser);
+  };
+
+  useEffect(() => {
+    if (!id) {
+      setCurrentUser(loggedInUser);
+    }
+    getUserById();
+    getEvents(id);
+  }, [id]);
+
+  useEffect(() => {
+  }, [events]);
 
   return (
     <main className="account">
-      {!checkForData() && <Loadingspinner />}
-      <form className="profile-container" onSubmit={handleUpdateEvent}>
+      {isLoading && <Loadingspinner />}
+      <form className="profile-container" onSubmit={handleSubmit}>
         <div className="left-container">
           <div className="user-image">
             <img
-              src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
+              src={currentUser.userImage ? currentUser.userImage : "https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"}
               alt="Profilbild"
             />
             <input
               type="text"
               name="username"
               defaultValue={currentUser.username}
-              readOnly={!isAllowed ? "readOnly" : ""}
+              // readOnly={!isAllowed ? "readOnly" : ""}
+              readOnly
               required
             ></input>
             <button className="btn">Nachricht</button>
           </div>
           <div className="user-aboutMe">
             <h2>Über mich</h2>
-            <br />
             <textarea
               type="text"
               name="aboutMe"
               defaultValue={currentUser.aboutMe}
               readOnly={!isAllowed ? "readOnly" : ""}
-              placeholder="Verein"
+              placeholder="Über mich"
+              onChange={(e) => handleInputChange(e)}
             ></textarea>
           </div>
         </div>
@@ -123,34 +125,43 @@ export default function Account({ user }) {
               type="text"
               name="firstname"
               defaultValue={currentUser.firstname}
-              readOnly={!isAllowed ? "readOnly" : ""}
+              // readOnly={!isAllowed ? "readOnly" : ""}
+              readOnly
               required
             ></input>
-            <br />
             <input
               type="text"
               name="lastname"
               defaultValue={currentUser.lastname}
-              readOnly={!isAllowed ? "readOnly" : ""}
+              // readOnly={!isAllowed ? "readOnly" : ""}
+              readOnly
               required
             ></input>
-            <br />
             <input
               type="text"
               name="team"
               defaultValue={currentUser.team}
-              readOnly={!isAllowed ? "readOnly" : ""}
+              // readOnly={!isAllowed ? "readOnly" : ""}
+              readOnly
               placeholder="Verein"
             ></input>
-            <br />
             <input
               type="text"
-              name="Position"
-              defaultValue="Wasserjunge"
+              name="position"
+              defaultValue={currentUser.position}
               placeholder="Position"
-              disabled={!isAllowed}
+              readOnly={!isAllowed ? "readOnly" : ""}
+              onChange={(e) => handleInputChange(e)}
             ></input>
-            <br />
+            <input
+              className={isAllowed ? "" : "btn-hidden"}
+              type="text"
+              name="userImage"
+              defaultValue={currentUser.userImage}
+              placeholder="Profilbild"
+              readOnly={!isAllowed ? "readOnly" : ""}
+              onChange={(e) => handleInputChange(e)}
+            ></input>
             <button
               className={isAllowed ? "btn" : "btn-hidden"}
               disabled={!isAllowed}
