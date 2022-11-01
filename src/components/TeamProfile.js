@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { createTeam } from "../utils/createTeam";
+import { updateTeam } from "../utils/updateTeam";
+import { updateUser } from "../utils/updateUser";
 import axios from "axios";
 import moment from "moment";
 import "../styles/account.css";
@@ -9,10 +10,18 @@ import Loadingspinner from "./LoadingSpinner";
 export default function TeamProfile({ user }) {
   const { id } = useParams();
 
-  const [loggedInUser, setLoggedInUser] = useState(user);
   const [currentTeam, setCurrentTeam] = useState({});
-  const [isAllowed, setIsAllowed] = useState(false);
+  const [isAllowed, setIsAllowed] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
+  const [input, setInput] = useState({
+    team: '',
+    sport: '',
+    trainer: '',
+    memberCount: '',
+    member: '',
+    logoUrl: '',
+    isActive: '',
+  });
 
   const getTeamById = async () => {
     try {
@@ -27,16 +36,34 @@ export default function TeamProfile({ user }) {
   };
 
   const checkIfAllowed = () => {
-    console.log(`check ${user.firstname} ${user.lastname}`)
-    console.log('check trainer', currentTeam.trainer,)
+    //console.log(`check ${user.firstname} ${user.lastname}`)
+    //console.log('check trainer', currentTeam.trainer,)
 
     if (!!user && (currentTeam.trainer === `${user.firstname} ${user.lastname}`)) {
-      console.log('checked true')
+      //console.log('checked true')
 
       setIsAllowed(true);
     } else {
-      console.log('checked false')
+      //console.log('checked false')
       setIsAllowed(false);
+    }
+  };
+
+  // --------- put updatedTeam to BackEnd --------------//
+  const updateCurrentTeam = async (updatedTeam) => {
+    try {
+      const { data } = await updateTeam(updatedTeam);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // --------- put updatedUser to BackEnd --------------//
+  const updateCurrentUser = async (updatedUser) => {
+    try {
+      const { data, error } = await updateUser(updatedUser);
+    } catch (error) {
+      console.log(error.data);
     }
   };
 
@@ -45,29 +72,32 @@ export default function TeamProfile({ user }) {
 
     if (currentTeam.member.some(m => m._id === user._id)) {
       console.log('you are already part of this team');
-    } else if (user.team !== '') {
-      console.log('you are already part of an other team');
+      // } else if (user.team && user.team !== '') {
+      //   console.log('you are already part of an other team');
     } else {
       const updatedTeam = { ...currentTeam };
-      updatedTeam.memberCount += 1;
       updatedTeam.member.push(user);
-      console.log(updatedTeam);
+      updatedTeam.memberCount = updatedTeam.member.length;
 
       const updatedUser = { ...user };
       updatedUser.team = currentTeam.team;
-      console.log(updatedUser);
+
+      updateCurrentTeam(updatedTeam);
+      updateCurrentUser(updatedUser);
     }
   }
 
-  const handleUpdateEvent = (e) => {
-    e.preventDefault();
-    console.log("Hoch die Hände, Wochenende");
-    const updatedTeam = { ...currentTeam };
-    console.log(updatedTeam);
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setInput((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
-  const loadSpinner = () => {
-    return !currentTeam ? true : false;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    updateCurrentTeam(input);
   };
 
   useEffect(() => {
@@ -78,7 +108,8 @@ export default function TeamProfile({ user }) {
     <main className="account">
       {isLoading && <Loadingspinner />}
       <section className="account-container">
-        <form className="profile-container" onSubmit={handleUpdateEvent}>
+        {/* <form className="profile-container" onSubmit={handleSubmit}> */}
+        <form className="profile-container">
           <div className="left-container">
             <div className="user-image">
               <img
@@ -101,6 +132,7 @@ export default function TeamProfile({ user }) {
                 defaultValue={currentTeam.team}
                 readOnly={!isAllowed ? "readOnly" : ""}
                 placeholder="Verein"
+                onChange={(e) => handleInputChange(e)}
               ></textarea>
             </div>
           </div>
@@ -112,6 +144,7 @@ export default function TeamProfile({ user }) {
                 defaultValue={currentTeam.team}
                 readOnly={!isAllowed ? "readOnly" : ""}
                 required
+                onChange={(e) => handleInputChange(e)}
               ></input>
               <input
                 type="text"
@@ -119,14 +152,8 @@ export default function TeamProfile({ user }) {
                 defaultValue={currentTeam.sport}
                 readOnly={!isAllowed ? "readOnly" : ""}
                 required
+                onChange={(e) => handleInputChange(e)}
               ></input>
-              {/* <input
-                type="text"
-                name="team"
-                defaultValue={currentTeam.team}
-                readOnly={!isAllowed ? "readOnly" : ""}
-                placeholder="Verein"
-              ></input> */}
               <input
                 type="text"
                 name="trainer"
@@ -141,6 +168,7 @@ export default function TeamProfile({ user }) {
                 defaultValue={currentTeam.logoUrl}
                 placeholder="Vereinslogo"
                 readOnly={!isAllowed ? "readOnly" : ""}
+                onChange={(e) => handleInputChange(e)}
               ></input>
               <button
                 className={isAllowed ? "btn" : "btn-hidden"}
