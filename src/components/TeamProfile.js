@@ -3,7 +3,6 @@ import { useParams, Link } from "react-router-dom";
 import { updateTeam } from "../utils/updateTeam";
 import { updateUser } from "../utils/updateUser";
 import axios from "axios";
-import moment from "moment";
 import "../styles/account.css";
 import Loadingspinner from "./LoadingSpinner";
 
@@ -13,15 +12,6 @@ export default function TeamProfile({ user }) {
   const [currentTeam, setCurrentTeam] = useState({});
   const [isAllowed, setIsAllowed] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
-  const [input, setInput] = useState({
-    team: '',
-    sport: '',
-    trainer: '',
-    memberCount: '',
-    member: '',
-    logoUrl: '',
-    isActive: '',
-  });
 
   const getTeamById = async () => {
     try {
@@ -34,7 +24,7 @@ export default function TeamProfile({ user }) {
     }
   };
 
-  function checkIfAllowed() {
+  const checkIfAllowed = () => {
     if (!!user && (currentTeam.trainer === `${user.firstname} ${user.lastname}`)) {
       setIsAllowed(true);
     } else {
@@ -90,7 +80,6 @@ export default function TeamProfile({ user }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(currentTeam);
     updateCurrentTeam(currentTeam);
   };
 
@@ -115,7 +104,7 @@ export default function TeamProfile({ user }) {
                     ? currentTeam.logoUrl
                     : "https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
                 }
-                alt="Team URL"
+                alt={currentTeam.logoUrl ? currentTeam.team : "Vereinslogo"}
               />
               <button className="btn"
                 onClick={handleJoinTeam}
