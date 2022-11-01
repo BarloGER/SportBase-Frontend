@@ -147,9 +147,6 @@
   color: var(--white);
 }
 
-/* .rbc-time-content {
-} */
-
 .rbc-time-view .rbc-header {
   border-bottom: none;
 }
@@ -161,6 +158,12 @@
 
 .rbc-day-slot div:nth-child(25) {
   display: none;
+}
+
+@media screen and (max-width: 830px) {
+  .rbc-row.rbc-time-header-cell {
+    font-size: 2rem;
+  }
 }
 
 /* ----- end of week ----- */
@@ -181,6 +184,12 @@
 }
 
 /* ----- end of agenda ----- */
+
+@media screen and (max-width: 500px) {
+  .public-calendar {
+    width: 30rem;
+  }
+}
 
 @media screen and (min-width: 830px) {
   .public-calendar {
