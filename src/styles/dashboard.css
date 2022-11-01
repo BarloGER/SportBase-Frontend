@@ -140,7 +140,7 @@
   }
 
   .dashboard .left-container {
-    margin-bottom: 9.3rem;
+    margin-bottom: 9.3rem !important;
   }
 
   .dashboard .user-aboutMe {
