@@ -19,7 +19,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 3rem;
+  /* padding: 3rem; */
 }
 
 .dashboard-content .public-calendar {
@@ -32,21 +32,33 @@
   margin-top: 0;
 }
 
+.dashboard .user-info input {
+  width: 50rem;
+}
+
 @media screen and (max-width: 1800px) {
   .dashboard .profile-container {
-    min-width: 120rem;
+    width: 120rem;
+  }
+
+  .dashboard .left-container {
+    margin-bottom: 0;
   }
 }
 
 @media screen and (max-width: 1600px) {
   .dashboard .profile-container {
-    min-width: 100rem;
+    width: 100rem;
+  }
+
+  .dashboard .left-container {
+    margin-bottom: 0;
   }
 }
 
 @media screen and (max-width: 1400px) {
   .dashboard .profile-container {
-    min-width: 60rem;
+    width: 60rem;
   }
 }
 
@@ -57,28 +69,52 @@
     overflow: auto;
   }
 
+  .dashboard .user-image {
+    margin-bottom: 1rem;
+  }
+
   .dashboard .left-container {
     width: 100%;
-    gap: 0;
     padding: 0;
+    margin-bottom: 1rem;
   }
 
   .dashboard .user-aboutMe {
     height: fit-content;
-    min-height: 40rem;
+    height: 40rem;
+    margin-bottom: 0;
   }
 
   .dashboard .right-container {
     width: 100%;
-    gap: 0;
     padding: 0;
+  }
+
+  .dashboard .user-info {
+    margin-bottom: 1rem;
+  }
+
+  .dashboard .user-info input {
+    width: 54rem;
+  }
+
+  .dashboard .event-container {
+    height: 40rem;
   }
 }
 
 @media screen and (max-width: 1000px) {
   .dashboard .profile-container {
-    min-width: 30rem;
+    width: 30rem;
     height: 75rem;
+  }
+
+  .dashboard .left-container {
+    margin-bottom: 4.3rem;
+  }
+
+  .dashboard .user-info input {
+    width: 24rem;
   }
 }
 
@@ -88,14 +124,27 @@
   }
 
   .dashboard .user-aboutMe {
-    height: fit-content;
     min-height: 30rem;
+    margin-bottom: 0rem;
+  }
+
+  .dashboard .left-container {
+    margin-bottom: 1rem;
   }
 }
 
-@media screen and (max-height: 200px) {
+@media screen and (max-width: 400px) {
   .dashboard .profile-container {
-    height: 30rem;
+    height: 60rem;
+    width: 16rem;
+  }
+
+  .dashboard .left-container {
+    margin-bottom: 9.3rem !important;
+  }
+
+  .dashboard .user-aboutMe {
+    height: 40rem;
   }
 }
 
