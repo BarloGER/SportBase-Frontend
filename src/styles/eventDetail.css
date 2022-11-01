@@ -86,11 +86,8 @@
   background-color: var(--btn-color-secondary);
 }
 
-.event-detail-card .btn-hidden {
-  display: none;
-}
+@media screen and (max-width: 1200px) {
 
-@media screen and (max-width: 1550px) {
   .event-detail-section {
     flex-direction: column;
   }
