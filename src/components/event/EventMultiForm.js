@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { createEvent } from "../../utils/createEvent";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
@@ -27,6 +28,8 @@ export default function EventMultiForm() {
   });
 
   const lineupRef = useRef(null);
+
+  const navigate = useNavigate();
 
   const FormTitles = [
     "Event Informationen",
@@ -63,6 +66,7 @@ export default function EventMultiForm() {
     } catch (error) {
       console.log(error);
     }
+    navigate("/secret/dashboard");
   };
 
   // ---------Download Lineup Pic --------------//
