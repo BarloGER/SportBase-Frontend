@@ -17,6 +17,6 @@ export const login = async (formSubmission) => {
   } catch (error) {
     console.log(error.response);
 
-    return error;
+    return { error };
   }
 };

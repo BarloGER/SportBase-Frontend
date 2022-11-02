@@ -14,7 +14,7 @@ export const createUser = async (formSubmission) => {
   } catch (error) {
     console.log(error.response.data);
 
-    return error;
+    return { error };
   }
 };
 // export const createUser = async (formSubmission) => {
