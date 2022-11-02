@@ -226,14 +226,11 @@ export default function Account({ user }) {
           </div>
           <div className="event-container">
             <h2>Event teilnahme</h2>
-            <span>Wann</span>
-            <span>Wo</span>
-            <span>Gegen wenn?</span>
             {events && events.length ? (
               events.map((e) => (
                 <Link to={`/event/${e._id}`} key={e._id}>
                   <p className="event-name">
-                    {moment(e.startDate).format("DD-MM-YYYY")} {e.opponent}
+                    {moment(e.startDate).format("DD-MM-YYYY")} {e.location}
                   </p>
                 </Link>
               ))
