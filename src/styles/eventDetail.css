@@ -7,7 +7,7 @@
   margin-top: 6rem;
   padding: 5rem 8rem;
   font-size: 15rem;
-  color: var(--black);
+  /* color: var(--black); */
   gap: 10rem;
 }
 
@@ -87,7 +87,6 @@
 }
 
 @media screen and (max-width: 1200px) {
-
   .event-detail-section {
     flex-direction: column;
   }

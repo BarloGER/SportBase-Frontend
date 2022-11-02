@@ -8,24 +8,19 @@
   background-color: var(--clear-white);
   height: 80rem;
   width: 40rem;
-  padding: 3rem;
+  padding: 4rem;
   border-radius: 5px;
   gap: 4rem;
 }
 
-.create-team-section h2 {
-  font-size: 3rem;
-  color: var(--black);
-}
-
-.create-team-section .form {
-  font-size: 6rem;
+.create-team-section h1 {
+  font-size: 4rem;
 }
 
 .create-team-section .input-container {
   background-color: var(--white);
   padding: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   border-radius: 5px;
 }
 
@@ -39,4 +34,19 @@
   border: none;
   color: var(--white);
   background-color: var(--btn-color-secondary);
+}
+
+@media screen and (max-width: 500px) {
+  .create-team-section {
+    height: 45rem;
+    width: 30rem;
+  }
+
+  .create-team-section label {
+    font-size: 2rem;
+  }
+
+  .create-team-section input {
+    width: 20rem;
+  }
 }
