@@ -49,8 +49,7 @@ export default function EventInfoForm({ setNewEvent }) {
           <Autocomplete
             apiKey={key}
             onPlaceSelected={(place) => {
-              console.log(place);
-              console.log(place.address_components[0].long_name);
+              // console.log(place.address_components[0].long_name);
             }}
             name="location"
             onBlur={(e) => handleInputChange(e)}

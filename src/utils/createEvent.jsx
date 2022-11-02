@@ -9,6 +9,7 @@ export const createEvent = async (data) => {
       opponent: data.opponent,
       activePlayers: data.activePlayers,
       reservePlayers: data.reservePlayers,
+      location: data.location,
       lineUp: data.lineUp
     });
   } catch (error) {

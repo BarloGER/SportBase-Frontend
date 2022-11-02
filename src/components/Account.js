@@ -146,7 +146,7 @@ export default function Account({ user }) {
               placeholder="Verein"
             ></input>
             <input
-              type="text"
+              type="number"
               name="age"
               defaultValue={currentUser.age}
               placeholder="Alter"
@@ -154,18 +154,18 @@ export default function Account({ user }) {
               onChange={(e) => handleInputChange(e)}
             ></input>
             <input
-              type="text"
+              type="number"
               name="height"
               defaultValue={currentUser.height}
-              placeholder="Größe"
+              placeholder="Größe in cm"
               readOnly={!isAllowed ? "readOnly" : ""}
               onChange={(e) => handleInputChange(e)}
             ></input>
             <input
-              type="text"
+              type="number"
               name="weight"
               defaultValue={currentUser.weight}
-              placeholder="Gewicht"
+              placeholder="Gewicht in kg"
               readOnly={!isAllowed ? "readOnly" : ""}
               onChange={(e) => handleInputChange(e)}
             ></input>
@@ -177,7 +177,7 @@ export default function Account({ user }) {
               readOnly={!isAllowed ? "readOnly" : ""}
               onChange={(e) => handleInputChange(e)}
             ></input>
-            {/* <input
+            <input
               className={isAllowed ? "" : "btn-hidden"}
               type="text"
               name="userImage"
@@ -185,7 +185,7 @@ export default function Account({ user }) {
               placeholder="Url des Profilbild"
               readOnly={!isAllowed ? "readOnly" : ""}
               onChange={(e) => handleInputChange(e)}
-            ></input> */}
+            ></input>
             <button
               className={isAllowed ? "btn" : "btn-hidden"}
               disabled={!isAllowed}
