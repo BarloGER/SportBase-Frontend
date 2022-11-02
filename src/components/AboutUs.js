@@ -29,10 +29,8 @@ function AboutUs() {
               </a>
               <h1 className="aboutUs-name">Mike</h1>
               <p className="about-each">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
-                quisquam, aliquam odio commodi repellat quia aspernatur fugiat
-                mollitia. Harum eligendi doloribus consectetur laudantium totam
-                minus quis reprehenderit accusantium ad fugit!
+                Hey, ich bin Mike, 25 Jahre jung. Die letzten 8 Jahre war ich
+                Soldat und habe mich für einen Karriere wechsel entschieden.
               </p>
             </div>
             <div className="personal-card" id="margin">

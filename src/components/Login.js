@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { login } from "../utils/login";
 import { Navigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+// import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Login({
@@ -13,6 +13,7 @@ export default function Login({
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isCapsLockOn, setIsCapsLockOn] = useState(false);
+  // const [errorMessage, setErrorMessage] = useState();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,6 +23,7 @@ export default function Login({
       if (error) {
         return error;
       }
+      // setErrorMessage(error.response.data);
       localStorage.setItem("token", data.token);
       setToken(data.token);
       setIsAuthenticated(true);
@@ -36,7 +38,7 @@ export default function Login({
     }
   };
 
-  const notify = () => toast("Erfolgreich eingeloggt!");
+  // const notify = () => toast(errorMessage);
 
   // WENN EINGELOGT, DANN WIRD MAN DIREKT AUFS DASHBOARD GELEITET ANSONSTEN BLEIBT MAN IN DER LOGIN KOMPONENTE
   return isAuthenticated ? (

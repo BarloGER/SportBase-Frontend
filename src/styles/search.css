@@ -94,7 +94,7 @@
   font-size: 1.5rem;
 }
 
-@media screen and (max-width: 515px) {
+@media screen and (max-width: 575px) {
   .search input {
     width: 20rem;
   }
@@ -108,7 +108,7 @@
   }
 }
 
-@media screen and (max-width: 415px) {
+@media screen and (max-width: 475px) {
   .search {
     left: 10rem;
   }
