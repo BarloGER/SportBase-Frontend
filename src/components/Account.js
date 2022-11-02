@@ -147,21 +147,45 @@ export default function Account({ user }) {
             ></input>
             <input
               type="text"
+              name="age"
+              defaultValue={currentUser.age}
+              placeholder="Alter"
+              readOnly={!isAllowed ? "readOnly" : ""}
+              onChange={(e) => handleInputChange(e)}
+            ></input>
+            <input
+              type="text"
+              name="height"
+              defaultValue={currentUser.height}
+              placeholder="Größe"
+              readOnly={!isAllowed ? "readOnly" : ""}
+              onChange={(e) => handleInputChange(e)}
+            ></input>
+            <input
+              type="text"
+              name="weight"
+              defaultValue={currentUser.weight}
+              placeholder="Gewicht"
+              readOnly={!isAllowed ? "readOnly" : ""}
+              onChange={(e) => handleInputChange(e)}
+            ></input>
+            <input
+              type="text"
               name="position"
               defaultValue={currentUser.position}
               placeholder="Position"
               readOnly={!isAllowed ? "readOnly" : ""}
               onChange={(e) => handleInputChange(e)}
             ></input>
-            <input
+            {/* <input
               className={isAllowed ? "" : "btn-hidden"}
               type="text"
               name="userImage"
               defaultValue={currentUser.userImage}
-              placeholder="Profilbild"
+              placeholder="Url des Profilbild"
               readOnly={!isAllowed ? "readOnly" : ""}
               onChange={(e) => handleInputChange(e)}
-            ></input>
+            ></input> */}
             <button
               className={isAllowed ? "btn" : "btn-hidden"}
               disabled={!isAllowed}

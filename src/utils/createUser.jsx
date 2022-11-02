@@ -17,20 +17,3 @@ export const createUser = async (formSubmission) => {
     return error;
   }
 };
-// export const createUser = async (formSubmission) => {
-//   try {
-//     const res = await fetch("http://localhost:8080/user", {
-//       method: "POST",
-//       body: JSON.stringify(formSubmission),
-//       headers: {
-//         "Content-type": "application/json; charset=UTF-8",
-//       },
-//     });
-//     if (!res.ok) throw new Error("Something went wrong");
-//     const post = await res.json();
-//     console.log(post);
-//     return { post };
-//   } catch (error) {
-//     return { error };
-//   }
-// };
