@@ -13,7 +13,7 @@
 .profile-container {
   display: flex;
   background-color: var(--clear-white);
-  height: 90rem;
+  height: 80rem;
   min-width: 130rem;
   border-radius: 1rem;
   z-index: 1;
