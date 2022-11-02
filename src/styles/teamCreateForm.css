@@ -13,9 +13,8 @@
   gap: 4rem;
 }
 
-.create-team-section h2 {
-  font-size: 3rem;
-  color: var(--black);
+.create-team-section h1 {
+  font-size: 4rem;
 }
 
 .create-team-section .input-container {

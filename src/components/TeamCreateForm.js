@@ -44,7 +44,7 @@ function TeamCreateForm({ user }) {
 
   return (
     <section className="create-team-section">
-      <h2>Team erstellen</h2>
+      <h1>Team erstellen</h1>
       <form className="form">
         <label htmlFor="team">
           Name des Verein:
