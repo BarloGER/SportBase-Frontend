@@ -13,15 +13,14 @@
   gap: 4rem;
 }
 
-.create-team-section h1 {
-  font-size: 4rem;
+.create-team-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.create-team-section .input-container {
-  background-color: var(--white);
-  padding: 1rem;
-  margin-bottom: 3rem;
-  border-radius: 5px;
+.create-team-section h1 {
+  font-size: 4rem;
 }
 
 .create-team-section label {
@@ -40,6 +39,10 @@
   .create-team-section {
     height: 45rem;
     width: 30rem;
+  }
+
+  .create-team-section h1 {
+    font-size: 3rem;
   }
 
   .create-team-section label {
