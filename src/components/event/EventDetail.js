@@ -136,6 +136,16 @@ function EventDetail() {
               ></input>
             </label>
             <label>
+              Ort
+              <input
+                type="text"
+                name="location"
+                defaultValue={currentEvent.location}
+                readOnly={!isAllowed ? "readOnly" : ""}
+                required
+              ></input>
+            </label>
+            <label>
               Wir spielen gegen
               <input
                 type="text"
