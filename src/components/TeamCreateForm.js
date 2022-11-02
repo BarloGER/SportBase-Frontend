@@ -1,16 +1,15 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { createTeam } from "../utils/createTeam";
-import '../styles/teamCreateForm.css';
+import "../styles/teamCreateForm.css";
 
 function TeamCreateForm({ user }) {
-
   const [newTeam, setNewTeam] = useState({
-    team: '',
-    sport: '',
-    memberCount: '',
+    team: "",
+    sport: "",
+    memberCount: "",
     member: [],
-    trainer: '',
-    logoUrl: ''
+    trainer: "",
+    logoUrl: "",
   });
 
   const handleInputChange = (e) => {
@@ -32,10 +31,9 @@ function TeamCreateForm({ user }) {
 
   // --------- set up newTeam --------------//
   const handleSubmit = () => {
-
     const newTeamObj = { ...newTeam };
     const member = [];
-    newTeamObj.trainer = (`${user.firstname} ${user.lastname}`);
+    newTeamObj.trainer = `${user.firstname} ${user.lastname}`;
     member.push(user);
     newTeamObj.member = [...member];
     newTeamObj.memberCount = newTeamObj.member.length;
@@ -45,49 +43,49 @@ function TeamCreateForm({ user }) {
   };
 
   return (
-    <section className='create-team-section'>
+    <section className="create-team-section">
       <h2>Team erstellen</h2>
-      <form className='form'>
-        <div className="input-container">
-          <label htmlFor="team">
-            Name des Verein:
-            <input type="text"
-              name="team"
-              placeholder='Name des Verein'
-              onChange={(e) => handleInputChange(e)}
-              required
-            />
-          </label>
-        </div>
-        <div className="input-container">
-          <label htmlFor="sport">
-            Sportart:
-            <input type="text"
-              name="sport"
-              placeholder='Sportart'
-              onChange={(e) => handleInputChange(e)}
-              required
-            />
-          </label>
-        </div>
-        <div className="input-container">
-          <label htmlFor="logo">
-            Logo URL
-            <input type="text"
-              name="logoUrl"
-              placeholder='Logo URL einfügen'
-              onChange={(e) => handleInputChange(e)}
-            />
-          </label>
-        </div>
+      <form className="form">
+        <label htmlFor="team">
+          Name des Verein:
+          <input
+            type="text"
+            name="team"
+            placeholder="Name des Verein"
+            onChange={(e) => handleInputChange(e)}
+            required
+          />
+        </label>
+        <label htmlFor="sport">
+          Sportart:
+          <input
+            type="text"
+            name="sport"
+            placeholder="Sportart"
+            onChange={(e) => handleInputChange(e)}
+            required
+          />
+        </label>
+        <label htmlFor="logo">
+          Logo URL
+          <input
+            type="text"
+            name="logoUrl"
+            placeholder="Logo URL einfügen"
+            onChange={(e) => handleInputChange(e)}
+          />
+        </label>
       </form>
-      <button className='btn'
-        onClick={() => { handleSubmit() }}
+      <button
+        className="btn"
+        onClick={() => {
+          handleSubmit();
+        }}
       >
         Absenden
       </button>
     </section>
-  )
+  );
 }
 
 export default TeamCreateForm;
