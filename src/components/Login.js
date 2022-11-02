@@ -67,12 +67,12 @@ export default function Login({
           {isCapsLockOn && (
             <p className="caps-lock-warning">Feststelltaste ist aktiviert!</p>
           )}
-          <div className="terms">
+          {/* <div className="terms">
             <label className="label">
               Ich möchte angemeldet bleiben.
               <input type="checkbox" name="confirm" />
             </label>
-          </div>
+          </div> */}
 
           <button className="signIn-buttons btn">Sign In</button>
           <br />
@@ -84,22 +84,6 @@ export default function Login({
             >
               SignUp
             </button>
-            <button className="signIn-buttons btn" onClick={notify}>
-              Test
-            </button>
-            <ToastContainer
-              position="bottom-right"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-              theme="dark"
-              style={{ fontSize: "10rem" }}
-            />
           </div>
         </form>
       </div>

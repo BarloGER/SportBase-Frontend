@@ -36,9 +36,9 @@ function TeamCreateForm({ user }) {
     const newTeamObj = { ...newTeam };
     const member = [];
     newTeamObj.trainer = (`${user.firstname} ${user.lastname}`);
-    newTeamObj.memberCount = 1;
     member.push(user);
     newTeamObj.member = [...member];
+    newTeamObj.memberCount = newTeamObj.member.length;
     setNewTeam(newTeamObj);
 
     postData();

@@ -19,7 +19,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 3rem;
+  margin-left: 4rem;
 }
 
 .dashboard-content .public-calendar {
@@ -27,26 +27,44 @@
   padding: 0;
 }
 
+@media screen and (max-width: 500px) {
+  .dashboard .public-calendar {
+    height: 50rem;
+  }
+}
+
 .dashboard-content .account {
   height: fit-content;
   margin-top: 0;
 }
 
+.dashboard .user-info input {
+  width: 50rem;
+}
+
 @media screen and (max-width: 1800px) {
   .dashboard .profile-container {
-    min-width: 120rem;
+    width: 120rem;
+  }
+
+  .dashboard .left-container {
+    margin-bottom: 0;
   }
 }
 
 @media screen and (max-width: 1600px) {
   .dashboard .profile-container {
-    min-width: 100rem;
+    width: 100rem;
+  }
+
+  .dashboard .left-container {
+    margin-bottom: 0;
   }
 }
 
 @media screen and (max-width: 1400px) {
   .dashboard .profile-container {
-    min-width: 60rem;
+    width: 60rem;
   }
 }
 
@@ -57,28 +75,52 @@
     overflow: auto;
   }
 
+  .dashboard .user-image {
+    margin-bottom: 1rem;
+  }
+
   .dashboard .left-container {
     width: 100%;
-    gap: 0;
     padding: 0;
+    margin-bottom: 1rem;
   }
 
   .dashboard .user-aboutMe {
     height: fit-content;
-    min-height: 40rem;
+    height: 40rem;
+    margin-bottom: 0;
   }
 
   .dashboard .right-container {
     width: 100%;
-    gap: 0;
     padding: 0;
+  }
+
+  .dashboard .user-info {
+    margin-bottom: 1rem;
+  }
+
+  .dashboard .user-info input {
+    width: 54rem;
+  }
+
+  .dashboard .event-container {
+    height: 40rem;
   }
 }
 
 @media screen and (max-width: 1000px) {
   .dashboard .profile-container {
-    min-width: 30rem;
+    width: 30rem;
     height: 75rem;
+  }
+
+  .dashboard .left-container {
+    margin-bottom: 4.3rem;
+  }
+
+  .dashboard .user-info input {
+    width: 24rem;
   }
 }
 
@@ -88,14 +130,27 @@
   }
 
   .dashboard .user-aboutMe {
-    height: fit-content;
     min-height: 30rem;
+    margin-bottom: 0rem;
+  }
+
+  .dashboard .left-container {
+    margin-bottom: 1rem;
   }
 }
 
-@media screen and (max-height: 200px) {
+@media screen and (max-width: 400px) {
   .dashboard .profile-container {
-    height: 30rem;
+    height: 60rem;
+    width: 16rem;
+  }
+
+  .dashboard .left-container {
+    margin-bottom: 9.3rem !important;
+  }
+
+  .dashboard .user-aboutMe {
+    height: 40rem;
   }
 }
 
@@ -109,7 +164,9 @@
   position: relative;
   font-size: 5rem;
   width: 40rem;
-  height: 90vh;
+  height: 70vh;
+  border-bottom-right-radius: 1rem;
+  border-top-right-radius: 1rem;
   text-align: center;
   background-color: var(--navigation-color-bg);
 }
@@ -119,7 +176,7 @@
 }
 
 .sidebar-title {
-  margin-top: 1rem;
+  margin-top: 3rem;
   color: var(--white);
 }
 
@@ -132,8 +189,9 @@
   background-color: var(--white);
   margin-bottom: 2rem;
   width: 100%;
-  height: 12rem;
+  height: 6rem;
   font-size: 5rem;
+  border-radius: 5px;
 }
 
 .sidebar-hamburger {
@@ -144,7 +202,6 @@
   border-radius: 0.2rem;
   background-image: var(--white);
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
   transform: translateY(-50%);
   display: none;
   font-size: 0%;
@@ -153,8 +210,11 @@
 @media screen and (max-width: 830px) {
   .sidebar {
     width: fit-content;
-    flex-direction: row;
-    height: 90vh;
+    flex-direction: row-reverse;
+    height: 70vh;
+    position: absolute;
+    left: 0;
+    z-index: 5;
   }
 
   .sidebar-hamburger {
@@ -168,7 +228,6 @@
   }
 
   .sidebar-menu ul {
-    position: absolute;
     width: 100%;
     height: 100vh;
     display: none;
@@ -188,8 +247,6 @@
 
   .sidebar-menu.expanded ul {
     display: block;
-    z-index: 5;
-    transition: all 0.2s ease-out;
     width: 50vw;
     height: 100%;
     padding: 1rem;
@@ -202,17 +259,26 @@
     background-color: var(--white);
     width: 100%;
     height: 5rem;
-    margin-bottom: 0.5rem;
+    margin: 1.5rem 0;
   }
 
   .sidebar-title {
     display: none;
+  }
+
+  .sidebar-expanded-title {
+    font-size: 3rem;
+    color: var(--white);
   }
 }
 
 @media screen and (min-width: 830px) {
   .sidebar-menu {
     width: 100%;
+  }
+
+  .sidebar-expanded-title {
+    display: none;
   }
 }
 

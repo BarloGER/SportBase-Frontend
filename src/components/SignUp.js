@@ -238,6 +238,7 @@ export default function SignUp({
           <button className="signIn-buttons btn" onClick={notify}>
             Sign UP
           </button>
+
           <ToastContainer
             position="bottom-right"
             autoClose={5000}
@@ -251,6 +252,7 @@ export default function SignUp({
             theme="dark"
             style={{ fontSize: "10rem" }}
           />
+
           <br />
           <div className="switch">
             <p>Bereits registriert?</p>

@@ -1,23 +1,22 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import { updateTeam } from "../utils/updateTeam";
+import { updateUser } from "../utils/updateUser";
 import axios from "axios";
-import moment from "moment";
 import "../styles/account.css";
 import Loadingspinner from "./LoadingSpinner";
 
-export default function TeamProfile() {
+export default function TeamProfile({ user }) {
   const { id } = useParams();
 
-  //   const [loggedInUser, setLoggedInUser] = useState(user);
   const [currentTeam, setCurrentTeam] = useState({});
-  const [isAllowed, setIsAllowed] = useState(false);
-  const [isLoading, setIsLoading] = useState(true)
+  const [isAllowed, setIsAllowed] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const getTeam = async () => {
+  const getTeamById = async () => {
     try {
-      const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/team`);
-      setCurrentTeam(data.find((team) => team._id === id));
-      const temp = data.find((team) => team._id === id);
+      const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/team/${id}`)
+      setCurrentTeam(data);
       setIsLoading(false);
     } catch (error) {
       console.log(error);
@@ -25,47 +24,101 @@ export default function TeamProfile() {
     }
   };
 
-  useEffect(() => {
-    getTeam();
-  }, []);
-
-  const loadSpinner = () => {
-    return !currentTeam ? true : false;
+  const checkIfAllowed = () => {
+    if (!!user && (currentTeam.trainer === `${user.firstname} ${user.lastname}`)) {
+      setIsAllowed(true);
+    } else {
+      setIsAllowed(false);
+    }
   };
 
-  const handleUpdateEvent = (e) => {
+  // --------- put updatedTeam to BackEnd --------------//
+  const updateCurrentTeam = async (updatedTeam) => {
+    try {
+      const { data } = await updateTeam(updatedTeam);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // --------- put updatedUser to BackEnd --------------//
+  const updateCurrentUser = async (updatedUser) => {
+    try {
+      const { data, error } = await updateUser(updatedUser);
+    } catch (error) {
+      console.log(error.data);
+    }
+  };
+
+  const handleJoinTeam = (e) => {
     e.preventDefault();
-    console.log("Hoch die Hände, Wochenende");
+
+    if (currentTeam.member.some(m => m._id === user._id)) {
+      console.log('you are already part of this team');
+    } else if (user.team && user.team !== '') {
+      console.log('you are already part of an other team');
+    } else {
+      const updatedTeam = { ...currentTeam };
+      updatedTeam.member.push(user);
+      updatedTeam.memberCount = updatedTeam.member.length;
+
+      const updatedUser = { ...user };
+      updatedUser.team = currentTeam.team;
+
+      updateCurrentTeam(updatedTeam);
+      updateCurrentUser(updatedUser);
+    }
+  }
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setCurrentTeam((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    updateCurrentTeam(currentTeam);
+  };
+
+  useEffect(() => {
+    getTeamById();
+  }, [id]);
+
+  useEffect(() => {
+    checkIfAllowed();
+  }, [currentTeam]);
 
   return (
     <main className="account">
       {isLoading && <Loadingspinner />}
       <section className="account-container">
-        <form className="profile-container" onSubmit={handleUpdateEvent}>
+        <form className="profile-container" onSubmit={handleSubmit}>
           <div className="left-container">
             <div className="user-image">
               <img
-                src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
-                alt="Profilbild"
+                src={
+                  currentTeam.logoUrl
+                    ? currentTeam.logoUrl
+                    : "https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
+                }
+                alt={currentTeam.logoUrl ? currentTeam.team : "Vereinslogo"}
               />
-              <input
-                type="text"
-                name="username"
-                readOnly={!isAllowed ? "readOnly" : ""}
-                required
-              ></input>
-              <button className="btn">Verein Beitreten</button>
+              <button className="btn"
+                onClick={handleJoinTeam}
+              >Verein Beitreten</button>
             </div>
             <div className="user-aboutMe">
               <h2>Über uns</h2>
-              <br />
               <textarea
                 type="text"
                 name="aboutMe"
                 defaultValue={currentTeam.team}
                 readOnly={!isAllowed ? "readOnly" : ""}
                 placeholder="Verein"
+                onChange={(e) => handleInputChange(e)}
               ></textarea>
             </div>
           </div>
@@ -77,32 +130,32 @@ export default function TeamProfile() {
                 defaultValue={currentTeam.team}
                 readOnly={!isAllowed ? "readOnly" : ""}
                 required
+                onChange={(e) => handleInputChange(e)}
               ></input>
-              <hr />
               <input
                 type="text"
                 name="sport"
                 defaultValue={currentTeam.sport}
                 readOnly={!isAllowed ? "readOnly" : ""}
                 required
+                onChange={(e) => handleInputChange(e)}
               ></input>
-              <hr />
-              <input
-                type="text"
-                name="team"
-                defaultValue={currentTeam.team}
-                readOnly={!isAllowed ? "readOnly" : ""}
-                placeholder="Verein"
-              ></input>
-              <hr />
               <input
                 type="text"
                 name="trainer"
                 defaultValue={currentTeam.trainer}
                 placeholder="Trainer"
-                disabled={!isAllowed}
+                readOnly={!isAllowed ? "readOnly" : ""}
               ></input>
-              <hr />
+              <input
+                className={isAllowed ? "" : "btn-hidden"}
+                type="text"
+                name="logoUrl"
+                defaultValue={currentTeam.logoUrl}
+                placeholder="Vereinslogo"
+                readOnly={!isAllowed ? "readOnly" : ""}
+                onChange={(e) => handleInputChange(e)}
+              ></input>
               <button
                 className={isAllowed ? "btn" : "btn-hidden"}
                 disabled={!isAllowed}
@@ -111,7 +164,8 @@ export default function TeamProfile() {
               </button>
             </div>
             <div className="event-container">
-              <h2>Event teilnahme</h2>
+              <h2>Mitglieder</h2>
+              <span><p>aktuell: {currentTeam.memberCount}</p></span>
               {currentTeam.member ? (
                 currentTeam.member.map((m) => (
                   <Link to={`/account/${m._id}`} key={m._id}>

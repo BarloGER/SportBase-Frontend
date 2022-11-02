@@ -10,10 +10,11 @@ function EventDetail() {
 
   const { id } = useParams();
 
-
   const getEventById = async () => {
     try {
-      const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/event/${id}`);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_FP_API}/event/${id}`
+      );
       setCurrentEvent(data);
     } catch (error) {
       console.log(error);
@@ -23,7 +24,7 @@ function EventDetail() {
   //-------------TODO: trigger update stuff here
   const handleUpdateEvent = (e) => {
     e.preventDefault();
-    console.log('update this event if you can!')
+    console.log("update this event if you can!");
   };
 
   //------------- TODO:collecting chenged event data here
@@ -38,14 +39,18 @@ function EventDetail() {
   }, [isAllowed]);
 
   return (
-    <main className='event-detail-section'>
+    <main className="event-detail-section">
       <div className="event-detail-card">
         <div className="title-container">
           <h1>Aufstellung</h1>
         </div>
         <div className="content-container">
           <img
-            src={currentEvent.lineUp ? currentEvent.lineUp : 'https://thumbs.dreamstime.com/b/fu%C3%9Fballplatz-skizze-92868869.jpg'}
+            src={
+              currentEvent.lineUp
+                ? currentEvent.lineUp
+                : "https://cdn.discordapp.com/attachments/1021406713313763328/1036632430288834560/Fussballfeld-transformed.jpeg"
+            }
             alt="line-up"
           />
         </div>
@@ -55,15 +60,19 @@ function EventDetail() {
           <h1>Spieler</h1>
         </div>
         <div className="player-content">
-          {currentEvent.activePlayers ? currentEvent.activePlayers.map(player => <div className="playerinfo" key={player._id}>
-            <img
-              src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
-              alt="pictureOfPlayer"
-            />
-            <span className="name">
-              {player.firstname} {player.lastname}
-            </span>
-          </div>) : (
+          {currentEvent.activePlayers ? (
+            currentEvent.activePlayers.map((player) => (
+              <div className="playerinfo" key={player._id}>
+                <img
+                  src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
+                  alt="pictureOfPlayer"
+                />
+                <span className="name">
+                  {player.firstname} {player.lastname}
+                </span>
+              </div>
+            ))
+          ) : (
             <h2>Keine aktiven Spieler</h2>
           )}
         </div>
@@ -71,15 +80,19 @@ function EventDetail() {
           <h1>Reserve</h1>
         </div>
         <div className="player-content">
-          {currentEvent.reservePlayers ? currentEvent.reservePlayers.map(player => <div className="playerinfo" key={player._id}>
-            <img
-              src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
-              alt="pictureOfPlayer"
-            />
-            <span className="name">
-              {player.firstname} {player.lastname}
-            </span>
-          </div>) : (
+          {currentEvent.reservePlayers ? (
+            currentEvent.reservePlayers.map((player) => (
+              <div className="playerinfo" key={player._id}>
+                <img
+                  src="https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
+                  alt="pictureOfPlayer"
+                />
+                <span className="name">
+                  {player.firstname} {player.lastname}
+                </span>
+              </div>
+            ))
+          ) : (
             <h2>Keine aktiven Spieler</h2>
           )}
         </div>
@@ -93,56 +106,56 @@ function EventDetail() {
             <label>
               Event Name
               <input
-                className={isAllowed ? '' : 'no-background'}
                 type="text"
                 name="title"
                 defaultValue={currentEvent.title}
-                readOnly={!isAllowed ? 'readOnly' : ''}
+                readOnly={!isAllowed ? "readOnly" : ""}
                 required
               ></input>
             </label>
             <label>
               Start
               <input
-                className={isAllowed ? '' : 'no-background'}
                 type="datetime-local"
                 name="startDate"
-                value={moment(currentEvent.startDate).format('YYYY-MM-DDTHH:mm')}
-                readOnly={!isAllowed ? 'readOnly' : ''}
+                value={moment(currentEvent.startDate).format(
+                  "YYYY-MM-DDTHH:mm"
+                )}
+                readOnly={!isAllowed ? "readOnly" : ""}
                 required
               ></input>
             </label>
             <label>
               Ende
               <input
-                className={isAllowed ? '' : 'no-background'}
                 type="datetime-local"
                 name="endDate"
-                value={moment(currentEvent.endDate).format('YYYY-MM-DDTHH:mm')}
-                readOnly={!isAllowed ? 'readOnly' : ''}
+                value={moment(currentEvent.endDate).format("YYYY-MM-DDTHH:mm")}
+                readOnly={!isAllowed ? "readOnly" : ""}
                 required
               ></input>
             </label>
             <label>
               Wir spielen gegen
               <input
-                className={isAllowed ? '' : 'no-background'}
                 type="text"
                 name="opponent"
                 defaultValue={currentEvent.opponent}
-                readOnly={!isAllowed ? 'readOnly' : ''}
+                readOnly={!isAllowed ? "readOnly" : ""}
                 required
               ></input>
             </label>
             <button
-              className={isAllowed ? 'btn' : 'btn-hidden'}
-              disabled={!isAllowed}>
-              Event bearbeiten</button>
+              className={isAllowed ? "btn" : "btn-hidden"}
+              disabled={!isAllowed}
+            >
+              Event bearbeiten
+            </button>
           </form>
         </div>
       </div>
     </main>
   );
-};
+}
 
 export default EventDetail;

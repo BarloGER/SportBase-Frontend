@@ -40,10 +40,6 @@
   background-color: var(--rbc-off-range-bg);
 }
 
-.rbc-today {
-  background-color: var(--rbc-today);
-}
-
 .rbc-event {
   background-color: var(--rbc-event);
 }
@@ -92,6 +88,26 @@
   border-left: 0.2rem solid #ddd;
 }
 
+.rbc-date-cell {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+}
+
+.rbc-date-cell button {
+  padding: 0.5rem;
+}
+
+.rbc-date-cell.rbc-now button {
+  font-weight: bold;
+  background-color: var(--rbc-event);
+  color: var(--white);
+  border-radius: 50%;
+}
+
+.rbc-date-cell.rbc-now.rbc-off-range button {
+  color: var(--white);
+}
+
 /* ----- end of month ----- */
 
 /* ----- start of week ----- */
@@ -125,8 +141,11 @@
   background-color: var(--rbc-today);
 }
 
-/* .rbc-time-content {
-} */
+.rbc-header.rbc-today {
+  font-weight: bold;
+  background-color: var(--rbc-event);
+  color: var(--white);
+}
 
 .rbc-time-view .rbc-header {
   border-bottom: none;
@@ -134,10 +153,17 @@
 
 .rbc-day-slot .rbc-time-slot {
   border-top: none;
+  background-color: var(--white);
 }
 
 .rbc-day-slot div:nth-child(25) {
   display: none;
+}
+
+@media screen and (max-width: 830px) {
+  .rbc-row.rbc-time-header-cell {
+    font-size: 2rem;
+  }
 }
 
 /* ----- end of week ----- */
@@ -159,9 +185,15 @@
 
 /* ----- end of agenda ----- */
 
+@media screen and (max-width: 500px) {
+  .public-calendar {
+    width: 30rem;
+  }
+}
+
 @media screen and (min-width: 830px) {
   .public-calendar {
-    padding: 8rem 2rem 0 2rem;
+    padding: 8rem 0 0 0;
   }
 
   .rbc-toolbar {

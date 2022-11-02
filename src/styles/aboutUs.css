@@ -3,6 +3,7 @@
 .aboutUs {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   height: fit-content;
   min-height: 100vh;
   margin-top: 6rem;
@@ -10,7 +11,6 @@
 }
 
 .aboutUs-container {
-  /* margin-top: 20rem; */
   position: relative;
   display: flex;
   justify-content: center;
@@ -19,17 +19,17 @@
 
 .aboutUs .content-container {
   width: fit-content;
-  background-color: rgb(80, 80, 80);
+  background-color: var(--clear-white);
   height: 100%;
-  padding: 1rem;
-  border-radius: 8px;
+  padding: 3rem;
+  border-radius: 5px;
 }
 
 .gettoknowus {
   display: flex;
   justify-content: center;
   font-size: 5rem;
-  color: #cb376a;
+  color: var(--btn-color-tertiary);
 }
 
 .aboutUs-Team {
@@ -52,23 +52,26 @@
 .about-each {
   font-size: 2rem;
   margin: 1rem;
+  padding: 2rem;
 }
 
 .aboutUs-name {
   font-size: 3rem;
-  color: #cb376a;
+  color: var(--btn-color-tertiary);
 }
 
 .about-SportBase {
   display: flex;
   width: 80vw;
-  border-radius: 1rem;
-  background-color: var(--white);
+  border-radius: 5px;
   padding: 1rem;
 }
 
 .our-passion {
   font-size: 2rem;
+  background-color: var(--white);
+  border-radius: 5px;
+  padding: 3rem;
 }
 
 .personal-card {
@@ -78,13 +81,12 @@
   align-items: center;
   background-color: var(--white);
   gap: 1rem;
-  border-radius: 1rem;
+  border-radius: 5px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
   .aboutUs {
     margin-top: 6rem;
-
   }
 
   .aboutUs-Team {

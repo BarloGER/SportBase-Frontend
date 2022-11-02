@@ -77,7 +77,7 @@ export default function Search() {
               {value.title[0]} {value[1]} {value.title[2]}
             </p>
             <p className="type">
-              {value.dataType}
+              Benutzer
             </p>
           </div>
         </Link>)
@@ -94,7 +94,7 @@ export default function Search() {
               {value.title[0]}
             </p>
             <p className="type">
-              {value.dataType}
+              Verein
             </p>
           </div>
         </Link>)
