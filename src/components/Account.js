@@ -86,8 +86,7 @@ export default function Account({ user }) {
     getEvents(id);
   }, [id]);
 
-  useEffect(() => {
-  }, [events]);
+  useEffect(() => {}, [events]);
 
   return (
     <main className="account">
@@ -96,7 +95,11 @@ export default function Account({ user }) {
         <div className="left-container">
           <div className="user-image">
             <img
-              src={currentUser.userImage ? currentUser.userImage : "https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"}
+              src={
+                currentUser.userImage
+                  ? currentUser.userImage
+                  : "https://as2.ftcdn.net/v2/jpg/02/99/36/67/1000_F_299366779_2qGB5Gs7is4vhvAtI6DHTrSh9pPo6kJz.jpg"
+              }
               alt="Profilbild"
             />
             <input
@@ -122,87 +125,120 @@ export default function Account({ user }) {
         </div>
         <div className="right-container">
           <div className="user-info">
-            <input
-              type="text"
-              name="firstname"
-              defaultValue={currentUser.firstname}
-              readOnly
-              required
-            ></input>
-            <input
-              type="text"
-              name="lastname"
-              defaultValue={currentUser.lastname}
-              readOnly
-              required
-            ></input>
-            <input
-              type="text"
-              name="team"
-              defaultValue={currentUser.team}
-              readOnly
-              placeholder="Verein"
-            ></input>
-            <input
-              type="number"
-              name="age"
-              defaultValue={currentUser.age}
-              placeholder="Alter"
-              readOnly={!isAllowed ? "readOnly" : ""}
-              onChange={(e) => handleInputChange(e)}
-            ></input>
-            <input
-              type="number"
-              name="height"
-              defaultValue={currentUser.height}
-              placeholder="Größe in cm"
-              readOnly={!isAllowed ? "readOnly" : ""}
-              onChange={(e) => handleInputChange(e)}
-            ></input>
-            <input
-              type="number"
-              name="weight"
-              defaultValue={currentUser.weight}
-              placeholder="Gewicht in kg"
-              readOnly={!isAllowed ? "readOnly" : ""}
-              onChange={(e) => handleInputChange(e)}
-            ></input>
-            <input
-              type="text"
-              name="position"
-              defaultValue={currentUser.position}
-              placeholder="Position"
-              readOnly={!isAllowed ? "readOnly" : ""}
-              onChange={(e) => handleInputChange(e)}
-            ></input>
-            <input
-              className={isAllowed ? "" : "btn-hidden"}
-              type="text"
-              name="userImage"
-              defaultValue={currentUser.userImage}
-              placeholder="Url des Profilbild"
-              readOnly={!isAllowed ? "readOnly" : ""}
-              onChange={(e) => handleInputChange(e)}
-            ></input>
-            <button
-              className={isAllowed ? "btn" : "btn-hidden"}
-              disabled={!isAllowed}
-            >
-              Absenden
-            </button>
+            <div className="inputs-left">
+              <label>
+                Vorname
+                <input
+                  type="text"
+                  name="firstname"
+                  defaultValue={currentUser.firstname}
+                  // readOnly={!isAllowed ? "readOnly" : ""}
+                  readOnly
+                  required
+                ></input>
+              </label>
+              <label>
+                Nachnahme
+                <input
+                  type="text"
+                  name="lastname"
+                  defaultValue={currentUser.lastname}
+                  // readOnly={!isAllowed ? "readOnly" : ""}
+                  readOnly
+                  required
+                ></input>
+              </label>
+              <label>
+                Verein
+                <input
+                  type="text"
+                  name="team"
+                  defaultValue={currentUser.team}
+                  // readOnly={!isAllowed ? "readOnly" : ""}
+                  readOnly
+                  placeholder="Verein"
+                ></input>
+              </label>
+              <label>
+                Position
+                <input
+                  type="text"
+                  name="position"
+                  defaultValue={currentUser.position}
+                  placeholder="Position"
+                  readOnly={!isAllowed ? "readOnly" : ""}
+                  onChange={(e) => handleInputChange(e)}
+                ></input>
+              </label>
+            </div>
+            <div className="inputs-right">
+              <label>
+                Alter
+                <input
+                  type="number"
+                  name="age"
+                  defaultValue={currentUser.age}
+                  placeholder="Alter"
+                  readOnly={!isAllowed ? "readOnly" : ""}
+                  onChange={(e) => handleInputChange(e)}
+                ></input>
+              </label>
+              <label>
+                Größe
+                <input
+                  type="number"
+                  name="height"
+                  defaultValue={currentUser.height}
+                  placeholder="Größe in cm"
+                  readOnly={!isAllowed ? "readOnly" : ""}
+                  onChange={(e) => handleInputChange(e)}
+                ></input>
+              </label>
+              <label>
+                Gewicht
+                <input
+                  type="number"
+                  name="weight"
+                  defaultValue={currentUser.weight}
+                  placeholder="Gewicht in kg"
+                  readOnly={!isAllowed ? "readOnly" : ""}
+                  onChange={(e) => handleInputChange(e)}
+                ></input>
+              </label>
+              <label className={isAllowed ? "" : "btn-hidden"}>
+                Profilbild
+                <input
+                  className={isAllowed ? "" : "btn-hidden"}
+                  type="text"
+                  name="userImage"
+                  defaultValue={currentUser.userImage}
+                  placeholder="Url des Profilbild"
+                  readOnly={!isAllowed ? "readOnly" : ""}
+                  onChange={(e) => handleInputChange(e)}
+                ></input>
+              </label>
+              <button
+                className={isAllowed ? "btn" : "btn-hidden"}
+                disabled={!isAllowed}
+              >
+                Absenden
+              </button>
+            </div>
           </div>
           <div className="event-container">
             <h2>Event teilnahme</h2>
-            {events ? (
+            {events && events.length ? (
               events.map((e) => (
                 <Link to={`/event/${e._id}`} key={e._id}>
                   <p className="event-name">
-                    {moment(e.startDate).format("DD-MM-YYYY")} {e.opponent}
+                    {moment(e.startDate).format("DD-MM-YYYY")} {e.location}
                   </p>
                 </Link>
               ))
             ) : (
-              <h3>Keine aktiven Events</h3>
+              <span>
+                <p>Bisher keine Event teilnahme</p>
+              </span>
             )}
           </div>
         </div>

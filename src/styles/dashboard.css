@@ -40,7 +40,7 @@
 }
 
 .dashboard .user-info input {
-  width: 50rem;
+  width: 35rem;
 }
 
 @media screen and (max-width: 1800px) {
@@ -51,6 +51,10 @@
   .dashboard .left-container {
     margin-bottom: 0;
   }
+
+  .dashboard .user-info input {
+    width: 30rem;
+  }
 }
 
 @media screen and (max-width: 1600px) {
@@ -60,6 +64,10 @@
 
   .dashboard .left-container {
     margin-bottom: 0;
+  }
+
+  .dashboard .user-info input {
+    width: 25rem;
   }
 }
 
@@ -99,10 +107,17 @@
 
   .dashboard .user-info {
     margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+    width: 60rem;
+  }
+
+  .dashboard .user-info .inputs-left {
+    margin-bottom: 1rem;
   }
 
   .dashboard .user-info input {
-    width: 54rem;
+    width: 40rem;
   }
 
   .dashboard .event-container {
@@ -120,8 +135,13 @@
     margin-bottom: 4.3rem;
   }
 
-  .dashboard .user-info input {
-    width: 24rem;
+  .dashboard .user-info .inputs-left input,
+  .dashboard .user-info .inputs-right input {
+    width: 23rem;
+  }
+
+  .dashboard .user-info {
+    width: 30rem;
   }
 }
 
@@ -137,6 +157,11 @@
 
   .dashboard .left-container {
     margin-bottom: 1rem;
+  }
+
+  .dashboard .user-info .inputs-left input,
+  .dashboard .user-info .inputs-right input {
+    width: 23rem;
   }
 }
 
