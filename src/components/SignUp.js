@@ -138,9 +138,8 @@ export default function SignUp({
       console.log(err);
     }
   };
-  console.log(isAuthenticated);
 
-  const notify = () => toast("Wow so easy!");
+  const notify = () => toast(errorMessage);
 
   return isAuthenticated ? (
     <Navigate to={"/secret/dashboard"} />
@@ -239,6 +238,21 @@ export default function SignUp({
           <button className="signIn-buttons btn" onClick={notify}>
             Sign UP
           </button>
+
+          <ToastContainer
+            position="bottom-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+            style={{ fontSize: "10rem" }}
+          />
+
           <br />
           <div className="switch">
             <p>Bereits registriert?</p>
