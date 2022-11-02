@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { createTeam } from "../utils/createTeam";
 import "../styles/teamCreateForm.css";
 
@@ -11,6 +12,8 @@ function TeamCreateForm({ user }) {
     trainer: "",
     logoUrl: "",
   });
+
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -27,6 +30,7 @@ function TeamCreateForm({ user }) {
     } catch (error) {
       console.log(error);
     }
+    navigate("/secret/dashboard");
   };
 
   // --------- set up newTeam --------------//

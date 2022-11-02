@@ -19,8 +19,10 @@ export default function Account({ user }) {
     try {
       // const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/user/${id}`)
       // setCurrentUser(data);
+      // console.log(data);
       const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/user`);
       setCurrentUser(data.find((user) => user._id === id));
+
       setIsLoading(false);
     } catch (error) {
       console.log(error);
@@ -101,7 +103,6 @@ export default function Account({ user }) {
               type="text"
               name="username"
               defaultValue={currentUser.username}
-              // readOnly={!isAllowed ? "readOnly" : ""}
               readOnly
               required
             ></input>
@@ -125,7 +126,6 @@ export default function Account({ user }) {
               type="text"
               name="firstname"
               defaultValue={currentUser.firstname}
-              // readOnly={!isAllowed ? "readOnly" : ""}
               readOnly
               required
             ></input>
@@ -133,7 +133,6 @@ export default function Account({ user }) {
               type="text"
               name="lastname"
               defaultValue={currentUser.lastname}
-              // readOnly={!isAllowed ? "readOnly" : ""}
               readOnly
               required
             ></input>
@@ -141,7 +140,6 @@ export default function Account({ user }) {
               type="text"
               name="team"
               defaultValue={currentUser.team}
-              // readOnly={!isAllowed ? "readOnly" : ""}
               readOnly
               placeholder="Verein"
             ></input>
