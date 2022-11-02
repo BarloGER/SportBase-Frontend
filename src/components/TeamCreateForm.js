@@ -30,7 +30,7 @@ function TeamCreateForm({ user }) {
     } catch (error) {
       console.log(error);
     }
-    navigate("/secret/dashboard");
+    // navigate("/secret/dashboard");
   };
 
   // --------- set up newTeam --------------//
