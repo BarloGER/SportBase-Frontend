@@ -75,8 +75,7 @@ export default function App() {
             element={<ProtectedLayout isAuthenticated={isAuthenticated} />}
           >
             <Route path="dashboard" element={<Dashboard user={user} />}>
-              {/* <Route path="events" element={<Events />} /> */}
-              <Route path="eventMultiForm" element={<EventMultiForm user={user} />} />
+              <Route path="eventMultiForm" element={<EventMultiForm />} />
               <Route path="search" element={<Search />} />
               <Route path="teamCreateForm" element={<TeamCreateForm user={user} />} />
               <Route path="calendar" element={<PublicCalendar />} />

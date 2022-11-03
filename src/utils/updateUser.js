@@ -1,7 +1,6 @@
 import axios from "axios";
 
 export const updateUser = async (formData) => {
-  console.log('utils', formData);
   try {
     const { data, error } = await axios.put(`${process.env.REACT_APP_FP_API}/user/${formData._id}`, {
       firstname: formData.firstname,
