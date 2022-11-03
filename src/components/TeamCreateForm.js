@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { createTeam } from "../utils/createTeam";
 import "../styles/teamCreateForm.css";
 
@@ -13,8 +12,6 @@ function TeamCreateForm({ user }) {
     logoUrl: "",
   });
 
-  const navigate = useNavigate();
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewTeam((prev) => ({
@@ -24,13 +21,12 @@ function TeamCreateForm({ user }) {
   };
 
   // --------- post newTeam to BackEnd --------------//
-  const postData = async () => {
+  const postData = async (newTeamObj) => {
     try {
-      const { data } = await createTeam(newTeam);
+      const { data } = await createTeam(newTeamObj);
     } catch (error) {
       console.log(error);
     }
-    // navigate("/secret/dashboard");
   };
 
   // --------- set up newTeam --------------//
@@ -39,11 +35,11 @@ function TeamCreateForm({ user }) {
     const member = [];
     newTeamObj.trainer = `${user.firstname} ${user.lastname}`;
     member.push(user);
+    newTeamObj.memberCount = 1;
     newTeamObj.member = [...member];
-    newTeamObj.memberCount = newTeamObj.member.length;
     setNewTeam(newTeamObj);
 
-    postData();
+    postData(newTeamObj);
   };
 
   return (
