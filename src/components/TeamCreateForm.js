@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createTeam } from "../utils/createTeam";
+import { updateUser } from "../utils/updateUser";
 import "../styles/teamCreateForm.css";
 
 function TeamCreateForm({ user }) {
@@ -21,11 +22,20 @@ function TeamCreateForm({ user }) {
   };
 
   // --------- post newTeam to BackEnd --------------//
-  const postData = async (newTeamObj) => {
+  const postTeamData = async (newTeamObj) => {
     try {
       const { data } = await createTeam(newTeamObj);
     } catch (error) {
       console.log(error);
+    }
+  };
+
+  // --------- put updatedUser to BackEnd --------------//
+  const updateCurrentUser = async (updatedUser) => {
+    try {
+      const { data, error } = await updateUser(updatedUser);
+    } catch (error) {
+      console.log(error.data);
     }
   };
 
@@ -39,7 +49,11 @@ function TeamCreateForm({ user }) {
     newTeamObj.member = [...member];
     setNewTeam(newTeamObj);
 
-    postData(newTeamObj);
+    const updatedUser = { ...user };
+    updatedUser.team = newTeamObj.team;
+
+    postTeamData(newTeamObj);
+    updateCurrentUser(updatedUser);
   };
 
   return (
