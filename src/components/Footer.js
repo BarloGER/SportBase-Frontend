@@ -6,11 +6,8 @@ export default function Footer() {
   return (
     <footer className="footer">
       <ul className="example-container">
-        <NavLink className="nav-link" to="/">
-          <li>Beispiel</li>
-        </NavLink>
-        <NavLink className="nav-link" to="/">
-          <li>Beispiel</li>
+        <NavLink className="nav-link" to="/aboutus">
+          <li>Über uns</li>
         </NavLink>
       </ul>
       <ul className="social-container">
