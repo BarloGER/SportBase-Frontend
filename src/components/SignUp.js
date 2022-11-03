@@ -8,6 +8,7 @@ export default function SignUp({
   handleClick,
   isAuthenticated,
   setIsAuthenticated,
+  setToken,
 }) {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
@@ -15,7 +16,6 @@ export default function SignUp({
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [terms, setTerms] = useState(false);
-  const [token, setToken] = useState("");
   const [isCapsLockOn, setIsCapsLockOn] = useState(false);
 
   const [errorMessage, setErrorMessage] = useState("");
@@ -130,16 +130,14 @@ export default function SignUp({
       const { error, data } = await createUser(formSubmission);
       localStorage.setItem("token", data);
       setToken(data);
-      if (token) setIsAuthenticated(true);
-      setErrorMessage(error.response.data);
-      console.log(errorMessage);
+      if (data) setIsAuthenticated(true);
       if (error) throw error;
     } catch (err) {
       console.log(err);
     }
   };
 
-  const notify = () => toast(errorMessage);
+  const notify = () => toast(`Willkommen im Team ${username}`);
 
   return isAuthenticated ? (
     <Navigate to={"/secret/dashboard"} />
