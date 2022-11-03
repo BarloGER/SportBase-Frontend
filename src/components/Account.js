@@ -86,7 +86,7 @@ export default function Account({ user }) {
     getEvents(id);
   }, [id]);
 
-  useEffect(() => {}, [events]);
+  useEffect(() => { }, [events]);
 
   return (
     <main className="account">
@@ -231,7 +231,7 @@ export default function Account({ user }) {
               events.map((e) => (
                 <Link to={`/event/${e._id}`} key={e._id}>
                   <p className="event-name">
-                    {moment(e.startDate).format("DD-MM-YYYY")} {e.location}
+                    {moment(e.startDate).format("DD-MM-YYYY")} {e.title}
                   </p>
                 </Link>
               ))
