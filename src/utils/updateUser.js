@@ -9,7 +9,7 @@ export const updateUser = async (formData) => {
       email: formData.email,
       terms: formData.terms,
       height: formData.height,
-      weight: formData.height,
+      weight: formData.weight,
       age: formData.age,
       team: formData.team,
       position: formData.position,
