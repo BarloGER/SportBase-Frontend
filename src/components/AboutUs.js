@@ -47,10 +47,13 @@ function AboutUs() {
               </a>
               <h1 className="aboutUs-name">Niklas</h1>
               <p className="about-each">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae,
-                praesentium. Optio quod maxime ad! Ex, molestias quas commodi
-                fuga recusandae et inventore veritatis officia. Quibusdam
-                aliquid tempora temporibus ab excepturi.
+                Ich bin Niklas - footballbegeistert und leiderprobt. Das
+                beschreibt mich und meine Erfahrung mit Organisationsapps rund
+                um den Teamsport wohl am Besten. Statt nur zu klagen, wollte ich
+                daran etwas ändern und konnte meine zweite Leidenschaft, das
+                Programmieren, gemeinsam mit meinen beiden Kollegen dazu nutzen,
+                um eine App / Website entwickeln, die das mitbringt, was ein
+                Team wirklich braucht – von Spielern, für Spieler.
               </p>
             </div>
 
