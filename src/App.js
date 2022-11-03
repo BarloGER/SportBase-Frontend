@@ -77,7 +77,10 @@ export default function App() {
             <Route path="dashboard" element={<Dashboard user={user} />}>
               <Route path="eventMultiForm" element={<EventMultiForm />} />
               <Route path="search" element={<Search />} />
-              <Route path="teamCreateForm" element={<TeamCreateForm user={user} />} />
+              <Route
+                path="teamCreateForm"
+                element={<TeamCreateForm user={user} />}
+              />
               <Route path="calendar" element={<PublicCalendar />} />
               <Route path="account/:id" element={<Account user={user} />} />
               <Route

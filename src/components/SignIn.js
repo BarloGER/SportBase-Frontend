@@ -34,6 +34,7 @@ export default function SignIn({
           handleClick={handleClick}
           isAuthenticated={isAuthenticated}
           setIsAuthenticated={setIsAuthenticated}
+          setToken={setToken}
         />
       )}
     </main>
