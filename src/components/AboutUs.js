@@ -71,10 +71,10 @@ function AboutUs() {
               </a>
               <h1 className="aboutUs-name">Robin</h1>
               <p className="about-each">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae,
-                praesentium. Optio quod maxime ad! Ex, molestias quas commodi
-                fuga recusandae et inventore veritatis officia. Quibusdam
-                aliquid tempora temporibus ab excepturi.
+                Hi, ich bin Robin und 34 Jahre alt.
+                Begonnen habe ich ursprünglich als Physiotherapeut.
+                Durch ein Studium der Medizintechnik habe ich die Softwareentwicklung für mich entdeckt.
+                Nach zweijähriger beruflicher Auszeit erneuere und erweitere ich meine Kenntnisse in der WBS Coding School.
               </p>
             </div>
           </div>
