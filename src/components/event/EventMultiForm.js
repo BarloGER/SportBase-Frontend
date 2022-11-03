@@ -94,7 +94,7 @@ export default function EventMultiForm() {
     try {
       const { data } = await axios.get(`${process.env.REACT_APP_FP_API}/user`);
       setAvaiablePlayers(
-        data.filter((user) => user.player === true && user.inactive === false)
+        data.filter((u) => u.player === true && u.inactive === false)
       );
     } catch (error) {
       console.log(error);
