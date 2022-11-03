@@ -7,6 +7,8 @@ main-loader {
   height: 100vh;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.8);
+  left: 0;
+  z-index: 999;
 }
 .main-fader .loader {
   position: fixed;
