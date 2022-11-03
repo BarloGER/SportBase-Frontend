@@ -145,6 +145,15 @@
   border: none;
 }
 
+.team-info button {
+  padding: 1rem;
+  width: 15rem;
+  font-size: 1.5rem;
+  background-color: var(--btn-color-secondary);
+  color: white;
+  border: none;
+}
+
 .event-container {
   height: 100%;
   overflow: auto;
